@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'firstResponderDashboard.apps.FirstresponderdashboardConfig',
     'missionManagementDashboard.apps.MissionmanagementdashboardConfig',
     'operationsChiefDashboard.apps.OperationschiefdashboardConfig',
+    'events.apps.EventsConfig',
 ]
 
 MIDDLEWARE = [
