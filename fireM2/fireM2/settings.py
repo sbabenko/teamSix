@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'missionManagementDashboard.apps.MissionmanagementdashboardConfig',
     'operationsChiefDashboard.apps.OperationschiefdashboardConfig',
     'events.apps.EventsConfig',
+    'dashBoard.apps.DashboardConfig',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,9 @@ ROOT_URLCONF = 'fireM2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

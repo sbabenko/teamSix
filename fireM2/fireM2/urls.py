@@ -35,3 +35,13 @@ urlpatterns += [
 urlpatterns += [
     path('operationsChiefDashboard/', include('operationsChiefDashboard.urls')),
 ]
+
+urlpatterns += [
+    path('dashBoard/', include('dashBoard.urls')),
+]
+
+#Add URL maps to redirect the base URL to our application
+from django.views.generic import RedirectView
+urlpatterns += [
+    path('', RedirectView.as_view(url='/dashBoard/')),
+]
