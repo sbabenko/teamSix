@@ -1,327 +1,335 @@
 .sidebar-nav {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+  padding: 20px;
+  list-style: none;
 }
 
 *, *:before, *:after {
-    box-sizing: border-box;
-  }
-  
-  html {
-      overflow-y: scroll;
-      background: url(/static/images/helicopter_1.jpg) no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-  }
-  
-  body {
-    background-color: transparent; /* #c1bdba */
-    font-family: 'Titillium Web', sans-serif;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #777c62;
-    -webkit-transition: .5s ease;
-    transition: .5s ease;
-  }
-  a:hover {
-    color: #179b77;
-  }
-  
-  .form {
-    position: fixed;
-    right: 60px;
-    top: 100px;
-    background: rgba(19, 35, 47, 0.7); 
-    padding: 30px;
-    max-width: 600px;
-    margin: 40px auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-  }
-  
-  .bigTitle{
-    position: relative;
-    left: 30px;
-    top: 50px;
-    font-size: 60px;
-    font-style: bold;
-    text-shadow: 2px 2px 4px #000000;
-    text-shadow: #777c62;
-  }
-  
-  .subTitle{
-    position: relative;
-    left: 30px;
-    top: 50px;
-    font-size: 20px;
-  }
-  
-  .chatbox{
-    position: relative;
-    height: 700px;
-    top: 10px;
-    margin: 20px;
-    border-radius: 4px;
-    background: rgba(19, 35, 47, 0.7);
-    padding: 30px;
-    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-  }
-  
-  .headerPane{
-    float: top;
-    position: relative;
-    top: 10px;
-    border-radius: 4px;
-    background: rgba(19, 35, 47, 0.7);
-    padding: 10px;
-    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-  }
-  
-  .chatPane{
-    height: 550px;
-    width: 75%;
-    float: left;
-    position: relative;
-    border-radius: 4px;
-    bottom: 10px;
-    background: rgba(19, 35, 47, 0.7);
-    padding: 30px;
-    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-  }
-  
-  .contactsPane{
-    height: 550px;
-    width: 20%;
-    float: right;
-    position: relative;
-    bottom: 10px;
-    border-radius: 4px;
-    background: rgba(19, 35, 47, 0.7);
-    padding: 30px;
-    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-  }
-  
-  .footerPane{
-    margin: 150px;
-    border-radius: 4px;
-    background: rgba(19, 35, 47, 0.7);
-    padding: 30px;
-    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-  }
-  
-  .tab-group {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 40px 0;
-  }
-  .tab-group:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .tab-group li a {
-    display: block;
-    text-decoration: none;
-    padding: 15px;
-    background: rgba(160, 179, 176, 0.25);
-    color: #a0b3b0;
-    font-size: 20px;
-    float: left;
-    width: 50%;
+  box-sizing: border-box;
+}
+
+html{
+
+    background: url(/static/images/helicopter_1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+  width: 100%;
+  background-color: transparent; /* #c1bdba */
+  font-family: 'Titillium Web', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #777c62;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+a:hover {
+  color: #179b77;
+}
+
+.form {
+  position: fixed;
+  right: 60px;
+  top: 100px;
+  background: rgba(19, 35, 47, 0.7); 
+  padding: 30px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.bigTitle{
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  left: 30px;
+  top: 50px;
+  font-size: 60px;
+  font-style: bold;
+  text-shadow: 2px 2px 4px #000000;
+  text-shadow: #777c62;
+}
+
+.subTitle{
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  left: 30px;
+  top: 50px;
+  font-size: 20px;
+}
+
+.chatbox{
+  position: relative;
+  height: 700px;
+  top: 10px;
+  margin: 20px;
+  border-radius: 4px;
+  background: rgba(19, 35, 47, 0.7);
+  padding: 30px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.headerPane{
+  float: top;
+  position: relative;
+  top: 10px;
+  border-radius: 4px;
+  background: rgba(19, 35, 47, 0.7);
+  padding: 10px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.chatPane{
+  height: 550px;
+  width: 75%;
+  float: left;
+  position: relative;
+  border-radius: 4px;
+  bottom: 10px;
+  background: rgba(19, 35, 47, 0.7);
+  padding: 30px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.contactsPane{
+  height: 550px;
+  width: 20%;
+  float: right;
+  position: relative;
+  bottom: 10px;
+  border-radius: 4px;
+  background: rgba(19, 35, 47, 0.7);
+  padding: 30px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.footerPane{
+  margin: 150px;
+  border-radius: 4px;
+  background: rgba(19, 35, 47, 0.7);
+  padding: 30px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+.tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: rgba(160, 179, 176, 0.25);
+  color: #a0b3b0;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+.tab-group li a:hover {
+  background: #777c62;
+  color: #ffffff;
+}
+.tab-group .active a {
+  background: #a29e8a;
+  color: #ffffff;
+}
+
+.tab-content > div:last-child {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 300;
+  margin: 0 0 40px;
+}
+
+h2 {
     text-align: center;
-    cursor: pointer;
-    -webkit-transition: .5s ease;
-    transition: .5s ease;
-  }
-  .tab-group li a:hover {
-    background: #777c62;
-    color: #ffffff;
-  }
-  .tab-group .active a {
-    background: #a29e8a;
-    color: #ffffff;
-  }
-  
-  .tab-content > div:last-child {
-    display: none;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #ffffff;
-    font-weight: 300;
-    margin: 0 0 40px;
-  }
-  
-  h2 {
-      text-align: center;
-      color: #7d7029;
-      font-weight: 1000;
-      margin: 0;
-  }
-  
-  span {
-      color: #FFFFFF;
-      font-weight: bold;
-  }
-  
-  p {
-      text-align: center;
-      color: #ffffff;
-      margin: 0px 0px 50px 0px;
-  }
-  
-  div.info {
-      color: pink;
-      display: box;
-      text-align: center;
-      padding: 5px;
-      margin-top: -20px;
-      margin-bottom: 15px;
-      border: 1px solid red;
-      background: #66131c;
-  }
-  
-  label {
-    position: absolute;
-    -webkit-transform: translateY(6px);
-            transform: translateY(6px);
-    left: 13px;
-    color: rgba(255, 255, 255, 0.5);
-    -webkit-transition: all 0.25s ease;
-    transition: all 0.25s ease;
-    -webkit-backface-visibility: hidden;
-    pointer-events: none;
-    font-size: 22px;
-  }
-  label .req {
-    margin: 2px;
-    color: #FFFFFF;
-  }
-  
-  label.active {
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
-    left: 2px;
-    font-size: 14px;
-  }
-  label.active .req {
-    opacity: 0;
-  }
-  
-  label.highlight {
-    color: #ffffff;
-  }
-  
-  input, textarea {
-    font-size: 22px;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 5px 10px;
-    background: none;
-    background-image: none;
-    border: 1px solid #a0b3b0;
-    color: #ffffff;
-    border-radius: 0;
-    -webkit-transition: border-color .25s ease, box-shadow .25s ease;
-    transition: border-color .25s ease, box-shadow .25s ease;
-  }
-  
-  input:focus, textarea:focus {
-    outline: 0;
-    border-color: #7d7029;
-  }
-  
-  textarea {
-    border: 2px solid #a0b3b0;
-    resize: vertical;
-  }
-  
-  .field-wrap {
-    position: relative;
-    margin-bottom: 40px;
-  }
-  
-  .conversationMessagesPane{
-    height: 400px;
-    position: relative;
-    margin-bottom: 40px;
-  }
-  
-  .msgEntryPane{
-    float: right;
-    width: 80%;
-    height: 65px;
-    position: relative;
-    margin-bottom: 10px;
-  }
-  
-  .top-row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .top-row > div {
-    float: left;
-    width: 48%;
-    margin-right: 4%;
-  }
-  .top-row > div:last-child {
+    color: #7d7029;
+    font-weight: 1000;
     margin: 0;
-  }
-  
-  .button {
-    border: 0;
-    outline: none;
-    border-radius: 0;
-    padding: 15px 0;
-    font-size: 2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    background: #777c62;
+}
+
+span {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+p {
+    text-align: center;
     color: #ffffff;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    -webkit-appearance: none;
-  }
-  .button:hover, .button:focus {
-    background: #7d7029 ;
-  }
-  
-  .button-block {
-    display: block;
-    width: 100%;
-  }
-  
-  .sendBtn{
-    display: block;
-    width: 20%;
-  }
-  
-  .forgot {
+    margin: 0px 0px 50px 0px;
+}
+
+div.info {
+    color: pink;
+    display: box;
+    text-align: center;
+    padding: 5px;
     margin-top: -20px;
-    text-align: right;
-  }
-  
-  .footer{
-    position: fixed;
-    bottom: 20px;
-    left: 30px;
-    margin-top: 20px;
-    color: white;
-  }
-  
-  .sup {
-    position: absolute;
-    top: -15px;
-    left: 190px;
-    bottom: 1ex; 
-    font-size: 70%;
-  }
+    margin-bottom: 15px;
+    border: 1px solid red;
+    background: #66131c;
+}
+
+label {
+  position: absolute;
+  -webkit-transform: translateY(6px);
+          transform: translateY(6px);
+  left: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+  font-size: 22px;
+}
+label .req {
+  margin: 2px;
+  color: #FFFFFF;
+}
+
+label.active {
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  left: 2px;
+  font-size: 14px;
+}
+label.active .req {
+  opacity: 0;
+}
+
+label.highlight {
+  color: #ffffff;
+}
+
+input, textarea {
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  background: none;
+  background-image: none;
+  border: 1px solid #a0b3b0;
+  color: #ffffff;
+  border-radius: 0;
+  -webkit-transition: border-color .25s ease, box-shadow .25s ease;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+input:focus, textarea:focus {
+  outline: 0;
+  border-color: #7d7029;
+}
+
+textarea {
+  border: 2px solid #a0b3b0;
+  resize: vertical;
+}
+
+.field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.conversationMessagesPane{
+  height: 400px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.msgEntryPane{
+  float: right;
+  width: 80%;
+  height: 65px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.top-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.top-row > div {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+}
+.top-row > div:last-child {
+  margin: 0;
+}
+
+.button {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 15px 0;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #777c62;
+  color: #ffffff;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-appearance: none;
+}
+.button:hover, .button:focus {
+  background: #7d7029 ;
+}
+
+.button-block {
+  display: block;
+  width: 100%;
+}
+
+.sendBtn{
+  display: block;
+  width: 20%;
+}
+
+.forgot {
+  margin-top: -20px;
+  text-align: right;
+}
+
+.footer{
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  margin-top: 20px;
+  color: white;
+  text-shadow: 5px 5px 4px #000000;
+}
+
+.sup {
+  position: absolute;
+  top: -15px;
+  left: 190px;
+  bottom: 1ex; 
+  font-size: 70%;
+}

@@ -8,6 +8,11 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
+<!-- Somewhere in the below lines the CSS causes x axis overflow scrolling. find and fix -->
+    <div class = "bigTitle">FIRE-M<p class = "sup">2</p> </div>
+    <br>
+    <div class = "subTitle">First Responder Mission Management</div>
+
     {% block sidebar %}
     
     {% if user.is_authenticated %}
@@ -20,6 +25,8 @@
     
     {% endblock %}
     {% block content %}<!-- default content text (typically empty) -->{% endblock %}
+
+    <div class = "footer">Powered by First Responder Framework Improvement Researchers</div><!-- /footer -->
 
 </body>
 </html>
