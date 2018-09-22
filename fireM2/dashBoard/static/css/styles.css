@@ -50,9 +50,9 @@ a:hover {
 .bigTitle{
   width: 100%;
   overflow: hidden;
-  position: fixed;
+  position: relative;
   left: 30px;
-  top: 50px;
+  top: 40px;
   font-size: 60px;
   font-style: bold;
   text-shadow: 2px 2px 4px #000000;
@@ -62,7 +62,7 @@ a:hover {
 .subTitle{
   width: 100%;
   overflow: hidden;
-  position: fixed;
+  position: relative;
   left: 30px;
   top: 50px;
   font-size: 20px;
