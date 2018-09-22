@@ -3,6 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 from events.models import *
 
+from django.contrib.auth.decorators import login_required
+
+@login_required
 def index(request):
     """View function for home page of site."""
 
