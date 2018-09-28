@@ -5,6 +5,7 @@
 </head>
 <body>
     
+    
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
@@ -13,8 +14,13 @@
     <br>
     <div class = "subTitle">First Responder Mission Management</div>
 
+    <div class = "map" id="map" style="position:fixed"></div>
+
     {% block sidebar %}
     
+<!-- Change below block to redirect to the login page with ?next={{request.path}}
+instead of a static link
+
     {% if user.is_authenticated %}
         <div>User: {{ user.get_username }}</div>
         <div><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>   
@@ -23,8 +29,24 @@
         {% endif %} 
     
     {% endblock %}
-    {% block content %}    
+    {% block content %}-->    
     {% endblock %}
+
+    <script>
+    function myMap() {
+      var mapCanvas = document.getElementById("map");
+      var mapOptions = {
+
+        center: new google.maps.LatLng(38.434046,-75.340284),
+        zoom:9,
+        mapTypeId:google.maps.MapTypeId.SATELLITE
+      
+    };
+      var map = new google.maps.Map(mapCanvas,mapOptions);
+    }
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbNu4nnoEfW9vB55Ns4Ud1jqxeLH13qpQ&callback=myMap"></script>
 
     <div class = "footer">Developed by First Responder Framework Improvement Researchers</div><!-- /footer -->
 

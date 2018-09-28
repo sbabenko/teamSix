@@ -29,6 +29,15 @@ body {
   font-family: 'Titillium Web', sans-serif;
 }
 
+.map {
+  position: fixed;
+  top: 1px;
+  left: 1px;
+  z-index: -10;
+  width:100%;
+  height: 800px;
+}
+
 a {
   text-decoration: none;
   color: #777c62;
@@ -45,31 +54,34 @@ a:hover {
   top: 100px;
   background: rgba(19, 35, 47, 0.7); 
   padding: 30px;
-  max-width: 400px;
+  max-width: 300px;
   margin: 40px auto;
   border-radius: 4px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
 
 .bigTitle{
+  position: fixed;
+  z-index: 10;
   width: 100%;
   overflow: hidden;
-  position: relative;
   left: 30px;
   top: 20px;
-  font-size: 60px;
+  font-size: 30px;
   font-style: bold;
-  text-shadow: 2px 2px 4px #000000;
+  text-shadow: 2px 1px 1px #AAAAAA;
   text-shadow: #777c62;
 }
 
 .subTitle{
+  position: fixed;
   width: 100%;
   overflow: hidden;
-  position: relative;
+
   left: 30px;
-  top: 50px;
+  top: 0px;
   font-size: 20px;
+  
 }
 
 .chatbox{
@@ -313,8 +325,8 @@ textarea {
 
 .sup {
   position: fixed;
-  top: 25px;
-  left: 250px;
+  top: 22px;
+  left: 144px;
   bottom: 1ex; 
   font-size: 70%;
 }
