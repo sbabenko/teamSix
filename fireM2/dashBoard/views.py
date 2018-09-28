@@ -4,7 +4,9 @@ from django.shortcuts import render
 from events.models import *
 
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import never_cache
 
+@never_cache
 @login_required
 def index(request):
     """View function for home page of site."""
