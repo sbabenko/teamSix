@@ -39,10 +39,15 @@ instead of a static link -->
       var mapCanvas = document.getElementById("map");
       var mapOptions = {
 
-        center: new google.maps.LatLng(38.434046,-75.340284),
-        zoom:9,
+        center: new google.maps.LatLng(38.434046,-74.340284),
+        zoom:8,
         mapTypeId:google.maps.MapTypeId.SATELLITE,
-        mapTypeControl: false
+        mapTypeControl: false,
+        streetViewControl: false,
+        zoomControl: false,
+        scaleControl: false,
+        rotateControl: false,
+        fullscreenControl: false
       
     };
 

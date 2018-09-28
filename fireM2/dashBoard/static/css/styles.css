@@ -73,11 +73,12 @@ a:hover {
   z-index: 10;
   width: 100%;
   overflow: hidden;
-  left: 30px;
-  top: 20px;
-  font-size: 30px;
+  left: 20px;
+  top: 10px;
+  font-size: 40px;
   font-style: bold;
-  text-shadow: 2px 1px 1px #AAAAAA;
+  color: white;
+  text-shadow: 2px 1px 10px #000000;
   text-shadow: #777c62;
 }
 
@@ -333,8 +334,8 @@ textarea {
 
 .sup {
   position: fixed;
-  top: 22px;
-  left: 144px;
+  top: 2px;
+  left: 158px;
   bottom: 1ex; 
   font-size: 70%;
 }
@@ -350,8 +351,8 @@ textarea {
 
 .footer{
   position: fixed;
-  bottom: 20px;
-  left: 30px;
+  bottom: 6px;
+  left: 525px;
   margin-top: 20px;
   color: white;
   text-shadow: 5px 5px 4px #000000;
