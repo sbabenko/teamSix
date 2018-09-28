@@ -14,12 +14,13 @@
     <br>
     <div class = "subTitle">First Responder Mission Management</div>
 
-    <div class = "map" id="map" style="position:fixed"></div>
-
+    <div class = "mapWrapper">
+        <div class ="map" id="map"></div>
+    </div>
     {% block sidebar %}
     
 <!-- Change below block to redirect to the login page with ?next={{request.path}}
-instead of a static link
+instead of a static link -->
 
     {% if user.is_authenticated %}
         <div>User: {{ user.get_username }}</div>
@@ -29,19 +30,22 @@ instead of a static link
         {% endif %} 
     
     {% endblock %}
-    {% block content %}-->    
+    {% block content %}
     {% endblock %}
 
     <script>
+
     function myMap() {
       var mapCanvas = document.getElementById("map");
       var mapOptions = {
 
         center: new google.maps.LatLng(38.434046,-75.340284),
         zoom:9,
-        mapTypeId:google.maps.MapTypeId.SATELLITE
+        mapTypeId:google.maps.MapTypeId.SATELLITE,
+        mapTypeControl: false
       
     };
+
       var map = new google.maps.Map(mapCanvas,mapOptions);
     }
     </script>
