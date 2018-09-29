@@ -12,7 +12,7 @@
 <!-- Somewhere in the below lines the CSS causes x axis overflow scrolling. find and fix -->
     <div class = "bigTitle">FIRE-M<p class = "sup">2</p> </div>
     <br>
-    <div class = "subTitle">First Responder Mission Management</div>
+    <!--<div class = "subTitle">First Responder Mission Management</div>-->
 
     <div class = "mapWrapper">
         <div class ="map" id="map"></div>
@@ -24,9 +24,11 @@ instead of a static link -->
 
     {% if user.is_authenticated %}
         <div>User: {{ user.get_username }}</div>
+        <div>Name: {{ user.first_name }}</div>
+        <div>User: {{ user.last_name }}</div>
         <div><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>   
     {% else %}
-        <div><a href="{% url 'login'%}?next={{request.path}}">Login</a></div>   
+        <!--<div><a href="{% url 'login'%}?next={{request.path}}">Login</a></div>-->
         {% endif %} 
     
     {% endblock %}

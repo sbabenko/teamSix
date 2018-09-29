@@ -32,18 +32,21 @@ def index(request):
 
     else:
         return render(request, 'index.html', context=context)
-  
+
+@login_required
 def first_respond_dash_view(request):
     context = {
     }
     return render(request, 'FR_dashboard.html', context=context)
 
+@login_required
 def miss_mgmt_dash_view(request):
     context = {
     }
-    return render(request, 'MM_dashboard', context=context)
+    return render(request, 'MM_dashboard.html', context=context)
 
+@login_required
 def ops_chief_dash_view(request):
     context = {
     }
-    return render(request, 'OC_dashboard', context=context)
+    return render(request, 'OC_dashboard.html', context=context)
