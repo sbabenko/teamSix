@@ -85,6 +85,25 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # Placeholder code for future MySQL connections. 
+    # Need to remember to install MySQL client for Django on local env and 
+    # Production server
+    #},
+    # 'events': {
+     #   'ENGINE': 'django.db.backends.mysql',
+     #   'NAME': 'myproject',
+     #   'USER': 'myprojectuser',
+      #  'PASSWORD': 'password',
+     #   'HOST': 'localhost',
+      #  'PORT': '3306',
+   # },
+    # 'resources': {
+    #    'ENGINE': 'django.db.backends.mysql',
+    #    'NAME': 'myproject',
+     #   'USER': 'myprojectuser',
+     #   'PASSWORD': 'password',
+     #   'HOST': 'localhost',
+     #   'PORT': '3306',
     }
 }
 
