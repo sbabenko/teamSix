@@ -21,12 +21,29 @@ def index(request):
 
     if request.user.groups.filter(name="First Responders").exists():
         # user is an admin
+        #return render(request, 'index.html', context=context)
         return redirect("first_respond_dash_view")
+
     elif request.user.groups.filter(name="Mission Management Specialists").exists():
         return redirect("miss_mgmt_dash_view")
+
     elif request.user.groups.filter(name="Operations Chiefs").exists():
         return redirect("ops_chief_dash_view")
+
     else:
         return render(request, 'index.html', context=context)
-    # Render the HTML template index.html with the data in the context variable
   
+def first_respond_dash_view(request):
+    context = {
+    }
+    return render(request, 'FR_dashboard.html', context=context)
+
+def miss_mgmt_dash_view(request):
+    context = {
+    }
+    return render(request, 'MM_dashboard', context=context)
+
+def ops_chief_dash_view(request):
+    context = {
+    }
+    return render(request, 'OC_dashboard', context=context)

@@ -50,3 +50,7 @@ urlpatterns += [
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+urlpatterns += [
+    path('first_respond_dash_view', RedirectView.as_view(url='/dashBoard/')),
+]

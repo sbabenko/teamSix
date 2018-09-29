@@ -34,6 +34,7 @@ body {
 }
 
 .mapWrapper{
+  z-index: -1;
   top: 0px;
   left: 0px;
   position:fixed; 
@@ -93,17 +94,6 @@ a:hover {
   
 }
 
-.chatbox{
-  position: relative;
-  height: 200px;
-  top: 10px;
-  margin: 20px;
-  border-radius: 4px;
-  background: rgba(19, 35, 47, 0.7);
-  padding: 30px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-}
-
 .headerPane{
   float: top;
   position: relative;
@@ -114,29 +104,6 @@ a:hover {
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
 
-.chatPane{
-  height: 550px;
-  width: 75%;
-  float: left;
-  position: relative;
-  border-radius: 4px;
-  bottom: 10px;
-  background: rgba(19, 35, 47, 0.7);
-  padding: 30px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-}
-
-.contactsPane{
-  height: 550px;
-  width: 20%;
-  float: right;
-  position: relative;
-  bottom: 10px;
-  border-radius: 4px;
-  background: rgba(19, 35, 47, 0.7);
-  padding: 30px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-}
 
 .footerPane{
   margin: 150px;
