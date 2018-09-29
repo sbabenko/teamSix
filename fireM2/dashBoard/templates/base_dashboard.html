@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   {% block title %}<title>Fire M2</title>{% endblock %}
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
     
@@ -21,31 +22,48 @@
     {% block content %}
     {% endblock %}
 
-    <!--
-    <script>
-
-    function myMap() {
-      var mapCanvas = document.getElementById("map");
-      var mapOptions = {
-
-        center: new google.maps.LatLng(38.434046,-74.340284),
-        zoom:8,
-        mapTypeId:google.maps.MapTypeId.SATELLITE,
-        mapTypeControl: false,
-        streetViewControl: false,
-        zoomControl: false,
-        scaleControl: false,
-        rotateControl: false,
-        fullscreenControl: false
-      
-    };
-
-      var map = new google.maps.Map(mapCanvas,mapOptions);
-
-    }
-    </script>
--->
 <script>
+
+        $(document).ready(function() {
+            clockUpdate();
+            setInterval(clockUpdate, 1000);
+          })
+          
+          function clockUpdate() {
+            var date = new Date();
+            $('.digital-clock').css({'color': '#fff',
+             'position': 'absolute'
+            ,});
+            function addZero(x) {
+              if (x < 10) {
+                return x = '0' + x;
+              } else {
+                return x;
+              }
+            }
+          
+            function twelveHour(x) {
+              if (x > 12) {
+                return x = x - 12;
+              } else if (x == 0) {
+                return x = 12;
+              } else {
+                return x;
+              }
+            }
+          
+            var h = addZero(twelveHour(date.getHours()));
+            var m = addZero(date.getMinutes());
+            var s = addZero(date.getSeconds());
+          
+            $('.digital-clock').text(h + ':' + m + ':' + s)
+          }
+
+
+
+
+
+
         function initMap() {
           // Styles a map in night mode.
           var map = new google.maps.Map(document.getElementById('map'), {
@@ -423,7 +441,9 @@
                     ]
                 }
             ]
-          });
+
+            });
+           
         }
       </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbNu4nnoEfW9vB55Ns4Ud1jqxeLH13qpQ&callback=initMap"></script>
