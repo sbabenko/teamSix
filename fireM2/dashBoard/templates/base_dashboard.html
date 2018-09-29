@@ -17,21 +17,7 @@
     <div class = "mapWrapper">
         <div class ="map" id="map"></div>
     </div>
-    {% block sidebar %}
-    
-<!-- Change below block to redirect to the login page with ?next={{request.path}}
-instead of a static link -->
 
-    {% if user.is_authenticated %}
-        <div>User: {{ user.get_username }}</div>
-        <div>Name: {{ user.first_name }}</div>
-        <div>User: {{ user.last_name }}</div>
-        <div><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>   
-    {% else %}
-        <!--<div><a href="{% url 'login'%}?next={{request.path}}">Login</a></div>-->
-        {% endif %} 
-    
-    {% endblock %}
     {% block content %}
     {% endblock %}
 
