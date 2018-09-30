@@ -88,15 +88,15 @@ DATABASES = {
     # Placeholder code for future MySQL connections. 
     # Need to remember to install MySQL client for Django on local env and 
     # Production server
-    #},
-    # 'events': {
-     #   'ENGINE': 'django.db.backends.mysql',
-     #   'NAME': 'myproject',
-     #   'USER': 'myprojectuser',
-      #  'PASSWORD': 'password',
-     #   'HOST': 'localhost',
-      #  'PORT': '3306',
-   # },
+    },
+    'events': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'FIREM2',
+        'USER': 'root',
+        'PASSWORD': 'abcdef1234',
+        'HOST': 'postgresql-instance1.crdymdfwdzej.us-east-1.rds.amazonaws.com',
+        'PORT': '5432',
+   #},
     # 'resources': {
     #    'ENGINE': 'django.db.backends.mysql',
     #    'NAME': 'myproject',
