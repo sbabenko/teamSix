@@ -91,12 +91,12 @@ DATABASES = {
     },
     'events': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'FIREM2',
-        'USER': 'root',
-        'PASSWORD': 'abcdef1234',
-        'HOST': 'postgresql-instance1.crdymdfwdzej.us-east-1.rds.amazonaws.com',
-        'PORT': '5432',
-   #},
+       'NAME': 'FIREM2',
+       'USER': 'firem2',
+       'PASSWORD': '1234567890',
+       'HOST': 'postgresql-firem2-instance.crdymdfwdzej.us-east-1.rds.amazonaws.com',
+       'PORT': '5432',
+   },
     # 'resources': {
     #    'ENGINE': 'django.db.backends.mysql',
     #    'NAME': 'myproject',
@@ -104,7 +104,7 @@ DATABASES = {
      #   'PASSWORD': 'password',
      #   'HOST': 'localhost',
      #   'PORT': '3306',
-    }
+   # }
 }
 
 
