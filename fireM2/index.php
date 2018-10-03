@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       <div class="tab-content">
 
          <div id="login">   
-          <h1>Welcome</h1>
+          <h1>Welcom</h1>
           
           <form action="index.php" method="post" autocomplete="off">
           
@@ -107,9 +107,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       </div><!-- tab-content -->
       
 </div> <!-- /form -->
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-    <script src="js/index.js"></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="js/index.js"></script>
 
 </body>
 </html>
