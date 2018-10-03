@@ -7,8 +7,10 @@ session_start();
 <head>
   <title>Error</title>
   <?php include 'css/css.html'; ?>
+
 </head>
 <body>
+
 <div class="form">
     <h1>Error</h1>
     <p>
@@ -22,5 +24,7 @@ session_start();
     </p>     
     <a href="index.php"><button class="button button-block"/>Home</button></a>
 </div>
+
+<?php include 'map.php'; ?>
 </body>
 </html>

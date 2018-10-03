@@ -1,3 +1,9 @@
+
+<div class = "mapWrapper">
+  <div class ="map" id="map"></div>
+</div>
+
+
 <script>
         $(document).ready(function() {
             clockUpdate();
