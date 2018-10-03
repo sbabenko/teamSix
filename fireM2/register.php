@@ -43,11 +43,23 @@ else { // Email doesn't already exist in a database, proceed...
 
         // Send registration confirmation link (verify.php)
         $to      = $email;
-        $subject = 'Account Verification ( clevertechie.com )';
+        $subject = 'Account Verification ( paradigm.vision )';
         $message_body = '
         Hello '.$first_name.',
 
-        Thank you for signing up!
+        Thank you for signing up. 
+
+		The idea of a paradigm shift comes from Thomas Kuhn’s 1962 book The Structure of Scientific Revolutions. 
+		Kuhn, a physicist turned philosopher of science, had spent a year in the late 1950s at the then-new Center for 
+		Advanced Study in the Behavioral Sciences at Stanford and been struck by how the assembled psychologists, economists, 
+		historians, sociologists, and the like often disagreed over the very fundamentals of their disciplines. Physicists, 
+		in his experience, didn’t do that. This wasn’t because they were any smarter than social scientists, Kuhn concluded. 
+		It was because they had found a paradigm within which to work. 
+
+		A Kuhnian paradigm is a set of assumptions that allows scientists in a particular field to avoid time-wasting 
+		arguments over the basics and spend their days solving small but useful puzzles. Scientific assumptions are never 
+		perfect mirrors of reality, though (“all models are wrong; but some are useful“). When evidence piles up that contradicts 
+		the paradigm, a science sometimes needs to go through the painful process of a paradigm shift.
 
         Please click this link to activate your account:
 

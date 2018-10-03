@@ -6,7 +6,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign-Up/Login Form</title>
+  <title>Fire M2</title>
   <?php include 'css/css.html'; ?>
 </head>
 
@@ -27,6 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 ?>
 <body>
+
+
+<div class = "mapWrapper">
+  <div class ="map" id="map"></div>
+</div>
+
+
+<div class = "bigTitle">FIRE-M<p class = "sup">2</p> </div>
+<br>
+<div class = "subTitle">First Responder Mission Management</div><!-- /footer -->
+
   <div class="form">
       
       <ul class="tab-group">
@@ -37,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       <div class="tab-content">
 
          <div id="login">   
-          <h1>Welcom</h1>
+          <h1>Welcome</h1>
           
           <form action="index.php" method="post" autocomplete="off">
           
@@ -64,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         </div>
           
         <div id="signup">   
-          <h1>Sign Up for Free</h1>
+          <h1>Enter Your Credentials</h1>
           
           <form action="index.php" method="post" autocomplete="off">
           
@@ -108,8 +119,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       
 </div> <!-- /form -->
 
+<div class = "footer">Power by First Responder Framework Improvement Researchers</div><!-- /footer -->
+
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
   <script src="js/index.js"></script>
+
 
 </body>
 </html>

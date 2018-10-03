@@ -1,4 +1,6 @@
 <?php
+/*needed for queries to the user's contacts and messages*/
+require 'db.php';
 /* Displays user information and some useful messages */
 session_start();
 
@@ -13,6 +15,7 @@ else {
     $last_name = $_SESSION['last_name'];
     $email = $_SESSION['email'];
     $active = $_SESSION['active'];
+
 }
 ?>
 <!DOCTYPE html>
@@ -24,11 +27,24 @@ else {
 </head>
 
 <body>
-  <div class="form">
+  <div class="chatbox">
 
-          <h1>Welcome</h1>
+          <h1 class = "headerPane">Welcome</h1>
+
+          <!-- chat box --> 
+          <div class = "chatPane">         
+          <?php
+           require 'chatPane.php';
+          ?>
+          </div>
+          <!-- active contacts list --> 
+          <div class = "contactsPane">
+            <p>contacts</p>
+          <?php          
           
-          <p>
+          ?>
+          </div>
+          <p><p><p>
           <?php 
      
           // Display message about account verification link only once
@@ -56,10 +72,8 @@ else {
           
           ?>
           
-          <h2><?php echo $first_name.' '.$last_name; ?></h2>
-          <p><?= $email ?></p>
           
-          <a href="logout.php"><button class="button button-block" name="logout"/>Log Out</button></a>
+          <!--<a href="logout.php"><button class="button button-block" name="logout"/>Log Out</button></a>-->
 
     </div>
     
