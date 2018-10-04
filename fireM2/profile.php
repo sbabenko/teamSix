@@ -27,26 +27,7 @@ else {
 </head>
 
 <body>
-  <div class="chatbox">
-
-          <h1 class = "headerPane">Welcome</h1>
-
-          <!-- chat box --> 
-          <div class = "chatPane">         
-          <?php
-           require 'chatPane.php';
-          ?>
-          </div>
-          <!-- active contacts list --> 
-          <div class = "contactsPane">
-            <p>contacts</p>
-          <?php          
-          
-          ?>
-          </div>
-          <p><p><p>
-          <?php 
-     
+      
           // Display message about account verification link only once
           if ( isset($_SESSION['message']) )
           {
@@ -71,7 +52,6 @@ else {
           }
           
           ?>
-          
           
           <!--<a href="logout.php"><button class="button button-block" name="logout"/>Log Out</button></a>-->
 

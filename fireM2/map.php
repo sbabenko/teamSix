@@ -5,45 +5,6 @@
 
 
 <script>
-        $(document).ready(function() {
-            clockUpdate();
-            setInterval(clockUpdate, 1000);
-          })
-          
-          function clockUpdate() {
-            var date = new Date();
-            $('.digital-clock').css({'color': '#fff',
-             'position': 'absolute'
-            ,});
-            function addZero(x) {
-              if (x < 10) {
-                return x = '0' + x;
-              } else {
-                return x;
-              }
-            }
-          
-            function twelveHour(x) {
-              if (x > 12) {
-                return x = x - 12;
-              } else if (x == 0) {
-                return x = 12;
-              } else {
-                return x;
-              }
-            }
-          
-            var h = addZero(twelveHour(date.getHours()));
-            var m = addZero(date.getMinutes());
-            var s = addZero(date.getSeconds());
-          
-            $('.digital-clock').text(h + ':' + m + ':' + s)
-          }
-
-
-
-
-
 
         function initMap() {
           // Styles a map in night mode.
@@ -428,3 +389,4 @@
         }
       </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbNu4nnoEfW9vB55Ns4Ud1jqxeLH13qpQ&callback=initMap"></script>
+    <script src="js/maps_functions.js"></script>
