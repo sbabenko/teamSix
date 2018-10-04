@@ -27,89 +27,49 @@
             
             styles: [
     {
-        "featureType": "water",
-        "elementType": "geometry",
+        "featureType": "road",
+        "elementType": "geometry.fill",
         "stylers": [
             {
-                "color": "#193341"
-                //"color": "#193341"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#2c5a71"
+                "color": "#011066"
             }
         ]
     },
     {
         "featureType": "road",
-        "elementType": "geometry",
+        "elementType": "geometry.stroke",
         "stylers": [
             {
-                "color": "#29768a"
-                //"color": "#FFFFFF"
-            },
-            {
-                "lightness": -47
+                "visibility": "off"
             }
         ]
     },
     {
         "featureType": "poi",
-        "elementType": "geometry",
+        "elementType": "geometry.fill",
         "stylers": [
             {
-                "color": "#406d80"
+                "color": "#5580aa"
             }
         ]
     },
     {
-        "featureType": "transit",
-        "elementType": "geometry",
+        "featureType": "landscape",
+        "elementType": "geometry.fill",
         "stylers": [
             {
-                "color": "#406d80"
+                "color": "#405783"
             }
         ]
     },
     {
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#3e606f"
-            },
-            {
-                "weight": 2
-            },
-            {
-                "gamma": 0.84
-            }
-        ]
-    },
-    {
-        "elementType": "labels.text.fill",
+        "elementType": "labels.text",
         "stylers": [
             {
                 "color": "#ffffff"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "weight": 0.6
             },
             {
-                "color": "#1a3541"
+                "weight": 0.5
             }
         ]
     },
@@ -122,11 +82,20 @@
         ]
     },
     {
-        "featureType": "poi.park",
+        "featureType": "water",
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#2c5a71"
+                "color": "#4381C1"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#272664"
             }
         ]
     }
