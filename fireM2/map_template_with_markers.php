@@ -32,6 +32,7 @@
         "stylers": [
             {
                 "color": "#193341"
+                //"color": "#193341"
             }
         ]
     },
@@ -50,9 +51,10 @@
         "stylers": [
             {
                 "color": "#29768a"
+                //"color": "#FFFFFF"
             },
             {
-                "lightness": -37
+                "lightness": -47
             }
         ]
     },
