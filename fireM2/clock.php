@@ -1,3 +1,6 @@
+
+
+<script>
 $(document).ready(function() {
             clockUpdate();
             setInterval(clockUpdate, 1000);
@@ -5,8 +8,9 @@ $(document).ready(function() {
           
           function clockUpdate() {
             var date = new Date();
-            $('.digital-clock').css({'color': '#fff',
-             'position': 'absolute'
+            $('.digital-clock').css({'color': '#fff'
+            ,});
+            $('.utc-clock').css({'color': '#fff'
             ,});
             function addZero(x) {
               if (x < 10) {
@@ -30,5 +34,7 @@ $(document).ready(function() {
             var m = addZero(date.getMinutes());
             var s = addZero(date.getSeconds());
           
-            $('.digital-clock').text(h + ':' + m + ':' + s)
+            $('.digital-clock').text('EST: ' + h + ':' + m + ':' + s + '  UTC:' + (h+5) + ':' + m + ':' + s)
+
           }
+</script>

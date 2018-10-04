@@ -30,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 <div class = "bigTitle">FIRE-M<p class = "sup">2</p> </div>
 <br>
-<div class = "subTitle">First Responder Mission Management</div><!-- /footer -->
-
+<!--<div class = "subTitle">First Responder Mission Management</div> /footer -->
+<div class="digital-clock">00:00:00 00:00:00</div>
   <div class="form">
       
       <ul class="tab-group">
@@ -118,7 +118,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="js/index.js"></script>
   <?php include 'map_template_with_markers.php'; ?>
-  <?php include 'get_map_markers.php'; ?>
+  <?php include 'clock.php'; ?>
+ 
 
 </body>
 </html>
