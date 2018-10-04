@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="js/index.js"></script>
-  <?php include 'map.php'; ?>
+  <?php include 'map_template_with_markers.php'; ?>
   <?php include 'get_map_markers.php'; ?>
 
 </body>
