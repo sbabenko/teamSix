@@ -418,7 +418,9 @@
               text.textContent = address
               infowincontent.appendChild(text);
               var icon = customLabel[type] || {};
+              var image = 'map_icons/hurricane_2.png';
               var marker = new google.maps.Marker({
+                icon: image,
                 map: map,
                 position: point,
                 label: icon.label
