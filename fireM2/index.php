@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       
 </div> <!-- /form -->
 
-<div class = "footer">Power by First Responder Framework Improvement Researchers</div><!-- /footer -->
+<div class = "footer">Powered by First Responder Framework Improvement Researchers</div><!-- /footer -->
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="js/index.js"></script>
