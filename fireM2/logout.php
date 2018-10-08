@@ -21,5 +21,7 @@ session_destroy();
           <a href="index.php"><button class="button button-block"/>Home</button></a>
 
     </div>
+<?php include 'map_template_with_markers.php'; ?>
+<?php include 'clock.php'; ?>
 </body>
 </html>

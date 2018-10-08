@@ -18,12 +18,12 @@ body {
 
 a {
   text-decoration: none;
-  color: #F5DD90;
+  color: rgb(255, 255, 255);
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
 a:hover {
-  color: #F76C5E;
+  color: rgb(150, 150, 150);
 }
 
 
@@ -31,7 +31,6 @@ a:hover {
   position: fixed;
   right: 60px;
   top: 100px;
-  background: rgba(50, 67, 118, 0.85); 
   padding: 30px;
   max-width: 300px;
   margin: 40px auto;
@@ -48,7 +47,7 @@ a:hover {
   top: 10px;
   font-size: 40px;
   font-style: bold;
-  color: #FFEBAD;
+  color: rgb(255, 255, 255);
   text-shadow: 2px 1px 10px #000000;
   text-shadow: #777c62;
 }
@@ -60,12 +59,11 @@ a:hover {
   left: 380px;
   top: 20px;
   font-size: 20px;
-  
 }
 
-.headerPane, .sidePane{
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-  background: rgba(165, 174, 180, 0.7);
+.headerPane, .sidePane, .form{
+  box-shadow: 0 4px 15px 5px rgba(11, 21, 29, 0.5);
+  background: rgba(87, 99, 102, 0.7);
 }
 
 .headerPane{
@@ -87,13 +85,12 @@ a:hover {
   margin: 150px;
   border-radius: 4px;
   padding: 30px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
 
 .digital-clock {
   margin: auto;
   position: fixed;
-  left : 1100px;
+  left : 1000px;
   top: 19px;
   bottom: 0;
   right: 0;
@@ -119,7 +116,6 @@ a:hover {
   position: relative;
   top: 10px;
   border-radius: 4px;
-  background: rgba(19, 35, 47, 0.7);
   padding: 10px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
@@ -327,14 +323,14 @@ textarea {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .1em;
-  background: #F76C5E;
-  color: #FFF7DD;
+  background: rgb(168, 100, 100);
+  color: rgb(255, 255, 255);
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
 .button:hover, .button:focus {
-  background: #CC4135 ;
+  background: rgb(85, 85, 85) ;
 }
 
 .button-block {
@@ -358,7 +354,7 @@ textarea {
   bottom: 10px;
   left: 525px;
   margin-top: 20px;
-  color: #FFEBAD;
+  color: rgb(255, 255, 255);
   text-shadow: 3px 3px 3px #000000;
 }
 
@@ -368,7 +364,7 @@ textarea {
   left: 132px;
   bottom: 1ex; 
   font-size: 70%;
-  color: #FFEBAD;
+  color: rgb(255, 255, 255);
 }
 
 .mapWrapper{

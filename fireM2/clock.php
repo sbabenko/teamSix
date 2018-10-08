@@ -34,7 +34,7 @@ $(document).ready(function() {
             var m = addZero(date.getMinutes());
             var s = addZero(date.getSeconds());
           
-            $('.digital-clock').text('EST: ' + h + ':' + m + ':' + s + '  UTC:' + ((h+5)%24) + ':' + m + ':' + s)
+            $('.digital-clock').text('EST: ' + h + ':' + m + ':' + s + ' UTC:' + ((h+5)%24) + ':' + m + ':' + s)
 
           }
 </script>
