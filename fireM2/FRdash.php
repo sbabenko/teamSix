@@ -32,7 +32,6 @@ if ( $_SESSION['logged_in'] != 1 ) {
 
 <!-- CONTENT GOES BELOW HERE -->
 
-
     <div class = "headerPane">
         <p class = "name">First Responder: {{ user.first_name }} {{ user.last_name }}</p>
         <div class = "logout"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>

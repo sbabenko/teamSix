@@ -639,7 +639,7 @@
         "color": "#2b3638"
       },
       {
-        "lightness": 17
+        "lightness": 27
       }
     ]
   },
@@ -648,7 +648,7 @@
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#24282b"
+        "color": "#0d0e0f"
       }
     ]
   },

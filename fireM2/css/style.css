@@ -4,7 +4,7 @@
 
 html {
     overflow-y: scroll;
-    background: url(BGimages/yacht.jpg) no-repeat center center fixed;
+    background: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -35,7 +35,7 @@ a:hover {
   max-width: 300px;
   margin: 40px auto;
   border-radius: 4px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  box-shadow: 0 4px 15px 14px rgba(13, 17, 19, 0.3);
 }
 
 .bigTitle{
@@ -62,8 +62,8 @@ a:hover {
 }
 
 .headerPane, .sidePane, .form{
-  box-shadow: 0 4px 15px 5px rgba(11, 21, 29, 0.5);
-  background: rgba(87, 99, 102, 0.7);
+  box-shadow: 0 4px 15px 7px rgba(7, 14, 19, 0.5);
+  background: rgba(87, 99, 102, 0.8);
 }
 
 .headerPane{
@@ -106,7 +106,7 @@ a:hover {
   top: 10px;
   margin: 20px;
   border-radius: 4px;
-  background: rgba(19, 35, 47, 0.7);
+  background: rgba(136, 188, 228, 0.7);
   padding: 30px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
@@ -117,7 +117,6 @@ a:hover {
   top: 10px;
   border-radius: 4px;
   padding: 10px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
 
 .chatPane{
