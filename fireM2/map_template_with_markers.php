@@ -4,7 +4,8 @@
 </div>
 
     <script>
-      var customLabel = {
+
+        var customLabel = {
         restaurant: {
           label: 'R'
         },
@@ -13,7 +14,7 @@
         }
       };
 
-        function initMap() {
+      function initMap() {
 
         // Heatmap data: 500 Points
       function getPoints() {
@@ -709,7 +710,8 @@
 ]
 
 
-        });
+        }); // Closes map constructor 
+
         var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
@@ -780,7 +782,9 @@
       }
 
       function doNothing() {}
+
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbNu4nnoEfW9vB55Ns4Ud1jqxeLH13qpQ&callback=initMap&libraries=visualization">
+    <script async 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbNu4nnoEfW9vB55Ns4Ud1jqxeLH13qpQ&callback=initMap&libraries=visualization">    
+
     </script>
