@@ -406,6 +406,18 @@ textarea {
   font: 30px/40px 'DIGITAL', Helvetica;
 }
 
+.dashboard-clock {
+  left : 1100px;
+  top: -655px;
+  bottom: 0;
+  right: 0;
+  width: 500px;
+  height: 60px;
+  color: #ffffff;
+  text-align: center;
+  font: 20px/20px 'DIGITAL', Helvetica;
+}
+
 .logout {
   position: absolute;
   padding: 5px 0;

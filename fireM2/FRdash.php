@@ -69,6 +69,7 @@ $(document).ready(function() {
 
 
     <div class = "headerPane">
+    <div class="digital-clock dashboard-clock">00:00:00 00:00:00</div>
         <p class = "name">First Responder: {{ user.first_name }} {{ user.last_name }}</p>
         <div class = "logout"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>
           
