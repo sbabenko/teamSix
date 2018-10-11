@@ -67,14 +67,25 @@ $(document).ready(function() {
 });//end docReady 
 </script>
 
-  <ul class="tab-group dashboard-tab">
+  <div class = "headerPane">
+  <div class="digital-clock dashboard-clock">00:00:00 00:00:00</div>
+      <p class = "name">First Responder: {{ user.first_name }} {{ user.last_name }}</p>
+      <div class = "logout"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>    
+        <!--<div><a href="{% url 'login'%}?next={{request.path}}">Login</a></div>-->
+
+  <ul class="dashboard-tab">
+        <li class="tab active"><a href="#NewEvents">New Events</a></li>
         <li class="tab"><a href="#HistoricalData">Historical Data</a></li>
         <li class="tab"><a href="#MissionAssignment">Mission Assignment</a></li>
         <li class="tab"><a href="#NewMission">New Mission</a></li>
-        <li class="tab active"><a href="#ActiveMissions">Active Missions</a></li>
+        <li class="tab"><a href="#ActiveMissions">Active Missions</a></li>
   </ul>
 
- <div class="tab-content">
+ <div class="tab-content dashboard-menu-buttons">
+
+    <div id="New Events">   
+      <h1>New Events</h1>
+    </div>
 
     <div id="HistoricalData">   
       <h1>Historical Data Tab</h1>
@@ -94,15 +105,6 @@ $(document).ready(function() {
 
   </div><!-- tab-content -->
 
-
-
-    <div class = "headerPane">
-    <div class="digital-clock dashboard-clock">00:00:00 00:00:00</div>
-        <p class = "name">First Responder: {{ user.first_name }} {{ user.last_name }}</p>
-        <div class = "logout"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>
-          
-        <!--<div><a href="{% url 'login'%}?next={{request.path}}">Login</a></div>-->
- 
     <div class = "sidePane">Side Pane</div>
 
 <!-- CONTENT GOES ABOVE HERE -->
