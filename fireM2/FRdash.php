@@ -67,6 +67,34 @@ $(document).ready(function() {
 });//end docReady 
 </script>
 
+  <ul class="tab-group dashboard-tab">
+        <li class="tab"><a href="#HistoricalData">Historical Data</a></li>
+        <li class="tab"><a href="#MissionAssignment">Mission Assignment</a></li>
+        <li class="tab"><a href="#NewMission">New Mission</a></li>
+        <li class="tab active"><a href="#ActiveMissions">Active Missions</a></li>
+  </ul>
+
+ <div class="tab-content">
+
+    <div id="HistoricalData">   
+      <h1>Historical Data Tab</h1>
+    </div>
+ 
+    <div id="MissionAssignment">   
+      <h1>Mission Assignment Tab</h1>
+    </div>  
+
+    <div id="NewMission">   
+      <h1>New Missions</h1>
+    </div>  
+
+    <div id="ActiveMissions">   
+      <h1>Active Missions</h1>
+    </div>  
+
+  </div><!-- tab-content -->
+
+
 
     <div class = "headerPane">
     <div class="digital-clock dashboard-clock">00:00:00 00:00:00</div>
