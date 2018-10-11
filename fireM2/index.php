@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 ?>
 <body>
-
+<!--<img src="img/FIRE_M_LOGO.png" alt="FIRE-M"">-->
 <div class = "bigTitle">FIRE-M<p class = "sup">2</p> </div>
 <br>
 <!--<div class = "subTitle">First Responder Mission Management</div> /footer -->
