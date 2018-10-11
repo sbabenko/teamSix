@@ -32,6 +32,41 @@ if ( $_SESSION['logged_in'] != 1 ) {
 
 <!-- CONTENT GOES BELOW HERE -->
 
+<?php
+// Set the active MySQL database
+$db_selected = mysqli_select_db( $mysqli ,"FIREM2");
+if (!$db_selected) {
+  die ('Can\'t use db : ' . mysqli_error());
+}
+
+// Select all the rows in the markers table
+$query = "SELECT * FROM events WHERE 1";
+
+#$result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
+
+$result = $mysqli->query($query);
+if (!$result) {
+  die('Invalid query: ' . mysqli_error($mysqli));
+}
+
+?>
+
+<script>
+$(document).ready(function() {
+    setInterval(function(){
+       $.ajax({
+           url: "get_events.php",
+           type: "GET",
+           dataType: "html",
+           success: function(html) {
+           $(".sidePane").html(html);
+        }
+      });//end ajax call
+    },1000);//end setInterval
+});//end docReady 
+</script>
+
+
     <div class = "headerPane">
         <p class = "name">First Responder: {{ user.first_name }} {{ user.last_name }}</p>
         <div class = "logout"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>
@@ -42,7 +77,7 @@ if ( $_SESSION['logged_in'] != 1 ) {
 
 <!-- CONTENT GOES ABOVE HERE -->
 
-<a href="logout.php"><button class="button button-block" name="logout"/>Log Out</button></a>
+<a href="logout.php"><button class="button button-block logout" name="logout"/>Log Out</button></a>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="js/index.js"></script>
 <?php include 'map_template_with_markers.php'; ?>
