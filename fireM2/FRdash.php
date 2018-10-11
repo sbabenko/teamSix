@@ -63,6 +63,7 @@ $(document).ready(function() {
         }
       });//end ajax call
     },1000);//end setInterval
+
 });//end docReady 
 </script>
 

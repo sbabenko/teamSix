@@ -36,9 +36,7 @@ $ind=0;
 // Iterate through the rows, printing XML nodes for each
 while ($row = @mysqli_fetch_assoc($result)){
   // Add to XML document node
-  echo '<div ';
-
-  echo '>';
+  echo '<div class = "eventObject">';
 
   echo 'id="' . $row['id'] . '" ';
   echo 'name="' . parseToXML($row['name']) . '" ';
