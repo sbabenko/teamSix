@@ -551,7 +551,7 @@ textarea {
 
 .modal-header {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: #646464;
   color: white;
 }
 
@@ -559,6 +559,17 @@ textarea {
 
 .modal-footer {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: #646464;
   color: white;
+}
+
+#myBtn {
+  background-color: rgb(177, 177, 177); /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
