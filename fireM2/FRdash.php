@@ -65,41 +65,39 @@ $(document).ready(function() {
     },1000);//end setInterval
 
 });//end docReady 
+
 </script>
 
-  <div class = "headerPane">
-  <div class="digital-clock dashboard-clock">00:00:00 00:00:00</div>
-      <p class = "name">First Responder: {{ user.first_name }} {{ user.last_name }}</p>
-      <div class = "logout"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>    
         <!--<div><a href="{% url 'login'%}?next={{request.path}}">Login</a></div>-->
 
   <ul class="dashboard-tab">
-        <li class="tab active"><a href="#NewEvents">New Events</a></li>
-        <li class="tab"><a href="#HistoricalData">Historical Data</a></li>
-        <li class="tab"><a href="#MissionAssignment">Mission Assignment</a></li>
-        <li class="tab"><a href="#NewMission">New Mission</a></li>
-        <li class="tab"><a href="#ActiveMissions">Active Missions</a></li>
+        <li class="tab" onclick="showTab(1,5)"><a href="#NewEvents">New Events</a></li>
+        <li class="tab" onclick="showTab(2,5)"><a href="#HistoricalData">Historical Data</a></li>
+        <li class="tab" onclick="showTab(3,5)"><a href="#MissionAssignment">Mission Assignment</a></li>
+        <li class="tab" onclick="showTab(4,5)"><a href="#NewMission">New Mission</a></li>
+        <li class="tab" onclick="showTab(5,5)"><a href="#ActiveMissions">Active Missions</a></li>
+        <li class="statictab digital-clock">Clock</li>
   </ul>
 
  <div class="tab-content dashboard-menu-buttons">
 
-    <div id="New Events">
-      <?php require 'dsp_fr_events.php'; ?>
+    <div id="NewEvents" class ="tabs-1">
+        <?php require 'dsp_fr_events.php'; ?>
     </div>
 
-    <div id="HistoricalData">   
+    <div id="HistoricalData" class ="tabs-2">   
       <?php require 'dsp_fr_historical.php'; ?>   
     </div>
  
-    <div id="MissionAssignment">   
+    <div id="MissionAssignment" class ="tabs-3">   
       <?php require 'dsp_fr_mission_assign.php'; ?>   
     </div>  
 
-    <div id="NewMission">   
+    <div id="NewMission" class ="tabs-4">   
       <?php require 'dsp_fr_new_mission.php'; ?> 
     </div>  
 
-    <div id="ActiveMissions">   
+    <div id="ActiveMissions" class ="tabs-5">   
       <?php require 'dsp_fr_active_mission.php'; ?> 
     </div>  
 
@@ -109,11 +107,29 @@ $(document).ready(function() {
 
 <!-- CONTENT GOES ABOVE HERE -->
 
+
+<script>
+  function showTab(selected, total){
+
+    for(i = 1; i <= total; i += 1){
+      var A = document.getElementsByClassName('tabs-' + i);//.style.display = 'none';
+      A.item(0).style.display = 'none';
+    }
+  //document.getElementById('tabs-' + selected).style.display = 'block';
+  var A = document.getElementsByClassName('tabs-' + selected);//.style.display = 'none';
+  A.item(0).style.display = 'block';
+}
+</script>
+
+
 <a href="logout.php"><button class="button button-block logout" name="logout"/>Log Out</button></a>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="js/index.js"></script>
 <?php include 'map_template_with_markers.php'; ?>
 <?php include 'clock.php'; ?>
+
+
+<div class="footer">Welcome, Operations Chief <?= $first_name.' '.$last_name ?></div>
 
 </body>
 </html>

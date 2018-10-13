@@ -30,8 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 <!--<img src="img/FIRE_M_LOGO.png" alt="FIRE-M"">-->
 <div class = "bigTitle">FIRE-M<p class = "sup">2</p> </div>
 <br>
-<!--<div class = "subTitle">First Responder Mission Management</div> /footer -->
-<div class="digital-clock">00:00:00 00:00:00</div>
   <div class="form">
       
       <ul class="tab-group">

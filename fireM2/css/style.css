@@ -61,9 +61,10 @@ a:hover {
   font-size: 20px;
 }
 
-.headerPane, .sidePane, .form{
-  box-shadow: 0 4px 15px 7px rgba(7, 14, 19, 0.5);
-  background: rgba(87, 99, 102, 0.8);
+.headerPane, .sidePane, .form {
+  /*box-shadow: 0 4px 15px 7px rgba(7, 14, 19, 0.5);
+  //background: rgba(87, 99, 102, 0.8);*/
+  background: rgba(160, 179, 176, 0.35);
 }
 
 .headerPane{
@@ -83,7 +84,7 @@ a:hover {
   height: 620px;
   width: 20%;
   margin: 150px;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
   padding: 10px;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -92,17 +93,14 @@ a:hover {
 
 .digital-clock {
   margin: auto;
-  position: fixed;
   left : 1000px;
   top: 19px;
   bottom: 0;
   right: 0;
-  width: 200px;
-  height: 60px;
-  color: #ffffff;
+  width: 300px;
   text-align: center;
-  font: 30px/40px 'DIGITAL', Helvetica;
 }
+
 .chatbox{
   position: relative;
   height: 700px;
@@ -383,44 +381,8 @@ textarea {
   height: 100%;
 }
 
-.digital-clock {
-  position: fixed;
-  left : 1240px;
-  top: -670px;
-  bottom: 0;
-  right: 0;
-  width: 200px;
-  height: 60px;
-  color: #ffffff;
-  text-align: center;
-  font: 25px/35px 'DIGITAL', Helvetica;
-}
-
-.utc-clock {
-  left : 900px;
-  top: -700px;
-  bottom: 0;
-  right: 0;
-  width: 200px;
-  height: 60px;
-  color: #ffffff;
-  text-align: center;
-  font: 30px/40px 'DIGITAL', Helvetica;
-}
-
-.dashboard-clock {
-  left : 1100px;
-  top: -655px;
-  bottom: 0;
-  right: 0;
-  width: 500px;
-  height: 60px;
-  color: #ffffff;
-  text-align: center;
-  font: 20px/20px 'DIGITAL', Helvetica;
-}
-
 .logout {
+  margin-top: 10px;
   position: absolute;
   padding: 5px 0;
   width: 9%;
@@ -469,11 +431,11 @@ textarea {
 }
 
 .dashboard-tab {
-  top: 30px;
-  margin-top: 20px;
+  z-index: 5;
+  margin-top: 40px;
   list-style: none;
   padding: 0;
-  margin: -10px 0px 20px 0px;
+  margin: 10px 20px 20px 30px;
 }
 
 .dashboard-tab:after {
@@ -481,11 +443,27 @@ textarea {
   display: table;
   clear: both;
 }
+
 .dashboard-tab li a {
   display: block;
   text-decoration: none;
   padding: 15px;
-  background: rgba(160, 179, 176, 0.25);
+  background: rgba(160, 179, 176, 0.35);
+  color: #FFF7DD;
+  font-size: 15px;
+  float: left;
+  width: 17%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.statictab {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: rgba(160, 179, 176, 0.45);
   color: #FFF7DD;
   font-size: 15px;
   float: left;
@@ -495,6 +473,7 @@ textarea {
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
+
 .dashboard-tab li a:hover {
   background: #CC4135;
   color: #FFF7DD;
@@ -505,4 +484,12 @@ textarea {
 }
 .dashboard-menu-buttons{
   width: 80%;
+}
+
+.dash-tab{
+  display: none;
+}
+
+[class^="tabs-"]{
+  display: none;
 }

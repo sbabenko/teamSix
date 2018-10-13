@@ -8,10 +8,6 @@ $(document).ready(function() {
           
           function clockUpdate() {
             var date = new Date();
-            $('.digital-clock').css({'color': '#fff'
-            ,});
-            $('.utc-clock').css({'color': '#fff'
-            ,});
             function addZero(x) {
               if (x < 10) {
                 return x = '0' + x;
