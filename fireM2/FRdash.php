@@ -71,10 +71,10 @@ $(document).ready(function() {
         <!--<div><a href="{% url 'login'%}?next={{request.path}}">Login</a></div>-->
 
   <ul class="dashboard-tab">
-        <li class="tab" onclick="showTab(1,5)"><a href="#NewEvents">New Events</a></li>
+        <li class="tab active" onclick="showTab(1,5)"><a href="#NewEvents">Incident Feed</a></li>
         <li class="tab" onclick="showTab(2,5)"><a href="#HistoricalData">Historical Data</a></li>
         <li class="tab" onclick="showTab(3,5)"><a href="#MissionAssignment">Mission Assignment</a></li>
-        <li class="tab" onclick="showTab(4,5)"><a href="#NewMission">New Mission</a></li>
+        <li class="tab" onclick="showTab(4,5)"><a href="#NewMission">Create New Mission</a></li>
         <li class="tab" onclick="showTab(5,5)"><a href="#ActiveMissions">Active Missions</a></li>
         <li class="statictab digital-clock">Clock</li>
   </ul>
