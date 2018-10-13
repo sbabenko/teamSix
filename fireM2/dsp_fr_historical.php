@@ -1,1 +1,1 @@
-<div>FR Historical Data</div>
+<div class="FR_HistoricalData">FR Historical Data</div>

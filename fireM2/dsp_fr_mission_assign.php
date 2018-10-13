@@ -1,1 +1,1 @@
-<div>FR Mission Assign</div>
+<div class="FR_MissionAssignment">FR Mission Assign</div>

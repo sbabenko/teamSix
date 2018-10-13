@@ -1,1 +1,1 @@
-<div>New Missions</div>
+<div class="FR_newMission">New Missions</div>
