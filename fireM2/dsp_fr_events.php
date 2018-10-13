@@ -1,0 +1,1 @@
+<div>FR new events</div>

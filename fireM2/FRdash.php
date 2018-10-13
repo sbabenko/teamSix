@@ -83,29 +83,29 @@ $(document).ready(function() {
 
  <div class="tab-content dashboard-menu-buttons">
 
-    <div id="New Events">   
-      <h1>New Events</h1>
+    <div id="New Events">
+      <?php require 'dsp_fr_events.php'; ?>
     </div>
 
     <div id="HistoricalData">   
-      <h1>Historical Data Tab</h1>
+      <?php require 'dsp_fr_historical.php'; ?>   
     </div>
  
     <div id="MissionAssignment">   
-      <h1>Mission Assignment Tab</h1>
+      <?php require 'dsp_fr_mission_assign.php'; ?>   
     </div>  
 
     <div id="NewMission">   
-      <h1>New Missions</h1>
+      <?php require 'dsp_fr_new_mission.php'; ?> 
     </div>  
 
     <div id="ActiveMissions">   
-      <h1>Active Missions</h1>
+      <?php require 'dsp_fr_active_mission.php'; ?> 
     </div>  
 
   </div><!-- tab-content -->
 
-    <div class = "sidePane">Side Pane</div>
+  <div class = "sidePane">Side Pane</div>
 
 <!-- CONTENT GOES ABOVE HERE -->
 
