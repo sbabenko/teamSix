@@ -104,9 +104,9 @@ $(document).ready(function() {
 
   <div class = "sidePane">Side Pane</div>
 
-<!-- CONTENT GOES ABOVE HERE -->
-
-<button id="myBtn">Open Modal</button>
+<!-- Hidden button object that makes all the javascript for the
+event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
+<button id="myBtn" style="display:none;">Open Modal</button>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -157,7 +157,7 @@ window.onclick = function(event) {
 }
 
 function openEvent(){
-  alert("function works!");
+  modal.style.display = "block";
 }
 </script>
 

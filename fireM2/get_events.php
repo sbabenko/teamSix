@@ -39,10 +39,10 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '<div class = "eventObject">';
 
   //echo 'id="' . $row['id'] . '" ';
-  //echo 'name="' . parseToXML($row['name']) . '" ';
+  echo 'name="' . parseToXML($row['name']) . '" ';
   //echo 'address="' . parseToXML($row['address']) . '" ';
-  //echo 'lat="' . $row['lat'] . '" ';
-  //echo 'lng="' . $row['lng'] . '" ';
+  echo 'lat="' . $row['lat'] . '" ';
+  echo 'lng="' . $row['lng'] . '" ';
   //echo 'type="' . $row['type'] . '" ';
   //echo '/>';
 
