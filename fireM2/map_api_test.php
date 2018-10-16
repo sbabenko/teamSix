@@ -18,7 +18,7 @@ if (!$db_selected) {
 }
 
 // Select all the rows in the markers table
-$query = "SELECT * FROM events WHERE 1";
+$query = "SELECT * FROM mmEvent";
 
 #$result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
 
@@ -37,12 +37,10 @@ $ind=0;
 while ($row = @mysqli_fetch_assoc($result)){
   // Add to XML document node
   echo '<marker ';
-  echo 'id="' . $row['id'] . '" ';
-  echo 'name="' . parseToXML($row['name']) . '" ';
-  echo 'address="' . parseToXML($row['address']) . '" ';
-  echo 'lat="' . $row['lat'] . '" ';
-  echo 'lng="' . $row['lng'] . '" ';
-  echo 'type="' . $row['type'] . '" ';
+  echo 'id="' . $row['eventID'] . '" ';
+  echo 'name="' . parseToXML($row['eventName']) . '" ';
+  echo 'lat="' . $row['latitude'] . '" ';
+  echo 'lng="' . $row['longitude'] . '" ';
   echo '/>';
   $ind = $ind + 1;
 }

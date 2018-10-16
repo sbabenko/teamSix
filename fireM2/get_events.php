@@ -18,7 +18,7 @@ if (!$db_selected) {
 }
 
 // Select all the rows in the markers table
-$query = "SELECT * FROM events WHERE 1";
+$query = "SELECT * FROM mmEvent";
 
 #$result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
 
@@ -39,7 +39,7 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '<div class = "eventObject">';
 
   //echo 'id="' . $row['id'] . '" ';
-  echo 'name="' . parseToXML($row['name']) . '" ';
+  echo 'name="' . parseToXML($row['eventName']) . '" ';
   //echo 'address="' . parseToXML($row['address']) . '" ';
   //echo 'lat="' . $row['lat'] . '" ';
   //echo 'lng="' . $row['lng'] . '" ';
