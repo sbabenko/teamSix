@@ -349,6 +349,7 @@
             scaleControl: false,
             rotateControl: false,
             fullscreenControl: false,
+            minZoom: 2,
             
             styles: [
   {
