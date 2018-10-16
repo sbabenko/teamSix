@@ -35,11 +35,12 @@ create table eventNote
     
 #table to store user account information
 create table userAccount
-	(accountID int auto_increment,
+	(email varchar(80) not null,
     firstName varchar(80) not null,
     lastName varchar(80),
-	email varchar(80) not null,
+    loginPass varchar(100) not null,
+    hashVal varchar(32) not null,
 	role enum('OC', 'MM'),
     isActive bool not null,
-    primary key (accountID));
+    primary key (email));
     

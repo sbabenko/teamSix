@@ -34,13 +34,13 @@ if ( $_SESSION['logged_in'] != 1 ) {
 
 <?php
 // Set the active MySQL database
-$db_selected = mysqli_select_db( $mysqli ,"FIREM2");
+$db_selected = mysqli_select_db($mysqli, "FIREM2");
 if (!$db_selected) {
   die ('Can\'t use db : ' . mysqli_error());
 }
 
 // Select all the rows in the markers table
-$query = "SELECT * FROM events WHERE 1";
+$query = "SELECT * FROM event";
 
 #$result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
 

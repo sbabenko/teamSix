@@ -6,7 +6,7 @@
 $host = 'mysql-instance1.crdymdfwdzej.us-east-1.rds.amazonaws.com';
 $user = 'root';
 $pass = 'GucciSwag420';
-$db = 'accounts';
+$db = 'FIREM2';
 
 /*
 
