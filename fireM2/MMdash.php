@@ -40,7 +40,7 @@ if (!$db_selected) {
 }
 
 // Select all the rows in the markers table
-$query = "SELECT * FROM events WHERE 1";
+$query = "SELECT * FROM mmEvent";
 
 #$result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
 
