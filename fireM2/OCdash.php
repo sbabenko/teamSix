@@ -157,9 +157,13 @@ window.onclick = function(event) {
     }
 }
 
-function openEvent(){
+function openEvent(ele){
   modal.style.display = "block";
+  var id = ele.id;
+  alert('area element id = ' + id);
+
 }
+
 </script>
 
 <script>
@@ -175,14 +179,23 @@ function openEvent(){
 }
 </script>
 
+<!-- logout button -->
 
 <a href="logout.php"><button class="button button-block logout" name="logout"/>Log Out</button></a>
+
+<!-- included for a bunch of javascript libraries -->
+
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="js/index.js"></script>
+
+<!-- Displays the background map -->
+
 <?php include 'map_template_with_markers.php'; ?>
+
+<!-- Displays the clock -->
 <?php include 'clock.php'; ?>
 
-
+<!-- Displays a footer message -->
 <div class="footer">Welcome, Operations Chief <?= $first_name.' '.$last_name ?></div>
 
 </body>
