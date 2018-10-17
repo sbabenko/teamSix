@@ -157,7 +157,7 @@ window.onclick = function(event) {
     }
 }
 
-function openEvent(ele){
+function openEvent(ele,name){
   modal.style.display = "block";
   var id = ele.id;
   alert('area element id = ' + id);

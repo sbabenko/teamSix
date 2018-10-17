@@ -43,9 +43,9 @@ while ($row = @mysqli_fetch_assoc($result)){
   
   //produces the "open" and "delete" buttons in the event object
   echo '<br>';
-  echo '<button id="myBtn" onclick="openEvent(this)">OPEN</button>';
+  echo '<button id="myBtn" onclick="openEvent(this, ' . $row["eventID"] .')">OPEN</button>';
   echo '&nbsp&nbsp';
-  echo '<button id="delBtn" onclick="openEvent(this)">DELETE</button>';
+  echo '<button id="delBtn" onclick="openEvent(this, ' . $row["eventID"] .')">DELETE</button>';
 
   echo '</div>';
 
