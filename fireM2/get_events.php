@@ -47,7 +47,8 @@ while ($row = @mysqli_fetch_assoc($result)){
   //echo '/>';
 
   echo '<br>';
-  echo '<button id="myBtn" onclick="openEvent()">Open Event</button>';
+  echo '<button id="myBtn" onclick="openEvent()">OPEN</button>';
+  echo '<button id="delBtn" onclick="openEvent()">DELETE</button>';
 
   echo '</div>';
 
