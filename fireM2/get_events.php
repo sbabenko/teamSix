@@ -38,16 +38,13 @@ while ($row = @mysqli_fetch_assoc($result)){
   // Add to XML document node
   echo '<div class = "eventObject">';
 
-  //echo 'id="' . $row['id'] . '" ';
-  echo 'name="' . parseToXML($row['eventName']) . '" ';
-  //echo 'address="' . parseToXML($row['address']) . '" ';
-  //echo 'lat="' . $row['lat'] . '" ';
-  //echo 'lng="' . $row['lng'] . '" ';
-  //echo 'type="' . $row['type'] . '" ';
-  //echo '/>';
-
+  //gives the event object the name of the event
+  echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' . parseToXML($row['eventName']) . ' ';
+  
+  //produces the "open" and "delete" buttons in the event object
   echo '<br>';
   echo '<button id="myBtn" onclick="openEvent()">OPEN</button>';
+  echo '&nbsp&nbsp';
   echo '<button id="delBtn" onclick="openEvent()">DELETE</button>';
 
   echo '</div>';
