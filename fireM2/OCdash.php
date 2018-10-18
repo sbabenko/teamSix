@@ -116,7 +116,7 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Modal Header</h2>
+      <h2 id="m_hdr_msg">Modal Header</h2>
     </div>
     <div class="modal-body">
       <p>Some text in the Modal Body</p>
@@ -157,10 +157,17 @@ window.onclick = function(event) {
     }
 }
 
-function openEvent(ele,name){
+function openEvent(ele, eventID, eventName, lat, long, missionID){
   modal.style.display = "block";
+  document.getElementById("m_hdr_msg").innerHTML = eventName;
+  var iframe = document.createElement('iframe');
+  var html = '<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/streetview?location=38.7662%2C-77.2523&key=AIzaSyDbNu4nnoEfW9vB55Ns4Ud1jqxeLH13qpQ" allowfullscreen></iframe>';
+  document.body.appendChild(iframe);
+  iframe.contentWindow.document.open();
+  iframe.contentWindow.document.write(html);
+  iframe.contentWindow.document.close();
+  //
   var id = ele.id;
-  alert('area element id = ' + id);
 
 }
 
