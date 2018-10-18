@@ -5,4 +5,6 @@ delete from eventState;
 delete from eventNote;
 delete from mmEvent;
 delete from mission;
-delete from userAccount;
+
+#uncomment if account data must also be deleted
+#delete from userAccount;
