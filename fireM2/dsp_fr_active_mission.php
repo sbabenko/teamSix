@@ -2,23 +2,6 @@
   <div class = "missionPane">Mission Pane</div>
 </div>
 
-<?php
-$db_selected = mysqli_select_db( $mysqli ,"FIREM2");
-if (!$db_selected) {
-  die ('Can\'t use db : ' . mysqli_error());
-}
-
-// Select all the rows in the markers table
-$query = "SELECT * FROM mission";
-
-#$result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
-
-$result = $mysqli->query($query);
-if (!$result) {
-  die('Invalid query: ' . mysqli_error($mysqli));
-}
-
-?>
 
 <script>
 $(document).ready(function() {
