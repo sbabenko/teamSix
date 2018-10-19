@@ -178,7 +178,7 @@ function openEvent(ele, eventID, eventName, lat, long, missionID){
 
 
   var iframe = document.createElement('iframe');
-  iframe.setAttribute("style", "border-color:#FFFFFF;");
+  iframe.setAttribute("style", "margin: -40px 0px 80px 40px; width: 40%; height: 300px;");
   iframe.setAttribute("id", "iframe;");
   var modalBody = document.getElementById("modal-body")
   var html = '<iframe id = "small_map" width="700" height="650" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/streetview?location=38.7662%2C-77.2523&key=AIzaSyDbNu4nnoEfW9vB55Ns4Ud1jqxeLH13qpQ" allowfullscreen></iframe>';

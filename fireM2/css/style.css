@@ -504,14 +504,13 @@ textarea {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.322); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
 .modal-content {
   position: relative;
-  background-color: #fefefe;
   margin: auto;
   padding: 0;
   border: 1px solid #888;
@@ -593,3 +592,9 @@ textarea {
   color: #FFF7DD;
   text-decoration: none;
   font-size: 14px;
+}
+
+.modal-body{
+  background-color:rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 15px 14px rgba(13, 17, 19, 0.3);
+}
