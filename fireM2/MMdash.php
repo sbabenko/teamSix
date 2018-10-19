@@ -90,7 +90,7 @@ $(document).ready(function() {
     </div>
 
     <div id="HistoricalData" class ="tabs-2">   
-      <?php require 'dsp_fr_historical.php'; ?>   
+      <?php require 'dsp_mm_historical.php'; ?>   
     </div>
  
     <div id="MissionAssignment" class ="tabs-3">   
