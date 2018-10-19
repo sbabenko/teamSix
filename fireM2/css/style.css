@@ -604,6 +604,7 @@ textarea {
   /* display: none;  Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
+  color: #FFF7DD;
   padding-top: 100px; /* Location of the box */
   left: 30px;
   top: 80px;
@@ -611,7 +612,7 @@ textarea {
   height: 620px; /* same as side pane */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.322); /* Fallback color */
-  background-color: rgba(13, 17, 17, 0.6); /* Black w/ opacity */
+  background-color: rgba(45, 59, 59, 0.7); /* Black w/ opacity */
   box-shadow: inset 0px 0px 222px rgba(11, 14, 15, 0.9);
   
 }
@@ -622,9 +623,13 @@ textarea {
   padding: 0;
   border: 1px solid #888;
   width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s
+}
+
+.missionObject{
+  width: 40%;
 }
