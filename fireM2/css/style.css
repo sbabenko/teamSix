@@ -612,7 +612,8 @@ textarea {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.322); /* Fallback color */
   background-color: rgba(13, 17, 17, 0.6); /* Black w/ opacity */
-  box-shadow: inset 4px 25px 14px rgba(13, 17, 19, 0.8);
+  box-shadow: inset 0px 0px 222px rgba(11, 14, 15, 0.9);
+  
 }
 
 .FR_MissionAssignment-content {
