@@ -5,4 +5,6 @@ drop table eventState;
 drop table eventNote;
 drop table mmEvent;
 drop table mission;
-drop table userAccount;
+
+#uncomment if accounts must also be deleted
+#drop table userAccount;
