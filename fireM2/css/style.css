@@ -599,19 +599,20 @@ textarea {
   box-shadow: 0 4px 15px 14px rgba(13, 17, 19, 0.3);
 }
 
-.FR_MissionAssignment {
+.FR_MissionAssignment,.FR_HistoricalData,.FR_newMission,.FR_ActiveMissions {
   display: block;
   /* display: none;  Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  left: 30px;
+  top: 80px;
+  width: 75%; /* Full width */
+  height: 620px; /* same as side pane */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.322); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgba(13, 17, 17, 0.6); /* Black w/ opacity */
+  box-shadow: inset 4px 25px 14px rgba(13, 17, 19, 0.8);
 }
 
 .FR_MissionAssignment-content {
