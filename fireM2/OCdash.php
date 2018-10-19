@@ -147,7 +147,18 @@ btn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-    modal.style.display = "none";
+
+  //Removes all iframes (should just be one instance of 
+  //active iframes at any time for the 
+  //embedded modal maps)
+
+  var iframes = document.querySelectorAll('iframe');
+  for (var i = 0; i < iframes.length; i++) {
+    iframes[i].parentNode.removeChild(iframes[i]);
+  }
+
+  //sets modal to invisible
+  modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -160,14 +171,18 @@ window.onclick = function(event) {
 function openEvent(ele, eventID, eventName, lat, long, missionID){
   modal.style.display = "block";
   document.getElementById("m_hdr_msg").innerHTML = eventName;
+
+
   var iframe = document.createElement('iframe');
+  iframe.setAttribute("style", "border-color:#FFFFFF;");
+  iframe.setAttribute("id", "iframe;");
   var modalBody = document.getElementById("modal-body")
-  var html = '<iframe width="700" height="650" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/streetview?location=38.7662%2C-77.2523&key=AIzaSyDbNu4nnoEfW9vB55Ns4Ud1jqxeLH13qpQ" allowfullscreen></iframe>';
+  var html = '<iframe id = "small_map" width="700" height="650" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/streetview?location=38.7662%2C-77.2523&key=AIzaSyDbNu4nnoEfW9vB55Ns4Ud1jqxeLH13qpQ" allowfullscreen></iframe>';
+  
   modalBody.appendChild(iframe);
   iframe.contentWindow.document.open();
   iframe.contentWindow.document.write(html);
   iframe.contentWindow.document.close();
-  //
   var id = ele.id;
 
 }
