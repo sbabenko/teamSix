@@ -1,4 +1,4 @@
-<div class="FR_ActiveMissions">Active Missions
+<div class="FR_ActiveMissions">
   <div class = "missionPane">Mission Pane</div>
 </div>
 
