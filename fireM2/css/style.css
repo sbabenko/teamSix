@@ -638,10 +638,10 @@ textarea {
 .form-new-mission{
   z-index: 4;
   position: relative;
-  left: 60px;
-  top: 100px;
+  left: 160px;
+  top: 20px;
   padding: 30px;
-  max-width: 500px;
+  max-width: 600px;
   margin: 40px auto;
   border-radius: 4px;
   background-color: rgba(45, 59, 59, 0.7); /* Black w/ opacity */

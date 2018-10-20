@@ -1,11 +1,7 @@
-<div class="FR_newMission">New Missions</div>
+<div class="FR_newMission"> </div>
 
 <div class="form-new-mission">
-      
-      <ul class="tab-group-a">
-        <li class="tab-a">Sign Up</a></li>
-      </ul>
-      
+ 
       <div class="tab-content-a">
 
          <div id="login-a">   
@@ -28,16 +24,13 @@
           </div>
           
           <p class="forgot-a"><a href="forgot.php">Forgot Password?</a></p>
-          
-          <button class="button-a button-block-a" name="login" />Login</button>
-          
+
           </form>
 
         </div>
           
         <div id="signup">   
-          <h1>Enter Your Credentials</h1>
-          
+
           <form action="index.php" method="post" autocomplete="off">
           
           <div class="top-row">
@@ -70,7 +63,7 @@
             <input type="password"required autocomplete="off" name='password'/>
           </div>
           
-          <button type="submit" class="button button-block" name="register" />Register</button>
+          <button type="submit" class="button button-block" name="register" />Create Mission</button>
           
           </form>
 
