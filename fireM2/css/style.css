@@ -497,7 +497,7 @@ textarea {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 5; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
@@ -638,7 +638,7 @@ textarea {
 .form-new-mission{
   z-index: 4;
   position: relative;
-  left: 160px;
+  left: 210px;
   top: 20px;
   padding: 30px;
   max-width: 600px;
