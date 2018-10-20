@@ -1,36 +1,35 @@
-<p class="FR_newMission">New Missions</p>
+<div class="FR_newMission">New Missions</div>
 
-<div class="form">
+<div class="form-new-mission">
       
-      <ul class="tab-group">
-        <li class="tab"><a href="#signup">Sign Up</a></li>
-        <li class="tab active"><a href="#login">Login</a></li>
+      <ul class="tab-group-a">
+        <li class="tab-a">Sign Up</a></li>
       </ul>
       
-      <div class="tab-content">
+      <div class="tab-content-a">
 
-         <div id="login">   
-          <h1>Welcome</h1>
+         <div id="login-a">   
+          <h1>Enter a New Mission</h1>
           
           <form action="index.php" method="post" autocomplete="off">
           
-            <div class="field-wrap">
+            <div class="field-wrap-a">
             <label>
               Email Address<span class="req">*</span>
             </label>
             <input type="email" required autocomplete="off" name="email"/>
           </div>
           
-          <div class="field-wrap">
+          <div class="field-wrap-a">
             <label>
-              Password<span class="req">*</span>
+              Password<span class="req-a">*</span>
             </label>
             <input type="password" required autocomplete="off" name="password"/>
           </div>
           
-          <p class="forgot"><a href="forgot.php">Forgot Password?</a></p>
+          <p class="forgot-a"><a href="forgot.php">Forgot Password?</a></p>
           
-          <button class="button button-block" name="login" />Login</button>
+          <button class="button-a button-block-a" name="login" />Login</button>
           
           </form>
 

@@ -634,3 +634,16 @@ textarea {
   width: 40%;
   margin: 0px 0px 20px 650px;
 }
+
+.form-new-mission{
+  z-index: 4;
+  position: relative;
+  left: 60px;
+  top: 100px;
+  padding: 30px;
+  max-width: 500px;
+  margin: 40px auto;
+  border-radius: 4px;
+  background-color: rgba(45, 59, 59, 0.7); /* Black w/ opacity */
+  box-shadow: 0 4px 15px 14px rgba(13, 17, 19, 0.8);
+}
