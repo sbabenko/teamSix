@@ -1,5 +1,5 @@
 body {
-        background-color: #161A25;
+        background-color: rgba(22, 26, 37, 0);
         margin:0;
     }
     #logo {
@@ -230,4 +230,12 @@ body {
     div.container {
 
     margin-bottom: 1rem;
+    }
+
+    .carousel-control.left{
+        background-image: linear-gradient(to right,rgba(0, 0, 0, 0) 0,rgba(0, 0, 0, 0) 100%);
+    }
+
+    .carousel-control.right{
+        background-image: linear-gradient(to right,rgba(0, 0, 0, 0) 0,rgba(0, 0, 0, 0) 100%);
     }
