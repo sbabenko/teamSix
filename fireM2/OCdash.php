@@ -49,23 +49,6 @@ $(document).ready(function() {
         }
       });//end ajax call
     },100);//end setInterval
-
-});//end docReady 
-
-//ajax request for specific event data
-$(document).ready(function() {
-    setInterval(function(){
-       $.ajax({
-           url: "get_specific_event.php",
-           type: "GET",
-           dataType: "html",
-           success: function(html) {
-             //change this line to the DOM object you will throw the data into
-           $(".eventTables").html(html);
-        }
-      });//end ajax call
-    },100);//end setInterval
-
 });//end docReady 
 
 </script>
@@ -171,6 +154,19 @@ window.onclick = function(event) {
 function openEvent(ele, eventID, eventName, lat, long, missionID){
   modal.style.display = "block";
   document.getElementById("m_hdr_msg").innerHTML = eventName;
+
+  setInterval(function(){
+     $.ajax({
+           url: "get_specific_event.php",
+           type: "GET",
+           data: {eventID: eventID},
+           dataType: "html",
+           success: function(html) {
+             //change this line to the DOM object you will throw the data into
+           $(".eventTables").html(html);
+        }
+     });//end ajax call
+  },100);//end setInterval
 
   //Loads street view iframe and map
   var iframe = document.createElement('iframe');

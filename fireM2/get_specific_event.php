@@ -18,7 +18,7 @@ if (!$db_selected) {
 }
 
 //select specific event information
-$query = "SELECT * FROM mmEvent WHERE eventID = 7";
+$query = "SELECT * FROM mmEvent WHERE eventID = " . $_GET['eventID'];
 
 $result = $mysqli->query($query);
 if (!$result) {
@@ -68,7 +68,7 @@ echo '</table>';
 echo '<br>';
 
 //select event state information
-$query = "SELECT * FROM eventState WHERE eventID = 7 ORDER BY updateTime DESC";
+$query = "SELECT * FROM eventState WHERE eventID = " . $_GET['eventID'] . " ORDER BY updateTime DESC";
 
 $result = $mysqli->query($query);
 if (!$result) {
@@ -102,7 +102,7 @@ echo '</table>';
 echo '<br>';
 
 //select event notes information
-$query = "SELECT * FROM eventNote WHERE eventID = 7 ORDER BY createTime DESC";
+$query = "SELECT * FROM eventNote WHERE eventID = " . $_GET['eventID'] . " ORDER BY createTime DESC";
 
 $result = $mysqli->query($query);
 if (!$result) {
