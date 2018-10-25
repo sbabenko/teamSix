@@ -236,8 +236,13 @@ function openEvent(ele, eventID, eventName, lat, long, missionID){
   A.item(0).style.display = 'block';
 
   //Hides the side pane
+  if (selected === 1){  
+  var B = document.getElementsByClassName('sidePane');
+  B.item(0).style.display = '';
+    }else{
   var B = document.getElementsByClassName('sidePane');
   B.item(0).style.display = 'none';
+  }
 }
 </script>
 
