@@ -17,8 +17,8 @@ if (!$db_selected) {
   die ('Can\'t use db : ' . mysqli_error());
 }
 
-// Select all the rows in the markers table
-$query = "SELECT * FROM mmEvent WHERE missionID = 1";
+//select specific event information
+$query = "SELECT * FROM mmEvent WHERE eventID = 1";
 
 $result = $mysqli->query($query);
 if (!$result) {
@@ -35,6 +35,7 @@ echo "<div class = 'eventInfo'>";
 
 //create table of general information
 echo '<table>';
+echo '<th colspan="2">General Information</th>';
 
 //get general information for event
 $row = @mysqli_fetch_assoc($result);
@@ -43,6 +44,24 @@ $row = @mysqli_fetch_assoc($result);
 echo '<tr>';
 echo '<th>Latitude</th>';
 echo '<td>' . $row['latitude'] . '</td>';
+echo '</tr>';
+
+//longitude information
+echo '<tr>';
+echo '<th>Longitude</th>';
+echo '<td>' . $row['longitude'] . '</td>';
+echo '</tr>';
+
+//category information
+echo '<tr>';
+echo '<th>Category</th>';
+echo '<td>' . $row['category'] . '</td>';
+echo '</tr>';
+
+//report submission information
+echo '<tr>';
+echo '<th>Submission Method</th>';
+echo '<td>' . $row['submitMethod'] . '</td>';
 echo '</tr>';
 
 // End XML file
