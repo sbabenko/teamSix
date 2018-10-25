@@ -65,10 +65,10 @@ echo '<td>' . $row['submitMethod'] . '</td>';
 echo '</tr>';
 echo '</table>';
 
-echo '<br><br>';
+echo '<br>';
 
 //select event state information
-$query = "SELECT * FROM eventState WHERE eventID = 7 ORDER BY updateTime";
+$query = "SELECT * FROM eventState WHERE eventID = 7 ORDER BY updateTime DESC";
 
 $result = $mysqli->query($query);
 if (!$result) {
@@ -91,6 +91,40 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '<tr>';
   echo '<td>' . $row["updateTime"] . '</td>';
   echo '<td>' . $row["state"] . "</td>";
+  echo '</tr>';
+
+  //increment counter
+  $ind = $ind + 1;
+}
+
+echo '</table>';
+
+echo '<br>';
+
+//select event notes information
+$query = "SELECT * FROM eventNote WHERE eventID = 7 ORDER BY createTime DESC";
+
+$result = $mysqli->query($query);
+if (!$result) {
+  die('Invalid query: ' . mysqli_error($mysqli));
+}
+
+//initialize counter
+$ind=0;
+
+//create table of state changes
+echo '<table>';
+echo '<tr><th colspan="2">Written Notes</th></tr>';
+echo '<tr>';
+echo '<th>Timestamp</th>';
+echo '<th>Note</th>';
+echo '</tr>';
+
+//iterate through each row and add state change to table
+while ($row = @mysqli_fetch_assoc($result)){
+  echo '<tr>';
+  echo '<td>' . $row["createTime"] . '</td>';
+  echo '<td>' . $row["description"] . "</td>";
   echo '</tr>';
 
   //increment counter

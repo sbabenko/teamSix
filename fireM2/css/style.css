@@ -651,10 +651,10 @@ textarea {
 
 .eventInfo{
     text-align: center;
-    padding: 30px;
 }
 
 .eventInfo table{
+    margin: 10px;
     width: 50%; 
     background-color: #f1f1c1;
     border: 1px solid white;
