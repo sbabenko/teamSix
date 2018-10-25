@@ -18,7 +18,7 @@ if (!$db_selected) {
 }
 
 //select specific event information
-$query = "SELECT * FROM mmEvent WHERE eventID = 1";
+$query = "SELECT * FROM mmEvent WHERE eventID = 7";
 
 $result = $mysqli->query($query);
 if (!$result) {
@@ -35,7 +35,7 @@ echo "<div class = 'eventInfo'>";
 
 //create table of general information
 echo '<table>';
-echo '<th colspan="2">General Information</th>';
+echo '<tr><th colspan="2">General Information</th></tr>';
 
 //get general information for event
 $row = @mysqli_fetch_assoc($result);
@@ -63,9 +63,43 @@ echo '<tr>';
 echo '<th>Submission Method</th>';
 echo '<td>' . $row['submitMethod'] . '</td>';
 echo '</tr>';
+echo '</table>';
+
+echo '<br><br>';
+
+//select event state information
+$query = "SELECT * FROM eventState WHERE eventID = 7 ORDER BY updateTime";
+
+$result = $mysqli->query($query);
+if (!$result) {
+  die('Invalid query: ' . mysqli_error($mysqli));
+}
+
+//initialize counter
+$ind=0;
+
+//create table of state changes
+echo '<table>';
+echo '<tr><th colspan="2">Changes in State</th></tr>';
+echo '<tr>';
+echo '<th>Timestamp</th>';
+echo '<th>State</th>';
+echo '</tr>';
+
+//iterate through each row and add state change to table
+while ($row = @mysqli_fetch_assoc($result)){
+  echo '<tr>';
+  echo '<td>' . $row["updateTime"] . '</td>';
+  echo '<td>' . $row["state"] . "</td>";
+  echo '</tr>';
+
+  //increment counter
+  $ind = $ind + 1;
+}
+
+echo '</table>';
 
 // End XML file
-echo '</table>';
 echo '</div>';
 
 ?>
