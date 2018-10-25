@@ -218,6 +218,10 @@ function openEvent(ele, eventID, eventName, lat, long, missionID){
   //document.getElementById('tabs-' + selected).style.display = 'block';
   var A = document.getElementsByClassName('tabs-' + selected);//.style.display = 'none';
   A.item(0).style.display = 'block';
+
+  //Hides the side pane
+  var B = document.getElementsByClassName('sidePane');
+  B.item(0).style.display = 'none';
 }
 </script>
 
