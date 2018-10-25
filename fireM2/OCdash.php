@@ -37,23 +37,6 @@ else {
 
 <!-- CONTENT GOES BELOW HERE -->
 
-<?php
-// Set the active MySQL database
-$db_selected = mysqli_select_db($mysqli ,"FIREM2");
-if (!$db_selected) {
-  die ('Can\'t use db : ' . mysqli_error());
-}
-
-// Select all the rows in the markers table
-$query = "SELECT * FROM mmEvent";
-
-$result = $mysqli->query($query);
-if (!$result) {
-  die('Invalid query: ' . mysqli_error($mysqli));
-}
-
-?>
-
 <script>
 $(document).ready(function() {
     setInterval(function(){
@@ -69,16 +52,16 @@ $(document).ready(function() {
 
 });//end docReady 
 
-//For aditya
+//ajax request for specific event data
 $(document).ready(function() {
     setInterval(function(){
        $.ajax({
-           url: "get_modal_data.php",
+           url: "get_specific_event.php",
            type: "GET",
            dataType: "html",
            success: function(html) {
              //change this line to the DOM object you will throw the data into
-           $(".sidePane").html(html);
+           $(".modal-body").html(html);
         }
       });//end ajax call
     },100);//end setInterval
