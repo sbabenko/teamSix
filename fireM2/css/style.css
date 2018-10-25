@@ -648,3 +648,15 @@ textarea {
   background-color: rgba(45, 59, 59, 0.7); /* Black w/ opacity */
   box-shadow: 0 4px 15px 14px rgba(13, 17, 19, 0.8);
 }
+
+.eventInfo{
+    text-align: center;
+}
+
+.eventInfo table{
+    margin: 10px;
+    width: 50%; 
+    background-color: #f1f1c1;
+    border: 1px solid white;
+    display: inline-block;
+}

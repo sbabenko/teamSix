@@ -37,23 +37,6 @@ else {
 
 <!-- CONTENT GOES BELOW HERE -->
 
-<?php
-// Set the active MySQL database
-$db_selected = mysqli_select_db($mysqli ,"FIREM2");
-if (!$db_selected) {
-  die ('Can\'t use db : ' . mysqli_error());
-}
-
-// Select all the rows in the markers table
-$query = "SELECT * FROM mmEvent";
-
-$result = $mysqli->query($query);
-if (!$result) {
-  die('Invalid query: ' . mysqli_error($mysqli));
-}
-
-?>
-
 <script>
 $(document).ready(function() {
     setInterval(function(){
@@ -66,23 +49,6 @@ $(document).ready(function() {
         }
       });//end ajax call
     },100);//end setInterval
-
-});//end docReady 
-
-//For aditya
-$(document).ready(function() {
-    setInterval(function(){
-       $.ajax({
-           url: "get_modal_data.php",
-           type: "GET",
-           dataType: "html",
-           success: function(html) {
-             //change this line to the DOM object you will throw the data into
-           $(".sidePane").html(html);
-        }
-      });//end ajax call
-    },100);//end setInterval
-
 });//end docReady 
 
 </script>
@@ -137,9 +103,7 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
       <h2 id="m_hdr_msg">Modal Header</h2>
     </div>
     <div id="modal-body" class="modal-body">
-      <p id="eventInfo">Information about Event</p>
-      <p id="eventStates">State changes of Event</p>
-      <p id="eventNotes">Written notes about Event</p>
+      <div class="eventTables"></div>
     </div>
     <div class="modal-footer">
       <h3>Modal Footer</h3>
@@ -190,9 +154,19 @@ window.onclick = function(event) {
 function openEvent(ele, eventID, eventName, lat, long, missionID){
   modal.style.display = "block";
   document.getElementById("m_hdr_msg").innerHTML = eventName;
-  document.getElementById("eventInfo").innerHTML = "test<br>testing";
-  document.getElementById("eventStates").innerHTML = "test";
-  document.getElementById("eventNotes").innerHTML = "test";
+
+  setInterval(function(){
+     $.ajax({
+           url: "get_specific_event.php",
+           type: "GET",
+           data: {eventID: eventID},
+           dataType: "html",
+           success: function(html) {
+             //change this line to the DOM object you will throw the data into
+           $(".eventTables").html(html);
+        }
+     });//end ajax call
+  },100);//end setInterval
 
   //Loads street view iframe and map
   var iframe = document.createElement('iframe');
