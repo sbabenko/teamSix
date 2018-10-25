@@ -114,6 +114,9 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
 
 
 <script>
+//intialize interval to display event to null
+var displayEvent = null;
+
 // Get the modal
 var modal = document.getElementById('myModal');
 
@@ -146,16 +149,26 @@ span.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 
 function openEvent(ele, eventID, eventName, lat, long, missionID){
   modal.style.display = "block";
   document.getElementById("m_hdr_msg").innerHTML = eventName;
 
-  setInterval(function(){
+  //another event is already being displayed, so terminate it
+  if(displayEvent != null){
+      //stop the existing ajax request interval
+      clearInterval(displayEvent);
+      
+      //reset the interval to display event to null
+      displayEvent = null;
+  }
+
+  //display new event
+  displayEvent = setInterval(function(){
      $.ajax({
            url: "get_specific_event.php",
            type: "GET",
