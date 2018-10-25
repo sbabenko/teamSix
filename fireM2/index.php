@@ -33,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   <div class="form">
       
       <ul class="tab-group">
-        <li class="tab"><a href="#signup">Sign Up</a></li>
-        <li class="tab active"><a href="#login">Login</a></li>
+       <!--<li class="tab"><a href="#signup">Sign Up</a></li>
+        <li class="tab active"><a href="#login">Login</a></li>-->
       </ul>
       
       <div class="tab-content">
