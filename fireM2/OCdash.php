@@ -65,7 +65,23 @@ $(document).ready(function() {
            $(".sidePane").html(html);
         }
       });//end ajax call
-    },1000);//end setInterval
+    },100);//end setInterval
+
+});//end docReady 
+
+//For aditya
+$(document).ready(function() {
+    setInterval(function(){
+       $.ajax({
+           url: "get_modal_data.php",
+           type: "GET",
+           dataType: "html",
+           success: function(html) {
+             //change this line to the DOM object you will throw the data into
+           $(".sidePane").html(html);
+        }
+      });//end ajax call
+    },100);//end setInterval
 
 });//end docReady 
 
