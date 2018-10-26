@@ -1,5 +1,5 @@
-<div class="FR_HistoricalData">
-    <div class = "chart-container">
+<div class = "FR_HistoricalData">
+    <div class = "charts">
         <canvas id = "incomingDataLineGraph"></canvas>
     </div>
 </div>
