@@ -624,6 +624,10 @@ textarea {
     background-color: #f1f1c1;
 }
 
+#incomingDataLineGraph{
+    padding: 10px;
+}
+
 .FR_MissionAssignment-content {
   position: relative;
   margin: auto;

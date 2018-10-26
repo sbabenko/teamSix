@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var lineGraphData = null;
+    var graph = null;
     
     setInterval(function(){        
         $.ajax({
@@ -9,35 +10,70 @@ $(document).ready(function(){
                 //don't refresh graph if data did not change
                 //https://www.w3schools.com/js/js_json_stringify.asp
                 if(JSON.stringify(data) != JSON.stringify(lineGraphData)){
-                    var timeInterval = [];
-                    var quantity = [];
-
-                    for(var i in data) {
-                        timeInterval.push("UserID " + data[i].timeInterval);
-                        quantity.push(data[i].quantity);
+                    if(graph != null){
+                        graph.destroy();
                     }
 
-                    var chartdata = {
-                        labels: timeInterval,
-                        datasets: [
-                            {
-                                label: "googleplus",
-                                fill: false,
-                                lineTension: 0.1,
-                                backgroundColor: "rgba(211, 72, 54, 0.75)",
-                                borderColor: "rgba(211, 72, 54, 1)",
-                                pointHoverBackgroundColor: "rgba(211, 72, 54, 1)",
-                                pointHoverBorderColor: "rgba(211, 72, 54, 1)",
-                                data: quantity
-                            }
-                        ]
-                    };
-
+                    var points = [];
+                    for(var i in data){
+                        var pair = {x: data[i].timeInterval, y: data[i].quantity};
+                        points.push(pair);
+                    }
+                    
                     var ctx = $("#incomingDataLineGraph");
-
-                    var LineGraph = new Chart(ctx, {
-                        type: 'line',
-                        data: chartdata
+                    
+                    //http://www.chartjs.org/docs/latest/charts/scatter.html
+                    graph = new Chart(ctx, {
+                        type: 'scatter',
+                        data: {
+                            datasets: [{
+                                data: points
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Incoming Events Over Past 24 Hours'
+                            },
+                            legend: {
+                                display: false
+                            },
+                            scales: {
+                                xAxes: [{
+                                    type: 'linear',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Hours since Current Time'
+                                    },
+                                    ticks: {
+                                        min: 0,
+                                        max: 23,
+                                        stepSize: 1
+                                    }
+                                }],
+                                yAxes: [{
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Number of Events'
+                                    },
+                                    ticks: {
+                                        min: 0,
+                                        stepSize: 5
+                                    }
+                                }]
+                            },
+                            //https://codepen.io/k3no/pen/OReEKx?editors=0010
+                            tooltips: {
+                                callbacks: {
+                                    label: function(tooltipItem) {
+                                        return "Between " + Number(tooltipItem.xLabel) + "-" + Number(tooltipItem.xLabel + 1)
+                                            + " hours: " + Number(tooltipItem.yLabel) + " events";
+                                    }
+                                }
+                            },
+                        }
                     });
                     
                     lineGraphData = data;

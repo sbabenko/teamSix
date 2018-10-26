@@ -18,7 +18,7 @@ if (!$db_selected) {
 }
 
 // Select all unassigned events
-$query = "SELECT * FROM mmEvent where missionID IS NOT NULL";
+$query = "SELECT * FROM mmEvent where missionID IS NULL";
 
 $result = $mysqli->query($query);
 if (!$result) {
