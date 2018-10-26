@@ -11,10 +11,10 @@ if (!$db_selected) {
 }
 
 //Select number of events within last day
-$query = "select hour(timediff(now(), updateTime)) as timeInterval, count(*) as quantity
+$query = "select hour(timediff(now(), updateTime)) as elapsedTime, count(*) as quantity
             from eventState
             where updateTime > date_sub(now(), interval 1 day) and state = 'reported'
-            group by timeInterval;";
+            group by elapsedTime;";
 
 //execute query
 $result = $mysqli->query($query);

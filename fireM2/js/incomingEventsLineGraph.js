@@ -15,9 +15,13 @@ $(document).ready(function(){
                     }
 
                     var points = [];
-                    for(var i in data){
-                        var pair = {x: data[i].timeInterval, y: data[i].quantity};
+                    for(var i = 0; i < 24; i++){
+                        var pair = {x: i, y: 0};
                         points.push(pair);
+                    }
+                    
+                    for(var i in data){
+                        points[data[i].elapsedTime].y = data[i].quantity;
                     }
                     
                     var ctx = $("#incomingDataLineGraph");
