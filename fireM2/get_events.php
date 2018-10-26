@@ -17,10 +17,8 @@ if (!$db_selected) {
   die ('Can\'t use db : ' . mysqli_error());
 }
 
-// Select all the rows in the markers table
-$query = "SELECT * FROM mmEvent";
-
-#$result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
+// Select all unassigned events
+$query = "SELECT * FROM mmEvent where missionID IS NOT NULL";
 
 $result = $mysqli->query($query);
 if (!$result) {

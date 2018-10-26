@@ -38,18 +38,43 @@ else {
 <!-- CONTENT GOES BELOW HERE -->
 
 <script>
+//variable to store eventID of information module
+var eID = null;
+    
 $(document).ready(function() {
+    var currSidePane = null;
+    var currEventModal = null;
+    
     setInterval(function(){
        $.ajax({
            url: "get_events.php",
            type: "GET",
            dataType: "html",
            success: function(html) {
-           $(".sidePane").html(html);
+               if(html != currSidePane){
+                  $(".sidePane").html(html);
+                  currSidePane = html;
+               }
         }
       });//end ajax call
-    },100);//end setInterval
-});//end docReady 
+    },1000);//end setInterval
+    
+    //display new event
+    setInterval(function(){
+        $.ajax({
+           url: "get_specific_event.php",
+           type: "GET",
+           data: {eventID: eID},
+           dataType: "html",
+           success: function(html) {
+               if(html != currEventModal){
+                  $(".eventTables").html(html);
+                  currEventModal = html;
+               }
+        }
+      });//end ajax call
+     },100);//end setInterval
+});//end docReady
 
 </script>
 
@@ -114,9 +139,6 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
 
 
 <script>
-//intialize interval to display event to null
-var displayEvent = null;
-
 // Get the modal
 var modal = document.getElementById('myModal');
 
@@ -158,28 +180,7 @@ function openEvent(ele, eventID, eventName, lat, long, missionID){
   modal.style.display = "block";
   document.getElementById("m_hdr_msg").innerHTML = eventName;
 
-  //another event is already being displayed, so terminate it
-  if(displayEvent != null){
-      //stop the existing ajax request interval
-      clearInterval(displayEvent);
-      
-      //reset the interval to display event to null
-      displayEvent = null;
-  }
-
-  //display new event
-  displayEvent = setInterval(function(){
-     $.ajax({
-           url: "get_specific_event.php",
-           type: "GET",
-           data: {eventID: eventID},
-           dataType: "html",
-           success: function(html) {
-             //change this line to the DOM object you will throw the data into
-           $(".eventTables").html(html);
-        }
-     });//end ajax call
-  },100);//end setInterval
+  eID = eventID;
 
   //Loads street view iframe and map
   var iframe = document.createElement('iframe');
@@ -204,9 +205,6 @@ function openEvent(ele, eventID, eventName, lat, long, missionID){
   iframe.contentWindow.document.open();
   iframe.contentWindow.document.write(html);
   iframe.contentWindow.document.close();
-
-  var id = ele.id;
-
 }
 
 </script>
