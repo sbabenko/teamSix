@@ -22,18 +22,17 @@ create table mmEvent
 #table to store event state changes
 create table eventState
 	(eventID int,
-    updateTime datetime not null,
+    updateTime datetime,
     state enum('reported', 'assigned', 'in progress', 'on hold', 'completed') not null,
     primary key (eventID, updateTime),
     foreign key (eventID) references mmEvent (eventID));
 
 #table to store written notes about events
 create table eventNote
-	(noteID int auto_increment,
-    eventID int not null,
-    createTime datetime not null,
+	(eventID int,
+    createTime datetime,
 	description varchar(120) not null,
-    primary key (noteID),
+    primary key (eventID, createTime),
     foreign key (eventID) references mmEvent (eventID));
 
 #table to store resources not assigned to any mission
