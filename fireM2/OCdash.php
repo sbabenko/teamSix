@@ -48,7 +48,7 @@ $(document).ready(function() {
            $(".sidePane").html(html);
         }
       });//end ajax call
-    },100);//end setInterval
+    },400);//end setInterval
 });//end docReady 
 
 </script>
