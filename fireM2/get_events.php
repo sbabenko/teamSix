@@ -45,7 +45,7 @@ while ($row = @mysqli_fetch_assoc($result)){
                                                       . $row["eventName"] . '`,'
                                                       . $row["latitude"] . ','
                                                       . $row["longitude"] .','
-                                                      . $row["missionID"] 
+                                                      . $row["missionID"]
                                                       . ')">OPEN</button>';
   echo '&nbsp&nbsp';
   echo '<button id="delBtn" onclick="openEvent(this, ' . $row["eventID"] .')">DELETE</button>';
