@@ -30,7 +30,6 @@ else {
   <meta charset="UTF-8">
   <title>Welcome <?= $first_name.' '.$last_name ?></title>
   <?php include 'css/css.html'; ?>
-  <?php include 'css/dashboard_css.html'; ?>
 </head>
 
 <body>

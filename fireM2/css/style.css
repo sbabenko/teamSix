@@ -601,19 +601,18 @@ textarea {
 
 .FR_MissionAssignment,.FR_HistoricalData,.FR_newMission,.FR_ActiveMissions {
   display: block;
-  /* display: none;  Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   color: #FFF7DD;
   padding-top: 100px; /* Location of the box */
   left: 30px;
   top: 80px;
-  width: 75%; /* Full width */
+  width: 100%; /* Full width */
   height: 620px; /* same as side pane */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.322); /* Fallback color */
   background-color: rgba(45, 59, 59, 0.7); /* Black w/ opacity */
-  box-shadow: inset 0px 0px 222px rgba(11, 14, 15, 0.9); 
+  box-shadow: inset 0px 0px 222px rgba(11, 14, 15, 0.9);
 }
 
 .charts{
