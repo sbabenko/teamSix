@@ -1,4 +1,4 @@
-<div class = "FR_HistoricalData">
+<div class = "contentPanel">
     <div class = "charts">
     	<canvas id = "incomingDataLineGraph"></canvas>
         <canvas id = "incomingDoughnutGraph"></canvas>

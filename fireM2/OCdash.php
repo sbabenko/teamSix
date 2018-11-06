@@ -67,19 +67,19 @@ $(document).ready(function() {
     </div>
 
     <div id="CreateMission" class ="tabs-2">   
-      <?php require 'dsp_fr_historical.php'; ?>   
+      <?php require 'oc_create_mission.php'; ?>   
     </div>
  
     <div id="AssignToMission" class ="tabs-3">   
-      <?php require 'dsp_fr_mission_assign.php'; ?>   
+      <?php require 'oc_assign_mission.php'; ?>   
     </div>  
 
     <div id="MissionInformation" class ="tabs-4">   
-      <?php require 'dsp_fr_new_mission.php'; ?> 
+      <?php require 'oc_mission_info.php'; ?> 
     </div>  
 
     <div id="DataVisualization" class ="tabs-5">   
-      <?php require 'dsp_fr_active_mission.php'; ?> 
+      <?php require 'oc_data_visualization.php'; ?> 
     </div>  
 
   </div><!-- tab-content -->

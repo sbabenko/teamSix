@@ -599,7 +599,7 @@ textarea {
   box-shadow: 0 4px 15px 14px rgba(13, 17, 19, 0.3);
 }
 
-.FR_MissionAssignment,.FR_HistoricalData,.FR_newMission,.FR_ActiveMissions {
+.contentPanel {
   display: block;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
