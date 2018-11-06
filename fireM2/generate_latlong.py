@@ -12,6 +12,7 @@ def generate_data(event_type, number_of_events, radius, event_time):
     print("Time per Event: ", event_time)
 
     bm = Basemap()
+    # For testing purposes: to check it coordinates are valid land coordinates.
     # print(bm.is_land(long, lat))
 
     # Predetermined long and lat of disaster:
@@ -135,18 +136,18 @@ def main():
         else:
             print("Please specify a number greater than 0.")
     else:
-        print("Usage --type [type] --total_events [num]")
-        print("Type was not passed (please note, case sensitive). Please see usage below:\n")
-        print("create_events.py --type Hurricane --total_events [num]")
-        print("create_events.py --type Flood --total_events [num]")
-        print("create_events.py --type Tsunami --total_events [num]")
-        print("create_events.py --type Fire --total_events [num]")
-        print("create_events.py --type Earthquake --total_events [num]")
-        print("create_events.py --type Landslide --total_events [num]")
-        print("create_events.py --type Sinkhole --total_events [num]")
-        print("create_events.py --type Volcano --total_events [num]")
-        print("create_events.py --type Tornado --total_events [num]")
-        print("create_events.py --type NaturalGas --total_events [num]\n")
+        print("Usage --type [type] --total_events [int] --radius [int] --time [float]")
+        print("Type was not passed (please note, case sensitive). See usage below:\n")
+        print("create_events.py --type Hurricane --total_events [int] --radius [int] --time [float]")
+        print("create_events.py --type Flood --total_events [int] --radius [int] --time [float]")
+        print("create_events.py --type Tsunami --total_events [int] --radius [int] --time [float]")
+        print("create_events.py --type Fire --total_events [int] --radius [int] --time [float]")
+        print("create_events.py --type Earthquake --total_events [int] --radius [int] --time [float]")
+        print("create_events.py --type Landslide --total_events [int] --radius [int] --time [float]")
+        print("create_events.py --type Sinkhole --total_events [int] --radius [int] --time [float]")
+        print("create_events.py --type Volcano --total_events [int] --radius [int] --time [float]")
+        print("create_events.py --type Tornado --total_events [int] --radius [int] --time [float]")
+        print("create_events.py --type NaturalGas --total_events [int] --radius [int] --time [float]\n")
 
 
 if __name__ == '__main__':
