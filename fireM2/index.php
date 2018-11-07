@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 <br>
   <div class="form"> 
          <div id="login">   
+         <br> <br> <br> 
           <h1>Welcome</h1>
           
           <form action="index.php" method="post" autocomplete="off">
