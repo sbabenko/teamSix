@@ -6,4 +6,10 @@ if(!defined('OC_Tab')) {
 }
 ?>
 
+<script>
+  function loadAssignMission(){
+    console.log("load table");
+  }
+</script>
+
 <div class = "contentPanel">OC Assign to Mission</div>

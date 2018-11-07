@@ -58,7 +58,7 @@ $(document).ready(function() {
   <ul class="dashboard-tab">
         <li class="tab active" onclick="showTab(1,5)"><a href="#IncidentMap">Incident Map</a></li>
         <li class="tab" onclick="showTab(2,5)"><a href="#CreateMission">Create Mission</a></li>
-        <li class="tab" onclick="showTab(3,5)"><a href="#AssignToMission">Assign to Mission</a></li>
+        <li class="tab" onclick="showTab(3,5); loadAssignMission();"><a href="#AssignToMission">Assign to Mission</a></li>
         <li class="tab" onclick="showTab(4,5)"><a href="#MissionInformation">Mission Information</a></li>
         <li class="tab" onclick="showTab(5,5)"><a href="#DataVisualization">Data Visualization</a></li>
         <li class="statictab digital-clock">Clock</li>
