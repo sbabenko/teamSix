@@ -22,6 +22,9 @@ else {
     $active = $_SESSION['active'];
 }
 
+//define constant to prevent direct access to PHP files containing tab contents
+//https://stackoverflow.com/questions/409496/prevent-direct-access-to-a-php-include-file
+define('OC_Tab', TRUE);
 ?>
 
 <!DOCTYPE html>
