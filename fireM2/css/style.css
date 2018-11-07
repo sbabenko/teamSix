@@ -33,6 +33,7 @@ a:hover {
   top: 100px;
   padding: 30px;
   max-width: 300px;
+  height: 500px;
   margin: 40px auto;
   border-radius: 4px;
   box-shadow: 0 4px 15px 14px rgba(13, 17, 19, 0.3);
