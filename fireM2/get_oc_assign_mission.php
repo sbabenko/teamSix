@@ -47,12 +47,14 @@ $ind=0;
 while ($row = @mysqli_fetch_assoc($result)){
   echo '<tr>';
   echo '<td>' . $row["eventName"] . '</td>';
+  echo '<td><input type="checkbox"></td>';
   echo '</tr>';
 
   $ind = $ind + 1;
 }
 
 echo '</table>';
+echo '<input type="checkbox" value="true"> hello';
 
 // End XML file
 echo '</div>';
