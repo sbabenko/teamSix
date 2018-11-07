@@ -8,8 +8,15 @@ if(!defined('OC_Tab')) {
 
 <script>
   function loadAssignMission(){
-    console.log("load table");
+    $.ajax({
+      url: "get_events.php",
+      type: "GET",
+      dataType: "html",
+      success: function(html) {
+        $("#loadAssignMission").html(html);
+      }
+    })
   }
 </script>
 
-<div class = "contentPanel">OC Assign to Mission</div>
+<div class = "contentPanel" id = "loadAssignMission">OC Assign to Mission</div>
