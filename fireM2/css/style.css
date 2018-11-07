@@ -665,6 +665,7 @@ textarea {
     margin: 10px;
     width: 50%; 
     background-color: #f1f1c1;
+    color: #000000;
     border: 1px solid white;
     display: inline-block;
 }
