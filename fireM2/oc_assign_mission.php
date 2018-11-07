@@ -9,7 +9,7 @@ if(!defined('OC_Tab')) {
 <script>
   function loadAssignMission(){
     $.ajax({
-      url: "get_events.php",
+      url: "get_oc_assign_mission.php",
       type: "GET",
       dataType: "html",
       success: function(html) {
