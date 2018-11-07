@@ -8,6 +8,20 @@ if(!defined('OC_Tab')) {
 
 <div class = "contentPanel">
 
+<script>
+$(document).ready(function() {
+    setInterval(function(){
+       $.ajax({
+           url: "get_resources.php",
+           type: "GET",
+           dataType: "html",
+           success: function(html) {
+           $(".resourcesPane").html(html);
+        }
+      });//end ajax call
+    },1000);//end setInterval
+});//end docReady 
+</script>
 
 <?php
 // define variables and set to empty values
@@ -71,7 +85,9 @@ function test_input($data) {
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
   Name: <input type="text" name="name" value="<?php echo $name;?>">
   <span class="error">* <?php echo $nameErr;?></span>
-  <br><br>
+  <br>
+  <div class = "resourcesPane">Resources Pane</div>
+  <br>
   E-mail: <input type="text" name="email" value="<?php echo $email;?>">
   <span class="error">* <?php echo $emailErr;?></span>
   <br><br>
