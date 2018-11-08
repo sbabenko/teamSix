@@ -343,18 +343,15 @@
 
                 var marker = new google.maps.Marker({
                     map: map,
-                    position: latLong
+                    position: latLong,
+                    title: mapData.features[i].properties.name
                 });
-                
+
                 markers.push(marker);
 
-                markers[i].addListener('click', function() {                    
-                    infowindow.setContent("test");
-                    infowindow.setPosition(latLong);
-                    infowindow.setOptions({
-                        pixelOffset: new google.maps.Size(0, -34)
-                    });
-                    infowindow.open(map, markers[i]);
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.setContent(this.title);
+                    infowindow.open(map, this);
                 });
 
                 heatMapData.push(latLong);
@@ -366,11 +363,11 @@
                 data: pointArray
             });
 
-            for (var i = 0; i < markers.length; i++){
+            for (var i = 0; i < markers.length; i++) {
                 markers[i].setMap(true ? map : null);
             }
-            
-            heatmap.setMap(true ? null: map);
+
+            heatmap.setMap(true ? null : map);
         }
 
         $.ajax({
