@@ -59,7 +59,7 @@ window.onclick = function(event) {
   }
 }
 
-function openEvent(ele, eventID, eventName, lat, long, missionID){
+function openEvent(ele, eventID, eventName){
   modal.style.display = "block";
   document.getElementById("m_hdr_msg").innerHTML = eventName;
 

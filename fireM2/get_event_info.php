@@ -34,7 +34,7 @@ echo "<?xml version='1.0' ?>";
 echo "<div class = 'eventInfo'>";
 
 //create table of general information
-echo '<h1>General Information</h1>';
+echo '<h2>General Information</h2>';
 echo '<table>';
 
 //get general information for event
@@ -75,11 +75,8 @@ if (!$result) {
   die('Invalid query: ' . mysqli_error($mysqli));
 }
 
-//initialize counter
-$ind=0;
-
 //create table of state changes
-echo '<h1>Changes in State</h1>';
+echo '<h2>Changes in State</h2>';
 echo '<table>';
 echo '<tr>';
 echo '<th>Timestamp</th>';
@@ -92,9 +89,6 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '<td>' . $row["updateTime"] . '</td>';
   echo '<td>' . $row["state"] . "</td>";
   echo '</tr>';
-
-  //increment counter
-  $ind = $ind + 1;
 }
 
 echo '</table>';
@@ -109,11 +103,8 @@ if (!$result) {
   die('Invalid query: ' . mysqli_error($mysqli));
 }
 
-//initialize counter
-$ind=0;
-
 //create table of written notes
-echo '<h1>Written Notes</h1>';
+echo '<h2>Written Notes</h2>';
 echo '<table>';
 echo '<tr>';
 echo '<th>Timestamp</th>';
@@ -126,9 +117,6 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '<td>' . $row["createTime"] . '</td>';
   echo '<td>' . $row["description"] . "</td>";
   echo '</tr>';
-
-  //increment counter
-  $ind = $ind + 1;
 }
 
 echo '</table>';

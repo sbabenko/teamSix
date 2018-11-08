@@ -63,8 +63,7 @@ echo '</tr>';
 while ($row = @mysqli_fetch_assoc($result)){
   echo '<tr>';
   echo '<td><a href="javascript:openEvent(this, ' . $row["eventID"] . ',`' 
-                                                  . $row["eventName"] . '`,'
-                                                  . '0, 0, 0)">';
+                                                  . $row["eventName"] . '`)">';
   
   echo $row["eventName"];
   echo '</a></td>';
