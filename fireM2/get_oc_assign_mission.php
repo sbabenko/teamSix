@@ -17,6 +17,23 @@ if (!$db_selected) {
   die ('Can\'t use db : ' . mysqli_error());
 }
 
+// Select all missions
+$query = "SELECT * FROM mission";
+
+$result = $mysqli->query($query);
+if (!$result) {
+  die('Invalid query: ' . mysqli_error($mysqli));
+}
+
+$dropdown = '<select><option value = "none"></option>';
+
+while ($row = @mysqli_fetch_assoc($result)){
+  $dropdown = $dropdown . '<option value="' . $row["missionID"] . '">' .
+              $row["missionName"] . '</option>';
+}
+
+$dropdown = $dropdown . '</select>';
+
 // Select all unassigned events
 $query = "SELECT * FROM mmEvent where missionID IS NULL";
 
@@ -34,7 +51,7 @@ echo "<?xml version='1.0' ?>";
 echo "<div class = 'eventInfo'>";
 
 //create table of general information
-echo '<h1>Assign to Mission</h1>';
+echo '<h2>Assign to Mission</h2>';
 echo '<table>';
 echo '<tr>';
 echo '<th>Event Name</th>';
@@ -42,19 +59,16 @@ echo '<th>Mission Name</th>';
 echo '<th>Delete?</th>';
 echo '</tr>';
 
-$ind=0;
 // Iterate through the rows
 while ($row = @mysqli_fetch_assoc($result)){
   echo '<tr>';
   echo '<td>' . $row["eventName"] . '</td>';
+  echo '<td>' . $dropdown . '</td>';
   echo '<td><input type="checkbox"></td>';
   echo '</tr>';
-
-  $ind = $ind + 1;
 }
 
 echo '</table>';
-echo '<input type="checkbox" value="true"> hello';
 
 // End XML file
 echo '</div>';
