@@ -8,9 +8,8 @@ if (!$db_selected) {
   die ('Can\'t use db : ' . mysqli_error());
 }
 
-$query = "select count(*) as quantity, category from mmEvent where missionID IS NULL group by category;";
+$query = //QUERY TO FETCH MISSIONS
 
-//execute query
 $result = $mysqli->query($query);
 
 //loop through the returned data
