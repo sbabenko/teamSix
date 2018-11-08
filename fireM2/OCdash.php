@@ -112,7 +112,7 @@ $(document).ready(function() {
 
 <!-- Displays the background map -->
 
-<?php include 'map_template_with_markers.php'; ?>
+<?php include 'incident_map.php'; ?>
 
 <!-- Displays the clock -->
 <?php include 'clock.php'; ?>
