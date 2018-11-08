@@ -18,7 +18,7 @@ if (!$db_selected) {
 }
 
 // Select all unassigned events
-$query = "SELECT * FROM mmEvent where missionID IS NULL";
+$query = "SELECT * FROM resource";
 
 $result = $mysqli->query($query);
 if (!$result) {
@@ -37,18 +37,20 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '<div class = "eventObject">';
 
   //gives the event object the name of the event
-  echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' . parseToXML($row['eventName']) . ' ';
+  echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' . parseToXML($row['resourceID']) . ' ';
+  
+  echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' . parseToXML($row['resourceName']) . ' ';
+  
+  echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' . parseToXML($row['quantity']) . ' ';
   
   //produces the "open" and "delete" buttons in the event object
   echo '<br>';
-  echo '<button id="myBtn" onclick="openEvent(this, ' . $row["eventID"] . ',`' 
-                                                      . $row["eventName"] . '`,'
-                                                      . $row["latitude"] . ','
-                                                      . $row["longitude"] .','
-                                                      . $row["missionID"]
+  echo '<button id="myBtn" onclick="openEvent(this, ' . $row["resourceID"] . ',`' 
+                                                      . $row["resourceName"] . '`,'
+                                                      . $row["quantity"]
                                                       . ')">OPEN</button>';
   echo '&nbsp&nbsp';
-  echo '<button id="delBtn" onclick="openEvent(this, ' . $row["eventID"] .')">DELETE</button>';
+  echo '<button id="delBtn" onclick="openEvent(this)">DELETE</button>';
 
   echo '</div>';
 
