@@ -375,8 +375,6 @@
             url: "get_map_points",
             success: loadPoints
         });
-
-        //google.maps.event.addDomListener(window, 'load', initMap);
     }
 
 </script>
