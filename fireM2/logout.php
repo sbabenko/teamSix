@@ -6,22 +6,31 @@ session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Logout</title>
-  <?php include 'css/css.html'; ?>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+    <?php include 'css/css.html'; ?>
 </head>
 
 <body>
     <div class="form">
-          <h1>Logout Successful</h1>
-        
-          <p><?= 'Thanks for using FIRE-M<sup>2</sup>!'; ?></p>
-          
-          <a href="index.php"><button class="button button-block"/>Home</button></a>
+        <h1>Logout Successful</h1>
+
+        <p>
+            <?= 'Thanks for using FIRE-M<sup>2</sup>!'; ?>
+        </p>
+
+        <a href="index.php"><button class="button button-block" />Home</button></a>
 
     </div>
-<?php include 'map_template_with_markers.php'; ?>
-<?php include 'clock.php'; ?>
+    <?php include 'incident_map.php'; ?>
+    <?php include 'clock.php'; ?>
+
+    <script>
+        //initialize map to display heatmap of unassigned events
+        dispPoints(false);
+    </script>
 </body>
+
 </html>
