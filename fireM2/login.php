@@ -20,9 +20,6 @@ else { // User exists
         $_SESSION['active'] = $user['isActive'];
         $_SESSION['role'] = $user['role'];
         
-        // This is how we'll know the user is logged in
-        $_SESSION['logged_in'] = true;
-        
         if($_SESSION['active']){
             //the user is logged in
             $_SESSION['logged_in'] = true;
@@ -30,6 +27,7 @@ else { // User exists
             header("location: profile.php");
         } else{
             //user account is not active
+            $_SESSION['logged_in'] = false;
             $_SESSION['message'] = "This account is no longer active!";
             header("location: error.php");
         }

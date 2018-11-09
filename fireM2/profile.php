@@ -6,9 +6,9 @@ session_start();
 
 
 //Redirect to role based pages
-if ($_SESSION['role'] == 'MM'){
+if ($_SESSION['logged_in'] && $_SESSION['role'] == 'MM'){
     header( "location: MMdash.php" );
-}elseif ($_SESSION['role'] == 'OC'){
+}elseif ($_SESSION['logged_in'] && $_SESSION['role'] == 'OC'){
     header( "location: OCdash.php" );
 } else {
     header( "location: index.php" );
