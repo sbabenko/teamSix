@@ -1,6 +1,6 @@
 <?php
 //verify that file is accessed via OCdash tab
-if(!defined('OC_Tab')) {
+if(!defined('OC_Tab') && !defined('MM_Tab')) {
     //redirect back to correct dashboard
     header("location: profile.php");
 }
