@@ -7,7 +7,7 @@ if (!$db_selected) {
 }
 
 //select all unassigned events
-$query = "SELECT * FROM mmEvent where missionID IS NULL";
+$query = "SELECT * FROM mmEvent where missionID IS NULL order by eventID";
 
 $result = $mysqli->query($query);
 if (!$result) {

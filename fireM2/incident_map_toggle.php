@@ -6,6 +6,19 @@ if(!defined('OC_Tab')) {
 }
 ?>
 
-<div class = "sidePane">
+<div class="sidePane">
     <h2>Map Type</h2>
+    
+    <table>
+        <tr>
+            <td>
+                Pinpoints
+                <input type="radio" name="mapType" value="pinpoint" checked>
+            </td>
+            <td>
+                Heatmap
+                <input type="radio" name="mapType" value="heatmap">
+            </td>
+        </tr>
+    </table>
 </div>
