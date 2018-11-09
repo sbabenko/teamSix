@@ -10,7 +10,7 @@
                 url: "get_map_points",
                 success: loadPoints
             });
-        }, 500);
+        }, 100);
     });
 
     var map = null;
@@ -19,6 +19,8 @@
     var markers = [];
     var latLong = [];
     var oldID = [];
+    var isPoints = false;
+    var mapTypeChanged = false;
 
     function initMap() {
         infowindow = new google.maps.InfoWindow();
@@ -351,6 +353,16 @@
         var toAdd = []; //in new, but not old
         var newID = [];
 
+        if (mapTypeChanged && markers.length > 0) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(isPoints ? map : null);
+            }
+
+            heatmap.setMap(isPoints ? null : map);
+            
+            mapTypeChanged = false;
+        }
+
         for (var i = 0; i < mapData.features.length; i++) {
             newID.push(mapData.features[i]);
         }
@@ -395,12 +407,6 @@
             heatmap = new google.maps.visualization.HeatmapLayer({
                 data: pointArray
             });
-
-            /*for(var i = 0; i < markers.length; i++) {
-                markers[i].setMap(null);
-            }
-
-            heatmap.setMap(map);*/
         }
 
         oldID = newID;
@@ -417,6 +423,8 @@
             title: toAdd.properties.name
         });
 
+        marker.setMap(null);
+
         markers.splice(pos, 0, marker);
 
         google.maps.event.addListener(marker, 'click', function() {
@@ -425,6 +433,11 @@
         });
 
         latLong.splice(pos, 0, coordinate);
+    }
+
+    function dispPoints(flag) {
+        mapTypeChanged = true;
+        isPoints = flag;
     }
 
 </script>

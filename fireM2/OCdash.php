@@ -77,7 +77,7 @@ define('OC_Tab', TRUE);
     <script>
         //display incident map toggle panel on load
         showTab(1, 5);
-        
+
         function showTab(selected, total) {
             for (i = 1; i <= total; i += 1) {
                 var A = document.getElementsByClassName('tabs-' + i);
@@ -87,16 +87,12 @@ define('OC_Tab', TRUE);
             var A = document.getElementsByClassName('tabs-' + selected);
             A.item(0).style.display = 'block';
         }
+
     </script>
 
     <!-- logout button -->
 
     <a href="logout.php"><button class="button button-block logout" name="logout" />Log Out</button></a>
-
-    <!-- included for a bunch of javascript libraries -->
-
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="js/index.js"></script>
 
     <!-- Displays the background map -->
 
@@ -109,6 +105,16 @@ define('OC_Tab', TRUE);
     <div class="footer">Welcome, Operations Chief
         <?= $first_name.' '.$last_name ?>
     </div>
+
+    <!-- included for a bunch of javascript libraries -->
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="js/index.js"></script>
+
+    <script>
+        //initialize map to display pinpoints of unassigned events
+        dispPoints(true);
+    </script>
 
 </body>
 

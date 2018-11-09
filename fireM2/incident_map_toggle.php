@@ -13,11 +13,11 @@ if(!defined('OC_Tab')) {
         <tr>
             <td>
                 Pinpoints
-                <input type="radio" name="mapType" value="pinpoint" checked>
+                <input type="radio" name="mapType" onclick="dispPoints(true)" checked>
             </td>
             <td>
                 Heatmap
-                <input type="radio" name="mapType" value="heatmap">
+                <input type="radio" name="mapType" onclick="dispPoints(false)">
             </td>
         </tr>
     </table>
