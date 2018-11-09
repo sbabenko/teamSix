@@ -4,6 +4,7 @@
 create table mission
 	(missionID int auto_increment,
 	missionName varchar(80) not null,
+	isActive bool not null,
     primary key (missionID));
 
 #table to store general event information
@@ -15,7 +16,7 @@ create table mmEvent
     category enum('hurricane', 'flood', 'tsunami', 'fire', 'earthquake',
 				  'landslide', 'sinkhole', 'volcano', 'tornado', 'natural gas') not null,
 	submitMethod enum('phone', 'sms', 'email', 'twitter', 'facebook') not null,
-	missionID int,
+	missionID int default null,
     primary key (eventID),
     foreign key (missionID) references mission (missionID));
 
@@ -51,15 +52,6 @@ create table resourceMission
     foreign key (missionID) references mission (missionID),
     foreign key (resourceID) references resource (resourceID));
 
-#table to store resources allocated for each event
-create table resourceEvent
-	(eventID int,
-    resourceID int,
-    quantity int not null,
-    primary key (eventID, resourceID),
-    foreign key (eventID) references mmEvent (eventID),
-    foreign key (resourceID) references resource (resourceID));
-
 #table to store user account information
 create table userAccount
 	(email varchar(80),
@@ -68,5 +60,12 @@ create table userAccount
     loginPass varchar(100) not null,
     hashVal varchar(32) not null,
 	role enum('OC', 'MM') not null,
-    isActive bool not null,
     primary key (email));
+
+#table to store mission assignments to accounts
+create table missionAssignment
+	(accountEmail varchar(80),
+    missionID int,
+    primary key (accountEmail, missionID),
+    foreign key (accountEmail) references userAccount (email),
+    foreign key (missionID) references mission (missionID));

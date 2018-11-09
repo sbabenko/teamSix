@@ -1,8 +1,8 @@
 #This script adds some data to the database to verify functionality.
     
 #create a new mission
-insert into mission (missionID, missionName)
-	values (1, "Operation Ocean City");
+insert into mission (missionID, missionName, isActive)
+	values (1, "Operation Ocean City", true);
 
 #create a new event
 insert into mmEvent (eventID, eventName, latitude, longitude, category, submitMethod)
@@ -82,8 +82,8 @@ insert into eventNote (eventID, createTime, description)
     
 
 #create a new mission
-insert into mission (missionID, missionName)
-	values (2, "Rescue Cat");
+insert into mission (missionID, missionName, isActive)
+	values (2, "Rescue Cat", true);
 
 #create a new event
 insert into mmEvent (eventID, eventName, latitude, longitude, category, submitMethod)
