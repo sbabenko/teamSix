@@ -7,7 +7,7 @@
         setInterval(function() {
             $.ajax({
                 dataType: "json",
-                url: "get_map_points",
+                url: "get_map_points.php",
                 success: loadPoints
             });
         }, 100);
