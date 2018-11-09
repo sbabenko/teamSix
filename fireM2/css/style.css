@@ -18,7 +18,7 @@ body {
 
 a {
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: #000000;
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }

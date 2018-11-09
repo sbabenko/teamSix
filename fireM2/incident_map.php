@@ -420,7 +420,8 @@
         var marker = new google.maps.Marker({
             map: map,
             position: coordinate,
-            title: toAdd.properties.name
+            title: toAdd.properties.name,
+            id: toAdd.id
         });
 
         marker.setMap(null);
@@ -428,7 +429,10 @@
         markers.splice(pos, 0, marker);
 
         google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(this.title);
+            var content = "<a href = \"javascript:openEvent(this, " + this.id +
+                ", '" + this.title + "')\">" + this.title + "</a>";
+            
+            infowindow.setContent(content);
             infowindow.open(map, this);
         });
 
