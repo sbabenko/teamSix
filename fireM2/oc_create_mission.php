@@ -6,11 +6,11 @@ if(!defined('OC_Tab')) {
 }
 ?>
 
-<div class = "contentPanel">
+<div class = "contentPanel create-mission-panel">
 
 <script>
 $(document).ready(function() {
-    setInterval(function(){
+    //setInterval(function(){   NO interval
        $.ajax({
            url: "get_resources.php",
            type: "GET",
@@ -19,7 +19,7 @@ $(document).ready(function() {
            $(".resourcesPane").html(html);
         }
       });//end ajax call
-    },1000);//end setInterval
+    //},1000);//end setInterval
 });//end docReady 
 </script>
 
@@ -88,7 +88,9 @@ function test_input($data) {
   <br>
   
   <h2>Resources</h2>
-  <div class = "resourcesPane">Resources Pane</div>
+  <div class = "resource-box">
+    <div class = "resourcesPane">Resources Pane</div>
+  </div>
   <br>
  
   Assign To:
