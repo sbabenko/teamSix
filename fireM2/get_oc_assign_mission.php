@@ -68,11 +68,17 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo $row["eventName"];
   echo '</a></td>';
   echo '<td>' . $dropdown . '</td>';
-  echo '<td><input type="checkbox"></td>';
+  echo '<td><input type="checkbox" onChange="toggleDropdown(this)"></td>';
   echo '</tr>';
 }
 
 echo '</table>';
+
+//add update button
+echo '<button onclick="updateAssignMission()">UPDATE</button>';
+
+//add refresh button
+echo '<button onclick="refreshAssignMission()">REFRESH</button>';
 
 // End XML file
 echo '</div>';

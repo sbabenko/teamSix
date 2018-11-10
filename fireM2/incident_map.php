@@ -18,8 +18,6 @@
 
     $(document).ready(function() {
         setInterval(function() {
-            console.log(submitMethod);
-            
             $.ajax({
                 url: "get_map_points.php",
                 type: "GET",
