@@ -32,6 +32,11 @@ echo "<?xml version='1.0' ?>";
 echo '<div class="events">';
 $ind=0;
 // Iterate through the rows, printing XML nodes for each
+if ( $result->num_rows == 0 ){ // User has no existing contacts
+  echo "<div style='align:center;'>";
+  echo "You have no resources available";
+  echo "</div>";
+}else{
 while ($row = @mysqli_fetch_assoc($result)){
   // Add to XML document node
   echo '<div class = "eventObject">';
@@ -45,6 +50,11 @@ while ($row = @mysqli_fetch_assoc($result)){
   
   //produces the "open" and "delete" buttons in the event object
   echo '<br>';
+  echo '<form action=\'/action_page.php\'>';
+  echo 'Quantity (between 1 and 5):';
+  echo '<input type="number" name="quantity" min="1" max="5">';
+  echo '<input type=\"submit\">';
+  echo '</form>';
   echo '<button id="myBtn" onclick="openEvent(this, ' . $row["resourceID"] . ',`' 
                                                       . $row["resourceName"] . '`,'
                                                       . $row["quantity"]
@@ -56,6 +66,7 @@ while ($row = @mysqli_fetch_assoc($result)){
 
 
   $ind = $ind + 1;
+}
 }
 
 // End XML file
