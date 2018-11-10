@@ -52,7 +52,7 @@ echo "<div class = 'eventInfo'>";
 
 //create table of general information
 echo '<h2>Assign to Mission</h2>';
-echo '<table>';
+echo '<table id = "assignMissionTable">';
 echo '<tr>';
 echo '<th>Event Name</th>';
 echo '<th>Mission Name</th>';
@@ -68,7 +68,7 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo $row["eventName"];
   echo '</a></td>';
   echo '<td>' . $dropdown . '</td>';
-  echo '<td><input type="checkbox" onChange="toggleDropdown(this)"></td>';
+  echo '<td><input type="checkbox" onChange="toggleDropdown(this)" value=' . $row["eventID"] . '></td>';
   echo '</tr>';
 }
 
