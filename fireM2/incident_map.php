@@ -14,6 +14,7 @@
     var mapTypeChanged = false;
     var category = [];
     var submitMethod = [];
+    var eventState = [];
     var missionID = null;
 
     $(document).ready(function() {
@@ -24,12 +25,13 @@
                 data: {
                     category: JSON.stringify(category),
                     submitMethod: JSON.stringify(submitMethod),
+                    eventState: JSON.stringify(eventState),
                     missionID: missionID
                 },
                 dataType: "json",
                 success: loadPoints
             });
-        }, 100);
+        }, 500);
     });
 
     function initMap() {
@@ -470,6 +472,18 @@
         } else {
             submitMethod.push(checkBox.value);
         }
+    }
+    
+    function toggleEventState(checkBox) {
+        if (checkBox.checked) {
+            eventState.splice(eventState.indexOf(checkBox.value), 1);
+        } else {
+            eventState.push(checkBox.value);
+        }
+    }
+    
+    function setMissionID(idNum){
+        missionID = idNum;
     }
 
 </script>
