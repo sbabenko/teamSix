@@ -6,7 +6,8 @@ if (!$db_selected) {
   die ('Can\'t use db : ' . mysqli_error());
 }
 
-$query = "SELECT * FROM mmEvent WHERE missionID ";
+$query = "SELECT * FROM mmEvent natural join eventState WHERE (eventID, updateTime) " .
+    "in (SELECT eventID, max(updateTime) FROM eventState GROUP BY eventID) AND missionID ";
 
 if($_GET['missionID'] == null){
     $query = $query . "IS NULL ";
@@ -28,6 +29,14 @@ $submitMethod = json_decode($_GET['submitMethod']);
 //iterate through submission methods to remove
 foreach($submitMethod as $method){
     $query = $query . " AND submitMethod != '" . $method . "'";
+}
+
+//convert list of event states to remove as PHP array
+$eventState = json_decode($_GET['eventState']);
+
+//iterate through event states to remove
+foreach($eventState as $state){
+    $query = $query . " AND state != '" . $state . "'";
 }
 
 $result = $mysqli->query($query);

@@ -108,8 +108,9 @@ define('MM_Tab', TRUE);
     <script src="js/index.js"></script>
 
     <script>
-        //initialize map to display pinpoints of unassigned events
+        //initialize map to display pinpoints
         dispPoints(true);
+        setMissionID(1);
 
     </script>
 

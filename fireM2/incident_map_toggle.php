@@ -85,7 +85,7 @@ if(!defined('OC_Tab') && !defined('MM_Tab')) {
 
     <!-- display event submission method options -->
     <h2>Submission Method</h2>
-    
+
     <table>
         <tr>
             <td>
@@ -114,4 +114,34 @@ if(!defined('OC_Tab') && !defined('MM_Tab')) {
             </td>
         </tr>
     </table>
+
+    <?php
+        //if user is Mission Manager, allow toggle by event state
+        if(defined('MM_Tab')){
+            echo '<br>';
+            echo '<h2>Event State</h2>';
+            echo '<table>';
+            echo '<tr>';
+            echo '<td>';
+            echo '<input type="checkbox" name="eventState" value="assigned" onChange="toggleEventState(this)" checked>';
+            echo '<label>Assigned</label>';
+            echo '</td>';
+            echo '<td>';
+            echo '<input type="checkbox" name="eventState" value="on hold" onChange="toggleEventState(this)" checked>';
+            echo '<label>On Hold</label>';
+            echo '</td>';
+            echo '</tr>';
+            echo '<tr>';
+            echo '<td>';
+            echo '<input type="checkbox" name="eventState" value="in progress" onChange="toggleEventState(this)" checked>';
+            echo '<label>In Progress</label>';
+            echo '</td>';
+            echo '<td>';
+            echo '<input type="checkbox" name="eventState" value="completed" onChange="toggleEventState(this)" checked>';
+            echo '<label>Completed</label>';
+            echo '</td>';
+            echo '</tr>';
+            echo '</table>';
+        }
+    ?>
 </div>
