@@ -3,24 +3,36 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        setInterval(function() {
-            $.ajax({
-                dataType: "json",
-                url: "get_map_points.php",
-                success: loadPoints
-            });
-        }, 100);
-    });
-
+    //initialize variables used in this session
     var map = null;
     var heatmap = null;
     var infowindow = null;
     var markers = [];
-    var latLong = [];
-    var oldID = [];
+    var currPoints = [];
+    var pointArray;
     var isPoints = false;
     var mapTypeChanged = false;
+    var category = [];
+    var submitMethod = [];
+    var missionID = null;
+
+    $(document).ready(function() {
+        setInterval(function() {
+            console.log(submitMethod);
+            
+            $.ajax({
+                url: "get_map_points.php",
+                type: "GET",
+                data: {
+                    category: JSON.stringify(category),
+                    submitMethod: JSON.stringify(submitMethod),
+                    missionID: missionID
+                },
+                dataType: "json",
+                success: loadPoints
+            });
+        }, 100);
+    });
 
     function initMap() {
         infowindow = new google.maps.InfoWindow();
@@ -344,6 +356,12 @@
         google.maps.event.addListener(map, 'click', function() {
             infowindow.close();
         });
+
+        pointArray = new google.maps.MVCArray();
+
+        heatmap = new google.maps.visualization.HeatmapLayer({
+            data: pointArray
+        });
     }
 
     //Reference: https://stackoverflow.com/questions/36852063/how-do-you-switch-from-heatmap-to-clickable-markers-with-google-maps-js-api
@@ -351,7 +369,7 @@
     function loadPoints(mapData) {
         var toDelete = []; //in old, but not new
         var toAdd = []; //in new, but not old
-        var newID = [];
+        var newPoints = [];
 
         if (mapTypeChanged && markers.length > 0) {
             for (var i = 0; i < markers.length; i++) {
@@ -359,23 +377,23 @@
             }
 
             heatmap.setMap(isPoints ? null : map);
-            
+
             mapTypeChanged = false;
         }
 
         for (var i = 0; i < mapData.features.length; i++) {
-            newID.push(mapData.features[i]);
+            newPoints.push(mapData.features[i]);
         }
 
         //Reference: https://stackoverflow.com/questions/1723168/what-is-the-fastest-or-most-elegant-way-to-compute-a-set-difference-using-javasc
-        toDelete = oldID.filter(function(x) {
-            return newID.map(function(y) {
+        toDelete = currPoints.filter(function(x) {
+            return newPoints.map(function(y) {
                 return y.id
             }).indexOf(x.id) < 0
         });
 
-        toAdd = newID.filter(function(x) {
-            return oldID.map(function(y) {
+        toAdd = newPoints.filter(function(x) {
+            return currPoints.map(function(y) {
                 return y.id
             }).indexOf(x.id) < 0
         });
@@ -384,9 +402,7 @@
 
         for (var i = 0; i < markers.length && isModified;) {
             if (toDelete.length > 0 && markers[i].id == toDelete[0].id) {
-                markers[i].setMap(null);
-                markers.splice(i, 1);
-                latLong.splice(i, 1);
+                deletePoint(i);
                 toDelete.shift();
             } else if (toAdd.length > 0 && markers[i].id > toAdd[0].id) {
                 addPoint(toAdd[0], i);
@@ -401,15 +417,7 @@
             addPoint(toAdd[i], markers.length);
         }
 
-        if (isModified) {
-            var pointArray = new google.maps.MVCArray(latLong);
-
-            heatmap = new google.maps.visualization.HeatmapLayer({
-                data: pointArray
-            });
-        }
-
-        oldID = newID;
+        currPoints = newPoints;
     }
 
     function addPoint(toAdd, pos) {
@@ -424,24 +432,46 @@
             id: toAdd.id
         });
 
-        marker.setMap(null);
+        marker.setMap(isPoints ? map : null);
 
         markers.splice(pos, 0, marker);
 
         google.maps.event.addListener(marker, 'click', function() {
             var content = "<a href = \"javascript:openEvent(this, " + this.id +
                 ", '" + this.title + "')\">" + this.title + "</a>";
-            
+
             infowindow.setContent(content);
             infowindow.open(map, this);
         });
 
-        latLong.splice(pos, 0, coordinate);
+        pointArray.insertAt(pos, coordinate);
+    }
+
+    function deletePoint(pos) {
+        markers[pos].setMap(null);
+        markers.splice(pos, 1);
+        pointArray.removeAt(pos);
     }
 
     function dispPoints(flag) {
         mapTypeChanged = true;
         isPoints = flag;
+    }
+
+    function toggleCategory(checkBox) {
+        if (checkBox.checked) {
+            category.splice(category.indexOf(checkBox.value), 1);
+        } else {
+            category.push(checkBox.value);
+        }
+    }
+
+    function toggleSubmitMethod(checkBox) {
+        if (checkBox.checked) {
+            submitMethod.splice(submitMethod.indexOf(checkBox.value), 1);
+        } else {
+            submitMethod.push(checkBox.value);
+        }
     }
 
 </script>

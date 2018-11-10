@@ -6,8 +6,29 @@ if (!$db_selected) {
   die ('Can\'t use db : ' . mysqli_error());
 }
 
-//select all unassigned events
-$query = "SELECT * FROM mmEvent where missionID IS NULL order by eventID";
+$query = "SELECT * FROM mmEvent WHERE missionID ";
+
+if($_GET['missionID'] == null){
+    $query = $query . "IS NULL ";
+} else{
+    $query = $query . "= " . $_GET['missionID'];
+}
+
+//convert list of categories to remove as PHP array
+$category = json_decode($_GET['category']);
+
+//iterate through categories to remove
+foreach($category as $cat){
+    $query = $query . " AND category != '" . $cat . "'";
+}
+
+//convert list of submission methods to remove as PHP array
+$submitMethod = json_decode($_GET['submitMethod']);
+
+//iterate through submission methods to remove
+foreach($submitMethod as $method){
+    $query = $query . " AND submitMethod != '" . $method . "'";
+}
 
 $result = $mysqli->query($query);
 if (!$result) {
