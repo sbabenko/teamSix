@@ -94,10 +94,18 @@ function test_input($data) {
   <br>
  
   Assign To:
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
-  <span class="error">* <?php echo $genderErr;?></span>
+
+<select name="owner">
+<br><br><br>
+<?php 
+$sql = mysqli_query($mysqli, "SELECT * FROM userAccount WHERE role='MM'");
+while ($row = $sql->fetch_assoc()){
+echo "<option value=\"owner1\">" . $row['firstName'] . "</option>";
+}
+?>
+</select>
+
+
   <br><br>
 
   <div class="createMissionbutton">
