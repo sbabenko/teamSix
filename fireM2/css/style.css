@@ -226,7 +226,7 @@ div.info {
     background: #66131c;
 }
 
-label {
+.login label {
   position: absolute;
   -webkit-transform: translateY(6px);
           transform: translateY(6px);
@@ -280,6 +280,16 @@ input:focus, textarea:focus {
 textarea {
   border: 2px solid #a0b3b0;
   resize: vertical;
+}
+
+input[type="radio"]{
+    width: 20px;
+    display: inline;
+}
+
+input[type="checkbox"]{
+    width: 20px;
+    display: inline;
 }
 
 .field-wrap {
@@ -669,4 +679,9 @@ textarea {
     color: #000000;
     border: 1px solid white;
     display: inline-block;
+}
+
+.sidePane label {
+    display: inline;
+    margin-left: 5px;
 }
