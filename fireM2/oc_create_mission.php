@@ -91,11 +91,37 @@ function test_input($data) {
     <div class = "resourcesPane">Resources Pane</div>
   </div>
  
+<script>
+/* JS for demo only */
+var colors = ['1abc9c', '2c3e50', '2980b9', '7f8c8d', 'f1c40f', 'd35400', '27ae60'];
+
+colors.each(function (color) {
+  $$('.color-picker')[0].insert(
+    '<div class="square" style="background: #' + color + '"></div>'
+  );
+});
+
+$$('.color-picker')[0].on('click', '.square', function(event, square) {
+  background = square.getStyle('background');
+  $$('.custom-dropdown select').each(function (dropdown) {
+    dropdown.setStyle({'background' : background});
+  });
+});
+
+/*
+ * Original version at
+ * http://red-team-design.com/making-html-dropdowns-not-suck
+ */ 
+</script>
+
   <h3 align="center">Assign To Mission Manager</h3>
   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-  Select Mission Manager: &nbsp&nbsp&nbsp&nbsp&nbsp<select name="owner">
+  Select Mission Manager: &nbsp&nbsp&nbsp&nbsp&nbsp
+  <span class="custom-dropdown">
+    <select name="owner">
+  </span>
 
 <br>
 
