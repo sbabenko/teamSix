@@ -128,7 +128,7 @@ echo "<option value=\"owner1\">" . $row['firstName'] ." ". $row['lastName'] .  "
 
   <br><br>
 
-  <div class="createMissionbutton">
+  <div class="createMissionbutton" style="width:80%;margin:auto;">
     <input type="submit" name="submit" value="Create">
   </div>  
 </form>
