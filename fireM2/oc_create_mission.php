@@ -30,7 +30,7 @@ $name = $email = $gender = $comment = $website = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
+    $nameErr = "";
   } else {
     $name = test_input($_POST["name"]);
     // check if name only contains letters and whitespace
@@ -80,23 +80,24 @@ function test_input($data) {
 }
 ?>
 
-<h2>Create Mission</h2>
+<h2 align="center">Create Mission</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  <label style="display:block;">Mission Name</label>
+  <label align="center" style="opacity: 0.5;position:relative;left:60px;top:30px;">Mission Name</label>
   <input style="display:block;width:80%;margin:auto;" type="text" name="name" value="<?php echo $name;?>">
   <span class="error"><?php echo $nameErr;?></span>
-  <br>
   
-  <h3>Resources</h3>
+  <h3 align="center">Resources</h3>
   <div class = "resource-box">
     <div class = "resourcesPane">Resources Pane</div>
   </div>
-  <br>
  
-  <h3>Assign To Mission Manager</h3>
+  <h3 align="center">Assign To Mission Manager</h3>
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  Select Mission Manager: <select name="owner">
 
-<select name="owner">
-<br><br><br>
+<br>
 <?php 
 $sql = mysqli_query($mysqli, "SELECT * FROM userAccount WHERE role='MM'");
 while ($row = $sql->fetch_assoc()){
