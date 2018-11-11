@@ -51,16 +51,10 @@ while ($row = @mysqli_fetch_assoc($result)){
   //produces the "open" and "delete" buttons in the event object
   echo '<br>';
   echo '<form action=\'/action_page.php\'>';
-  echo 'Quantity (between 1 and 5):';
-  echo '<input type="number" name="quantity" min="1" max="5">';
-  echo '<input type=\"submit\">';
+  echo 'Quantity (between 1 and '. parseToXML($row['quantity']) .'):';
+  echo '<input type="number" style="float:right;width:40%;" name="quantity" max="'. parseToXML($row['quantity']) . '">';
   echo '</form>';
-  echo '<button id="myBtn" onclick="openEvent(this, ' . $row["resourceID"] . ',`' 
-                                                      . $row["resourceName"] . '`,'
-                                                      . $row["quantity"]
-                                                      . ')">OPEN</button>';
-  echo '&nbsp&nbsp';
-  echo '<button id="delBtn" onclick="openEvent(this)">DELETE</button>';
+  
 
   echo '</div>';
 

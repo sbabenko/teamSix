@@ -698,9 +698,11 @@ input[type=number]::-webkit-outer-spin-button {
   max-height: 300px;
   overflow: scroll;
   margin: auto;
-  width: 50%;
+  width: 85%;
   border: 3px solid white;
   padding: 10px;
+  margin-left: auto;
+    margin-right: auto;
 }
 
 .create-mission-panel{

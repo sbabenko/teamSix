@@ -83,24 +83,24 @@ function test_input($data) {
 <h2>Create Mission</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
   <label style="display:block;">Mission Name</label>
-  <input style="display:block;" type="text" name="name" value="<?php echo $name;?>">
+  <input style="display:block;width:80%;margin:auto;" type="text" name="name" value="<?php echo $name;?>">
   <span class="error"><?php echo $nameErr;?></span>
   <br>
   
-  <h2>Resources</h2>
+  <h3>Resources</h3>
   <div class = "resource-box">
     <div class = "resourcesPane">Resources Pane</div>
   </div>
   <br>
  
-  Assign To:
+  <h3>Assign To Mission Manager</h3>
 
 <select name="owner">
 <br><br><br>
 <?php 
 $sql = mysqli_query($mysqli, "SELECT * FROM userAccount WHERE role='MM'");
 while ($row = $sql->fetch_assoc()){
-echo "<option value=\"owner1\">" . $row['firstName'] . "</option>";
+echo "<option value=\"owner1\">" . $row['firstName'] ." ". $row['lastName'] .  "</option>";
 }
 ?>
 </select>
