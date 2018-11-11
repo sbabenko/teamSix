@@ -40,7 +40,7 @@ define('MM_Tab', TRUE);
 
 <body>
     <ul class="dashboard-tab">
-        <li class="statictab">Mission Name</li>
+        <li class="statictab" id="missionNameToggle">Mission Name</li>
         <li class="tab active" onclick="showTab(1,4)"><a href="#IncidentMap">Incident Map</a></li>
         <li class="tab" onclick="showTab(2,4); loadMissionEvents();"><a href="#ChangeEventState">Change Event State</a></li>
         <li class="tab" onclick="showTab(3,4)"><a href="#MissionProgress">Mission Progress</a></li>
@@ -70,22 +70,6 @@ define('MM_Tab', TRUE);
 
     <?php include 'event_info_modal.php'; ?>
 
-    <script>
-        //display incident map toggle panel on load
-        showTab(1, 4);
-
-        function showTab(selected, total) {
-            for (i = 1; i <= total; i += 1) {
-                var A = document.getElementsByClassName('tabs-' + i);
-                A.item(0).style.display = 'none';
-            }
-
-            var A = document.getElementsByClassName('tabs-' + selected);
-            A.item(0).style.display = 'block';
-        }
-
-    </script>
-
     <!-- logout button -->
 
     <a href="logout.php"><button class="button button-block logout" name="logout" />Log Out</button></a>
@@ -108,9 +92,72 @@ define('MM_Tab', TRUE);
     <script src="js/index.js"></script>
 
     <script>
+        var missionID = null;
+        var currTab = 1;
+
+        function showTab(selected, total) {
+            currTab = selected;
+
+            for (i = 1; i <= total; i += 1) {
+                var A = document.getElementsByClassName('tabs-' + i);
+                A.item(0).style.display = 'none';
+            }
+
+            var A = document.getElementsByClassName('tabs-' + selected);
+            A.item(0).style.display = 'block';
+
+            missionID = "<?php echo $_SESSION['missionID']; ?>";
+            var email = "<?php echo $email; ?>";
+
+            //ajax request for mission dropdown
+            $.ajax({
+                url: "get_mm_mission_dropdown.php",
+                type: "GET",
+                data: {
+                    email: email,
+                    missionID: missionID
+                },
+                dataType: "html",
+                success: function(html) {
+                    $("#missionNameToggle").html(html);
+                }
+            });
+            
+            //get the dropdown menu
+            var dropdown = document.getElementById("mmToggle");
+            
+            console.log(dropdown.value);
+
+            //get the selected missionID
+            missionID = 1;
+
+            //update session missionID
+            $.ajax({
+                url: "update_mm_missionID.php",
+                type: "POST",
+                data: {
+                    missionID: missionID
+                }
+            });
+            
+            console.log("<?php echo $_SESSION['missionID']; ?>");
+            console.log(missionID);
+        }
+
+        function updateMission(dropdown) {
+            //update points on map
+            setMissionID(dropdown.value);
+
+            //refresh tab
+            showTab(currTab, 4);
+        }
+
+        //display incident map toggle panel on load
+        showTab(currTab, 4);
+
         //initialize map to display pinpoints
         dispPoints(true);
-        setMissionID(1);
+        setMissionID(missionID);
 
     </script>
 
