@@ -14,6 +14,9 @@ else if ($_SESSION['role'] != 'MM'){
     $_SESSION['message'] = "You do not have the credentials to view this page!";
     header("location: error.php");
 }
+else if ($_SESSION['missionID'] == null){
+    header("location: logout.php");
+}
 else {
     // Makes it easier to read
     $first_name = $_SESSION['first_name'];
@@ -93,11 +96,8 @@ define('MM_Tab', TRUE);
 
     <script>
         var missionID = null;
-        var currTab = 1;
 
         function showTab(selected, total) {
-            currTab = selected;
-
             for (i = 1; i <= total; i += 1) {
                 var A = document.getElementsByClassName('tabs-' + i);
                 A.item(0).style.display = 'none';
@@ -119,17 +119,40 @@ define('MM_Tab', TRUE);
                 },
                 dataType: "html",
                 success: function(html) {
-                    $("#missionNameToggle").html(html);
+                    var currMissionID = html.substr(0, html.indexOf("<"));
+
+                    dropdownCode = html.substr(html.indexOf("<"));
+                    $("#missionNameToggle").html(dropdownCode);
+
+                    //refresh dashboard if originally selected mission not available
+                    if (missionID != currMissionID) {
+                        if (currMissionID == "null") {
+                            missionID = null;
+                            refreshDashboard(false, true);
+                        } else {
+                            missionID = currMissionID;
+                            refreshDashboard(false, false);
+                        }
+                    }
                 }
             });
-            
-            //get the dropdown menu
-            var dropdown = document.getElementById("mmToggle");
-            
-            console.log(dropdown.value);
+        }
 
-            //get the selected missionID
-            missionID = 1;
+        function updateMission(dropdown) {
+            //get the selected missionID from dropdown
+            missionID = dropdown.value;
+
+            refreshDashboard(true, false);
+        }
+
+        function refreshDashboard(fromUpdateMission, noMissions) {
+            if (noMissions) {
+                alert("There are no more missions available to you. Logging out.");
+            } else if (fromUpdateMission) {
+                alert("The dashboard will be refreshed to load the selected mission.");
+            } else {
+                alert("The selected mission no longer exists. Loading available mission.");
+            }
 
             //update session missionID
             $.ajax({
@@ -139,21 +162,12 @@ define('MM_Tab', TRUE);
                     missionID: missionID
                 }
             });
-            
-            console.log("<?php echo $_SESSION['missionID']; ?>");
-            console.log(missionID);
-        }
 
-        function updateMission(dropdown) {
-            //update points on map
-            setMissionID(dropdown.value);
-
-            //refresh tab
-            showTab(currTab, 4);
+            location.reload(true);
         }
 
         //display incident map toggle panel on load
-        showTab(currTab, 4);
+        showTab(1, 4);
 
         //initialize map to display pinpoints
         dispPoints(true);

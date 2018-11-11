@@ -19,13 +19,26 @@ else { // User exists
         $_SESSION['last_name'] = $user['lastName'];
         $_SESSION['active'] = $user['isActive'];
         $_SESSION['role'] = $user['role'];
-        $_SESSION['missionID'] = null;
         
-        if($_SESSION['active']){
-            //the user is logged in
-            $_SESSION['logged_in'] = true;
+        if ($_SESSION['active']){
+            if($_SESSION['role'] == 'MM'){
+                $result = $mysqli->query("SELECT * FROM missionAssignment WHERE accountEmail='$email'");
             
-            header("location: profile.php");
+                if($result->num_rows == 0){
+                    $_SESSION['logged_in'] = false;
+                    $_SESSION['message'] = "There are no missions available to be viewed!";
+                    header("location: error.php");
+                } else{
+                    $_SESSION['missionID'] = $result->fetch_assoc()["missionID"];
+                    $_SESSION['logged_in'] = true;
+                    header("location: profile.php");
+                }
+            } else{
+                //the user is logged in
+                $_SESSION['logged_in'] = true;
+            
+                header("location: profile.php");
+            }
         } else{
             //user account is not active
             $_SESSION['logged_in'] = false;
@@ -38,4 +51,3 @@ else { // User exists
         header("location: error.php");
     }
 }
-

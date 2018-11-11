@@ -1,16 +1,6 @@
 <?php
 require("db.php");
 
-function parseToXML($htmlStr)
-{
-$xmlStr=str_replace('<','&lt;',$htmlStr);
-$xmlStr=str_replace('>','&gt;',$xmlStr);
-$xmlStr=str_replace('"','&quot;',$xmlStr);
-$xmlStr=str_replace("'",'&#39;',$xmlStr);
-$xmlStr=str_replace("&",'&amp;',$xmlStr);
-return $xmlStr;
-}
-
 // Set the active MySQL database
 $db_selected = mysqli_select_db( $mysqli ,"FIREM2");
 if (!$db_selected) {
@@ -26,21 +16,38 @@ if (!$result) {
   die('Invalid query: ' . mysqli_error($mysqli));
 }
 
+$counter = 0;
+$selected = null;
+
 $dropdown = '<select id="mmToggle" onchange="updateMission(this)">';
 
 while ($row = @mysqli_fetch_assoc($result)){
   $dropdown = $dropdown . '<option value="' . $row["missionID"] . '"';
+    
+  if($selected == null){
+      $selected = $row["missionID"];
+  }
 
   if($row["missionID"] == $_GET["missionID"]){
       $dropdown = $dropdown . " selected";
+      $selected = $row["missionID"];
   }
     
   $dropdown = $dropdown . '>' . $row["missionName"] . '</option>';
+
+  $counter += 1;
 }
 
 $dropdown = $dropdown . '</select>';
 
 header("Content-type: text/xml");
+
+//prepend selected missionID
+if($selected == null){
+  echo "null";
+} else{
+  echo $selected;
+}
 
 // Start XML file, echo parent node
 echo "<?xml version='1.0' ?>";
