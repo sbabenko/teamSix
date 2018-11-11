@@ -42,7 +42,7 @@ define('MM_Tab', TRUE);
     <ul class="dashboard-tab">
         <li class="statictab">Mission Name</li>
         <li class="tab active" onclick="showTab(1,4)"><a href="#IncidentMap">Incident Map</a></li>
-        <li class="tab" onclick="showTab(2,4)"><a href="#ChangeEventState">Change Event State</a></li>
+        <li class="tab" onclick="showTab(2,4); loadMissionEvents();"><a href="#ChangeEventState">Change Event State</a></li>
         <li class="tab" onclick="showTab(3,4)"><a href="#MissionProgress">Mission Progress</a></li>
         <li class="tab" onclick="showTab(4,4)"><a href="#DataVisualization">Data Visualization</a></li>
         <li class="statictab digital-clock">Clock</li>

@@ -43,8 +43,6 @@ foreach($toDelete as $del){
 //convert list of mission assignments as PHP array
 $assignment = json_decode($_POST['assignEvents']);
 
-echo '<script>console.log("' . $assignment . '")</script>';
-
 //iterate through events to remove
 foreach($assignment as $assign){
     //query to update missionID of event
