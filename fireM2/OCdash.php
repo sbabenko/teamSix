@@ -74,22 +74,6 @@ define('OC_Tab', TRUE);
 
     <?php include 'event_info_modal.php'; ?>
 
-    <script>
-        //display incident map toggle panel on load
-        showTab(1, 5);
-
-        function showTab(selected, total) {
-            for (i = 1; i <= total; i += 1) {
-                var A = document.getElementsByClassName('tabs-' + i);
-                A.item(0).style.display = 'none';
-            }
-
-            var A = document.getElementsByClassName('tabs-' + selected);
-            A.item(0).style.display = 'block';
-        }
-
-    </script>
-
     <!-- logout button -->
 
     <a href="logout.php"><button class="button button-block logout" name="logout" />Log Out</button></a>
@@ -112,6 +96,19 @@ define('OC_Tab', TRUE);
     <script src="js/index.js"></script>
 
     <script>
+        function showTab(selected, total) {
+            for (i = 1; i <= total; i += 1) {
+                var A = document.getElementsByClassName('tabs-' + i);
+                A.item(0).style.display = 'none';
+            }
+
+            var A = document.getElementsByClassName('tabs-' + selected);
+            A.item(0).style.display = 'block';
+        }
+
+        //display incident map toggle panel on load
+        showTab(1, 5);
+        
         //initialize map to display pinpoints of unassigned events
         dispPoints(true);
     </script>

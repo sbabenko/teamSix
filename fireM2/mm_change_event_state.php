@@ -13,7 +13,7 @@ if(!defined('MM_Tab')) {
             type: "GET",
             dataType: "html",
             data: {
-                missionID: 1
+                missionID: missionID
             },
             success: function(html) {
                 $("#loadMissionEvents").html(html);

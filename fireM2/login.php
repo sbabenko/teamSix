@@ -19,6 +19,7 @@ else { // User exists
         $_SESSION['last_name'] = $user['lastName'];
         $_SESSION['active'] = $user['isActive'];
         $_SESSION['role'] = $user['role'];
+        $_SESSION['missionID'] = null;
         
         if($_SESSION['active']){
             //the user is logged in
