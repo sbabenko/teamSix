@@ -765,11 +765,12 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: .625em;
   line-height: 1;
   right: 1.2em;
-  top: 50%;
+  top: 30%;
   margin-top: -.5em;
 }
 
 .custom-dropdown::before { /*  Custom dropdown arrow cover */
+  height: 35%;
   width: 2em;
   right: 0;
   top: 0;
