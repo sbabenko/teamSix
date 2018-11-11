@@ -81,9 +81,9 @@ function test_input($data) {
 ?>
 
 <h2 align="center">Create Mission</h2>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+<form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.phpAAAA">  
   <label align="center" style="opacity: 0.5;position:relative;left:60px;top:30px;">Mission Name</label>
-  <input style="display:block;width:80%;margin:auto;" type="text" name="name" value="<?php echo $name;?>">
+  <input autofocus style="display:block;width:80%;margin:auto;" type="text" name="name" value="<?php echo $name;?>">
   <span class="error"><?php echo $nameErr;?></span>
   
   <h3 align="center">Resources</h3>
@@ -95,9 +95,29 @@ function test_input($data) {
   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-  Select Mission Manager: <select name="owner">
+  Select Mission Manager: &nbsp&nbsp&nbsp&nbsp&nbsp<select name="owner">
 
 <br>
+
+<script>
+$(document).ready(function () {
+    $('#myform').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url : $(this).attr('action') || window.location.pathname,
+            type: "GET",
+            data: $(this).serialize(),
+            success: function (data) {
+                $("#form_output").html(data);
+            },
+            error: function (jXHR, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+    });
+});
+</script>
+
 <?php 
 $sql = mysqli_query($mysqli, "SELECT * FROM userAccount WHERE role='MM'");
 while ($row = $sql->fetch_assoc()){
@@ -105,7 +125,6 @@ echo "<option value=\"owner1\">" . $row['firstName'] ." ". $row['lastName'] .  "
 }
 ?>
 </select>
-
 
   <br><br>
 

@@ -53,7 +53,6 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '<form action=\'/action_page.php\'>';
   echo 'Quantity (between 1 and '. parseToXML($row['quantity']) .'):';
   echo '<input type="number" style="float:right;width:40%;" name="quantity" max="'. parseToXML($row['quantity']) . '">';
-  echo '</form>';
   
 
   echo '</div>';
