@@ -3,13 +3,52 @@ from pprint import pprint
 from time import sleep
 from mpl_toolkits.basemap import Basemap
 from random import uniform
+import mysql.connector
+import datetime
+
+
+def insert_to_database(x, y, event_type):
+    fireM2db = mysql.connector.connect(
+        host="mysql-instance1.crdymdfwdzej.us-east-1.rds.amazonaws.com",
+        user="root",
+        passwd="GucciSwag420",
+        database="FIREM2"
+    )
+
+    print(fireM2db)
+
+    event_category = str.lower(event_type)
+    print("Event Category: %s" % event_category)
+    mycursor = fireM2db.cursor()
+
+    # Insert the new event:
+    sql = """INSERT INTO mmEvent (eventName, latitude, longitude, category, submitMethod) VALUES (%s, %s, %s, %s, %s)"""
+    val = ("The sky is falling!", x, y, event_category, "phone")
+    mycursor.execute(sql, val)
+    fireM2db.commit()
+
+    # Get the event ID from the last insertion:
+    sql2 = "SELECT LAST_INSERT_ID()"
+    mycursor.execute(sql2)
+    event_id = mycursor.fetchone()[0]
+    fireM2db.commit()
+
+    eventID = event_id
+
+    # Generate the event state:
+    sql3 = """INSERT INTO eventState (eventID, updateTime, state) VALUES (%s, %s, %s)"""
+    val3 = (eventID, datetime.datetime.utcnow(), "reported")
+    mycursor.execute(sql3, val3)
+    fireM2db.commit()
+
+    print(mycursor.rowcount, "record inserted.")
 
 
 def generate_data(event_type, number_of_events, radius, event_time):
-    print("Event Type: ", event_type)
-    print("Number of Events: ", number_of_events)
-    print("Radius: ", radius)
-    print("Time per Event: ", event_time)
+    print "Event Type: %s" % event_type
+    print "Number of Events: %d" % number_of_events
+    print "Radius: %d" % radius
+    print "Time per Event: %f" % event_time
 
     bm = Basemap()
     # For testing purposes: to check it coordinates are valid land coordinates.
@@ -25,15 +64,15 @@ def generate_data(event_type, number_of_events, radius, event_time):
 
     while i < number_of_events:
         x, y = uniform(disaster_lat-radius, disaster_lat+radius), uniform(disaster_long-radius, disaster_long+radius)
-        print("x", x)
-        print("y", y)
         # Checking for radius to be within range:
         if disaster_lat + radius >= x >= disaster_lat - radius and disaster_long + radius >= y >= disaster_long - radius:
             if bm.is_land(y, x):
                 print(count, x, y)
                 coordinate_input = "new google.maps.LatLng(%f, %f)" % (x, y)
-                print("Coordinate Data:", coordinate_input)
                 coordinate_data.append(coordinate_input)
+
+                # Create call to MySQL Database to insert lat and long
+                insert_to_database(x, y, event_type)
 
                 i += 1
                 count += 1
