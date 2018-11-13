@@ -44,9 +44,11 @@ while ($row = @mysqli_fetch_assoc($result)){
   
   //produces the "open" and "completed?" buttons
   echo '<br>';
-  echo '<button id="myBtn" onclick="null">OPEN</button>';
+  echo '<button id="myBtn" onclick="openMission(this, ' . $row["missionID"] .
+      ',`' . $row["missionName"] . '`)">OPEN</button>';
   echo '&nbsp&nbsp';
-  echo '<button id="myBtn" onclick="null">COMPLETED?</button>';
+  echo '<button id="delBtn" onclick="updateMissionInfo(' . $row["missionID"] .
+      ')">COMPLETED?</button>';
 
   echo '</div>';
 }
@@ -74,7 +76,8 @@ while ($row = @mysqli_fetch_assoc($result)){
   
   //produces the "open" button
   echo '<br>';
-  echo '<button id="myBtn" onclick="null">OPEN</button>';
+  echo '<button id="myBtn" onclick="openMission(this, ' . $row["missionID"] .
+      ',`' . $row["missionName"] . '`)">OPEN</button>';
 
   echo '</div>';
 }

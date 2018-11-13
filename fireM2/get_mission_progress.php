@@ -99,7 +99,8 @@ while ($row = @mysqli_fetch_assoc($result)){
 echo '</table>';
 
 //add refresh button
-echo '<button onclick="refreshMissionProgress()">REFRESH</button>';
+echo '<button onclick="refreshMissionProgress(' . $_GET["missionID"] .
+    ')">REFRESH</button>';
 
 echo '</div>';
 

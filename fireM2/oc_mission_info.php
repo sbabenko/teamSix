@@ -4,6 +4,8 @@ if(!defined('OC_Tab')) {
     //redirect back to correct dashboard
     header("location: profile.php");
 }
+
+include 'mission_info_modal.php';
 ?>
 
 <script>
@@ -19,7 +21,7 @@ if(!defined('OC_Tab')) {
     }
 
     function updateMissionInfo(idNum) {
-        if (confirm("Press OK to make changes to these events.")) {
+        if (confirm("Press OK to set this mission to completed.")) {
             $.ajax({
                 url: "update_oc_mission_info.php",
                 type: "POST",

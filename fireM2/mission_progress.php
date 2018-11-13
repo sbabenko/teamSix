@@ -26,6 +26,7 @@ if(!defined('MM_Tab')) {
             loadMissionProgress();
         }
     }
+
 </script>
 
-<div class = "contentPanel" id="loadMissionProgress">MM Mission Progress</div>
+<div class="contentPanel" id="loadMissionProgress">MM Mission Progress</div>
