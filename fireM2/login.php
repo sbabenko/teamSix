@@ -22,7 +22,7 @@ else { // User exists
         
         if ($_SESSION['active']){
             if($_SESSION['role'] == 'MM'){
-                $result = $mysqli->query("SELECT * FROM missionAssignment WHERE accountEmail='$email'");
+                $result = $mysqli->query("SELECT * FROM mission natural join missionAssignment WHERE isActive = true AND accountEmail='$email'");
             
                 if($result->num_rows == 0){
                     $_SESSION['logged_in'] = false;
