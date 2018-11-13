@@ -27,6 +27,9 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
 
     // Get the <span> element that closes the modal
     var eSpan = document.getElementById("eventClose");
+    
+    var isNote = false;
+    var isChange = false;
 
     // When the user clicks the button, open the modal 
     eBtn.addEventListener("click", function() {
@@ -46,20 +49,25 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
         }
     });
 
-    function openEvent(ele, eventID, eventName) {
+    function openEvent(eventID, eventName, changeNote, updateEvent) {
         eModal.style.display = "block";
         document.getElementById("eventHeader").innerHTML = eventName;
 
+        isNote = changeNote;
+        isChange = updateEvent;
+        
         loadEventModal(eventID);
     }
 
-    function loadEventModal(eventID) {
+    function loadEventModal(eventID) {        
         //update event information tables
         $.ajax({
             url: "get_event_info.php",
             type: "GET",
             data: {
-                eventID: eventID
+                eventID: eventID,
+                isNote: isNote,
+                isChange: isChange
             },
             dataType: "html",
             success: function(html) {

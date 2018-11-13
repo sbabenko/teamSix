@@ -121,46 +121,50 @@ while ($row = @mysqli_fetch_assoc($result)){
 
 echo '</table>';
 
-//written note text field
-echo '<p>Add Written Note</p>';
-echo '<input type="text" id="writtenNote">';
+if($_GET["isNote"] == "true"){
+  //written note text field
+  echo '<p>Add Written Note</p>';
+  echo '<input type="text" id="writtenNote">';
 
-//add note button
-echo '<button onclick="addWrittenNote(' . $_GET['eventID'] .
-    ')">ADD</button>';
-
-//assign to mission dropdown
-echo '<p>Assign to Mission</p>';
-
-//query for all available mission
-$query = "SELECT * FROM mission WHERE isActive = true";
-
-$result = $mysqli->query($query);
-if (!$result) {
-  die('Invalid query: ' . mysqli_error($mysqli));
+  //add note button
+  echo '<button onclick="addWrittenNote(' . $_GET['eventID'] .
+      ')">ADD</button>';
 }
 
-//generate dropdown for all available mission
-$dropdown = '<select id="eventAssignDropdown"><option value = "none"></option>';
+if($_GET["isChange"] == "true"){
+  //assign to mission dropdown
+  echo '<p>Assign to Mission</p>';
 
-while ($row = @mysqli_fetch_assoc($result)){
-  $dropdown = $dropdown . '<option value="' . $row["missionID"] . '">' .
-              $row["missionName"] . '</option>';
+  //query for all available mission
+  $query = "SELECT * FROM mission WHERE isActive = true";
+
+  $result = $mysqli->query($query);
+  if (!$result) {
+    die('Invalid query: ' . mysqli_error($mysqli));
+  }
+
+  //generate dropdown for all available mission
+  $dropdown = '<select id="eventAssignDropdown"><option value = "none"></option>';
+
+  while ($row = @mysqli_fetch_assoc($result)){
+    $dropdown = $dropdown . '<option value="' . $row["missionID"] . '">' . 
+        $row["missionName"] . '</option>';
+  }
+
+  $dropdown = $dropdown . '</select>';
+
+  echo $dropdown;
+
+  //assign button
+  echo '<button onclick="assignEvent(' . $_GET['eventID'] .
+      ')">ASSIGN</button>';
+
+  echo '<br>';
+
+  //delete event button
+  echo '<button onclick="deleteEvent(' . $_GET['eventID'] .
+      ')">DELETE</button>';   
 }
-
-$dropdown = $dropdown . '</select>';
-
-echo $dropdown;
-
-//assign button
-echo '<button onclick="assignEvent(' . $_GET['eventID'] .
-    ')">ASSIGN</button>';
-
-echo '<br>';
-
-//delete event button
-echo '<button onclick="deleteEvent(' . $_GET['eventID'] .
-    ')">DELETE</button>';
 
 //refresh modal button
 echo '<button onclick="refreshEventModal(' . $_GET['eventID'] .

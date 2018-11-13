@@ -85,10 +85,23 @@ if (!$result) {
   die('Invalid query: ' . mysqli_error($mysqli));
 }
 
+$query2 = 'SELECT isActive FROM mission WHERE missionID = ' . $_GET['missionID'];
+
+$result2 = $mysqli->query($query2);
+if (!$result2) {
+  die('Invalid query: ' . mysqli_error($mysqli));
+}
+
+$noteFlag = "false";
+
+if(@mysqli_fetch_assoc($result2)["isActive"]){
+    $noteFlag = "true";
+}
+
 while ($row = @mysqli_fetch_assoc($result)){
   echo '<tr>';
-  echo '<td><a href="javascript:openEvent(this, ' . $row["eventID"] . ',`' 
-                                                  . $row["eventName"] . '`)">';
+  echo '<td><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
+      $row["eventName"] . '`, ' . $noteFlag . ', false)">';
   
   echo $row["eventName"];
   echo '</a></td>';

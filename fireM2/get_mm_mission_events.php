@@ -38,9 +38,8 @@ echo '<th>Completed</th>';
 // Iterate through the rows
 while ($row = @mysqli_fetch_assoc($result)){
   echo '<tr data-value=' . $row["eventID"] . '>';
-  echo '<td><a href="javascript:openEvent(this, ' . $row["eventID"] . ',`' 
-                                                  . $row["eventName"] . '`)">';
-  
+  echo '<td><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
+      $row["eventName"] . '`, true, false)">';
   echo $row["eventName"];
   echo '</a></td>';
   echo '<td>' . $row["state"] . '</td>';
