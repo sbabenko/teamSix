@@ -24,7 +24,7 @@ foreach($toDelete as $del){
     //query to delete state attached with event
     $query = "DELETE FROM eventState WHERE eventID = " . $del;
     
-    //delete all notes for event
+    //delete all states for event
     $result = $mysqli->query($query);
     if (!$result) {
         die('Invalid query: ' . mysqli_error($mysqli));
@@ -33,7 +33,7 @@ foreach($toDelete as $del){
     //query to delete event
     $query = "DELETE FROM mmEvent WHERE eventID = " . $del;
     
-    //delete all notes for event
+    //delete event
     $result = $mysqli->query($query);
     if (!$result) {
         die('Invalid query: ' . mysqli_error($mysqli));
@@ -43,7 +43,7 @@ foreach($toDelete as $del){
 //convert list of mission assignments as PHP array
 $assignment = json_decode($_POST['assignEvents']);
 
-//iterate through events to remove
+//iterate through events to assign
 foreach($assignment as $assign){
     //query to update missionID of event
     $query = "UPDATE mmEvent SET missionID = " . $assign->missionID . " WHERE eventID = " . $assign->eventID;
