@@ -4,8 +4,6 @@ if(!defined('OC_Tab')) {
     //redirect back to correct dashboard
     header("location: profile.php");
 }
-
-include 'mission_info_modal.php';
 ?>
 
 <script>

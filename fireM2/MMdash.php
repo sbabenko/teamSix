@@ -62,7 +62,7 @@ define('MM_Tab', TRUE);
         </div>
 
         <div id="MissionProgress" class="tabs-3">
-            <?php require 'mission_progress.php'; ?>
+            <?php require 'mm_mission_progress.php'; ?>
         </div>
 
         <div id="DataVisualization" class="tabs-4">

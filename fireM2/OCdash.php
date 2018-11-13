@@ -72,6 +72,7 @@ define('OC_Tab', TRUE);
 
     </div><!-- tab-content -->
 
+    <?php include 'mission_info_modal.php'; ?>
     <?php include 'event_info_modal.php'; ?>
 
     <!-- logout button -->

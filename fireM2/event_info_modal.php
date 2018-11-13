@@ -1,80 +1,70 @@
 <!-- Hidden button object that makes all the javascript for the
 event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
-<button id="myBtn" style="display:none;"></button>
+<button id="eventButton" style="display:none;"></button>
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="eventModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2 id="m_hdr_msg"></h2>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span id="eventClose" class="close">&times;</span>
+            <h2 id="eventHeader"></h2>
+        </div>
+        <div id="modal-body" class="modal-body">
+            <div class="eventTables"></div>
+        </div>
+        <div class="modal-footer">
+            <h3></h3>
+        </div>
     </div>
-    <div id="modal-body" class="modal-body">
-      <div class="eventTables"></div>
-    </div>
-    <div class="modal-footer">
-      <h3></h3>
-    </div>
-  </div>
 
 </div>
 
 <script>
-// Get the modal
-var modal = document.getElementById('myModal');
+    // Get the modal
+    var eModal = document.getElementById('eventModal');
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+    // Get the button that opens the modal
+    var eBtn = document.getElementById("eventButton");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    // Get the <span> element that closes the modal
+    var eSpan = document.getElementById("eventClose");
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+    // When the user clicks the button, open the modal 
+    eBtn.addEventListener("click", function() {
+        eModal.style.display = "block";
+    });
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+    // When the user clicks on <span> (x), close the modal
+    eSpan.addEventListener("click", function() {
+        //sets modal to invisible
+        eModal.style.display = "none";
+    });
 
-  //Removes all iframes (should just be one instance of 
-  //active iframes at any time for the 
-  //embedded modal maps)
+    // When the user clicks anywhere outside of the modal, close it
+    window.addEventListener("click", function(event) {
+        if (event.target == eModal) {
+            eModal.style.display = "none";
+        }
+    });
 
-  var iframes = document.querySelectorAll('iframe');
-  for (var i = 0; i < iframes.length; i++) {
-    iframes[i].parentNode.removeChild(iframes[i]);
-  }
+    function openEvent(ele, eventID, eventName) {
+        eModal.style.display = "block";
+        document.getElementById("eventHeader").innerHTML = eventName;
 
-  //sets modal to invisible
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-function openEvent(ele, eventID, eventName){
-  modal.style.display = "block";
-  document.getElementById("m_hdr_msg").innerHTML = eventName;
-
-  //update event information tables
-  $.ajax({
-        url: "get_event_info.php",
-        type: "GET",
-        data: {eventID: eventID},
-        dataType: "html",
-        success: function(html) {
-        $(".eventTables").html(html);
+        //update event information tables
+        $.ajax({
+            url: "get_event_info.php",
+            type: "GET",
+            data: {
+                eventID: eventID
+            },
+            dataType: "html",
+            success: function(html) {
+                $(".eventTables").html(html);
+            }
+        }); //end ajax call
     }
-  });//end ajax call
-    
-  //add buttons to footer
-}
 
 </script>
