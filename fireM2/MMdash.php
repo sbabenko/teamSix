@@ -46,7 +46,7 @@ define('MM_Tab', TRUE);
         <li class="statictab" id="missionNameToggle">Mission Name</li>
         <li class="tab active" onclick="showTab(1,4)"><a href="#IncidentMap">Incident Map</a></li>
         <li class="tab" onclick="showTab(2,4); loadMissionEvents();"><a href="#ChangeEventState">Change Event State</a></li>
-        <li class="tab" onclick="showTab(3,4)"><a href="#MissionProgress">Mission Progress</a></li>
+        <li class="tab" onclick="showTab(3,4); loadMissionProgress();"><a href="#MissionProgress">Mission Progress</a></li>
         <li class="tab" onclick="showTab(4,4)"><a href="#DataVisualization">Data Visualization</a></li>
         <li class="statictab digital-clock">Clock</li>
     </ul>
@@ -62,7 +62,7 @@ define('MM_Tab', TRUE);
         </div>
 
         <div id="MissionProgress" class="tabs-3">
-            <?php require 'mm_mission_progress.php'; ?>
+            <?php require 'mission_progress.php'; ?>
         </div>
 
         <div id="DataVisualization" class="tabs-4">
