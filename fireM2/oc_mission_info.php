@@ -6,4 +6,30 @@ if(!defined('OC_Tab')) {
 }
 ?>
 
-<div class = "contentPanel">OC Mission Information</div>
+<script>
+    function loadMissionInfo() {
+        $.ajax({
+            url: "get_oc_mission_info.php",
+            type: "GET",
+            dataType: "html",
+            success: function(html) {
+                $("#loadMissionInfo").html(html);
+            }
+        })
+    }
+
+    function updateMissionInfo(idNum) {
+        if (confirm("Press OK to make changes to these events.")) {
+            $.ajax({
+                url: "update_oc_mission_info.php",
+                type: "POST",
+                data: {
+                    missionID: idNum
+                },
+                success: loadMissionInfo,
+            });
+        }
+    }
+</script>
+
+<div class = "contentPanel" id="loadMissionInfo">OC Mission Information</div>
