@@ -18,7 +18,7 @@ if (!$db_selected) {
 }
 
 // Select all missions
-$query = "SELECT * FROM mission";
+$query = "SELECT * FROM mission WHERE isActive = true";
 
 $result = $mysqli->query($query);
 if (!$result) {
