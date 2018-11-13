@@ -23,7 +23,7 @@ if(!defined('MM_Tab')) {
 
     function refreshMissionProgress() {
         if (confirm("Press OK to refresh this tab (Note: any user input will be lost).")) {
-            loadAssignMission();
+            loadMissionProgress();
         }
     }
 </script>
