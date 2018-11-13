@@ -61,15 +61,15 @@ echo '</tr>';
 
 // Iterate through the rows
 while ($row = @mysqli_fetch_assoc($result)){
-  echo '<tr>';
-  echo '<td><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
+  echo '<div class="assignMissionObject">';
+  echo '<div><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
       $row["eventName"] . '`, true, false)">';
   
   echo $row["eventName"];
-  echo '</a></td>';
-  echo '<td>' . $dropdown . '</td>';
-  echo '<td><input type="checkbox" onChange="toggleDropdown(this)" value=' . $row["eventID"] . '></td>';
-  echo '</tr>';
+  echo '</a></div>';
+  echo '<div>' . $dropdown . '</div>';
+  echo '<div><input type="checkbox" onChange="toggleDropdown(this)" value=' . $row["eventID"] . '></div>';
+  echo '</div>';
 }
 
 echo '</table>';

@@ -415,6 +415,18 @@ input[type="checkbox"]{
   color: #FFF7DD;
 }
 
+.assignMissionObject{
+  border-radius: 4px;
+  margin-top: 10px;
+  padding: 5px 0;
+  overflow: hidden;
+  display:block;
+  height:70px;
+  background-color:rgb(153, 153, 153, .5);
+  box-shadow: 0 4px 15px 14px rgba(13, 17, 19, 0.3);
+  color: #FFF7DD;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -675,10 +687,29 @@ input[type="checkbox"]{
 .eventInfo table{
     margin: 10px;
     width: 50%; 
-    background-color: #f1f1c1;
+    background-color: #cfcfcf;
     color: #000000;
     border: 1px solid white;
     display: inline-block;
+
+    /*
+    border-radius: 4px;
+    
+    margin-top: 10px;
+    padding: 5px 0;
+    overflow: hidden;
+    display:block;
+    height:70px;
+    background-color:rgb(153, 153, 153, .5);
+    box-shadow: 0 4px 15px 14px rgba(13, 17, 19, 0.3);
+    color: #FFF7DD;
+    text-decoration: none;
+    font-size: 14px; */
+}
+
+.eventInfo tr{
+  border-radius: 4px;
+  margin-top: 100px !important;
 }
 
 .sidePane label {
@@ -712,6 +743,7 @@ input[type=number]::-webkit-outer-spin-button {
   align-content: center;
   align-self: center;
   height: 636px;
+  overflow: hidden;
 }
 
 
@@ -739,7 +771,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .custom-dropdown select {
-  background-color: #1abc9c;
+  background-color: rgb(153, 153, 153, .5);
   color: #fff;
   font-size: inherit;
   padding: .5em;
@@ -765,12 +797,12 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: .625em;
   line-height: 1;
   right: 1.2em;
-  top: 30%;
+  top: 20%;
   margin-top: -.5em;
 }
 
 .custom-dropdown::before { /*  Custom dropdown arrow cover */
-  height: 35%;
+  height: 39%;
   width: 2em;
   right: 0;
   top: 0;
@@ -798,4 +830,13 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: rgba(235, 235, 235, 0.8);
   border-radius: 25px;
 
+}
+
+.sel_mission_manage{
+  position: absolute;
+  left: 120px;
+}
+
+.sel_mission_dropdown{
+  position: absolute;
 }

@@ -115,14 +115,13 @@ $$('.color-picker')[0].on('click', '.square', function(event, square) {
 </script>
 
   <h3 align="center">Assign To Mission Manager</h3>
-  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-  Select Mission Manager: &nbsp&nbsp&nbsp&nbsp&nbsp
-  <span class="custom-dropdown">
-    <select name="owner">
-  </span>
-
+  <div class="sel_mission_manage">
+    Select Mission Manager:
+  </div>
+    <span class="custom-dropdown" style="margin: -7px 0px 00px 285px;">
+      <select name="owner" style="margin: 0px 0px 20px 0px;">
+    </span>
+<br>
 <br>
 
 <script>
@@ -154,8 +153,8 @@ echo "<option value=\"owner1\">" . $row['firstName'] ." ". $row['lastName'] .  "
 
   <br><br>
 
-  <div class="createMissionbutton" style="width:80%;margin:auto;">
-    <input type="submit" name="submit" value="Create">
+  <div class="createMissionbutton" style="width:100%;margin:auto;">
+    <input type="submit" name="submit" value="Create" style="margin: -21px 0px 0px -100px;">
   </div>  
 </form>
 
