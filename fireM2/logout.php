@@ -2,7 +2,10 @@
 /* Log out process, unsets and destroys session variables */
 session_start();
 session_unset();
-session_destroy(); 
+session_destroy();
+
+//set user role to general public
+$_SESSION['role'] = 'GP';
 ?>
 <!DOCTYPE html>
 <html>

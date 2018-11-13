@@ -437,8 +437,17 @@
         markers.splice(pos, 0, marker);
 
         google.maps.event.addListener(marker, 'click', function() {
-            var content = "<a href = \"javascript:openEvent(this, " + this.id +
-                ", '" + this.title + "')\">" + this.title + "</a>";
+            var role = "<?php echo $_SESSION['role']; ?>";
+            
+            var canDelete = "false";
+            
+            if(role == "OC"){
+                canDelete = "true";
+            }
+            
+            var content = "<a href = \"javascript:openEvent(" + this.id +
+                ", '" + this.title + "', true, " + canDelete +
+                ")\">" + this.title + "</a>";
 
             infowindow.setContent(content);
             infowindow.open(map, this);
