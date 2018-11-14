@@ -4,27 +4,26 @@ $(document).ready(function(){
     
     setInterval(function(){        
         $.ajax({
-            url : "http://localhost/teamSix/fireM2/get_event_cat_doughnut.php",
+            url : "http://localhost/teamSix/fireM2/CurrentMissionStatus.php",
             type : "GET",
             success : function(data){
                 //don't refresh graph if data did not change
                 //https://www.w3schools.com/js/js_json_stringify.asp
                 
+                
                 if(JSON.stringify(data) != JSON.stringify(barData)){
                     if(graph != null){
                         graph.destroy();
                     }
-                    
-                    var missions = [];
+                                
                     var amounts = [];
+                    var missions = [];
                     
-                    //This section is dependant on whether or not the database contains
-                    //a value for the percentage of a mission's completion.  If it is,
-                    //that number goes in for "MISSION_STATUS_AMOUNT"
+                    missions.push("Current Mission");
+            
                     
 					for (var x in data){
-						missions.push("Mission " + data[x]);
-						amounts.push(data[x].MISSION_STATUS_AMOUNT);
+						amounts.push(data[x].eventPercent);
 					}
 
                     
@@ -34,29 +33,38 @@ $(document).ready(function(){
                     var myData = {
                     	labels : missions,
                     	datasets : [{
-                    		data : amount
+                    		data : amounts
                     		}]
                     	};
                     
-                    }
-                    
-                    
                     graph = new Chart(ctx, {
-                    	type = 'horizontalBar',
+                    	type : 'horizontalBar',
                     	data : myData,
                     	options: {
                     		legend: {display: false},
                     		title: {
                     			display: true,
                     			fontSize: 20,
-                    			text: 'Current Mission Statuses'
+                    			text: 'Current Mission Status'
+                    			},
+                    			scales: {
+                    				xAxes: [{
+                    					display: true,
+                    					ticks: {
+                    						max: 1,
+                    						min: 0,
+                    						stepSize: 0.33
+                    					}
+                    				}],
+                    				yAxes: [{
+                    					display: false
+                    				}]
                     			}
                     		}
                     	});
                     	
-                    	
                     	barData = data;
-                    	
+                    
                 }
             }
         });

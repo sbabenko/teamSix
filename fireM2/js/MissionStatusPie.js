@@ -11,7 +11,7 @@ $(document).ready(function(){
                 //https://www.w3schools.com/js/js_json_stringify.asp
                 
                 
-                if(JSON.stringify(data) != JSON.stringify(doughnutData)){
+                if(JSON.stringify(data) != JSON.stringify(pieData)){
                     if(graph != null){
                         graph.destroy();
                     }
@@ -22,7 +22,8 @@ $(document).ready(function(){
                     
                     
                     //mission statuses
-                    cats.push("Reported");
+                    cats.push("Assigned");
+                    cats.push("In Progress");
                     cats.push("On Hold");
                     cats.push("Completed");
                     
