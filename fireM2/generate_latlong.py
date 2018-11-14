@@ -5,6 +5,7 @@ from mpl_toolkits.basemap import Basemap
 from random import uniform
 import mysql.connector
 import datetime
+import random
 
 
 def insert_to_database(x, y, event_type):
@@ -18,12 +19,24 @@ def insert_to_database(x, y, event_type):
     print(fireM2db)
 
     event_category = str.lower(event_type)
-    print("Event Category: %s" % event_category)
+    submit_event_method = ['phone', 'sms', 'email', 'twitter', 'facebook']
+    submitMethod = random.choice(submit_event_method)
+    submit_event_name = ["The sky is falling.",
+                         "There a cat on my roof.",
+                         "I have fallen and I can't get up.",
+                         "I feel heartburn coming.",
+                         "Penguins are surrounding my house.",
+                         "Birds are falling from the sky.",
+                         "There's an alien in my backyard.",
+                         "The duck has been spotted.",
+                         "My dog started speaking to me in French.",
+                         "We lost gravity."]
+    submitName = random.choice(submit_event_name)
     mycursor = fireM2db.cursor()
 
     # Insert the new event:
     sql = """INSERT INTO mmEvent (eventName, latitude, longitude, category, submitMethod) VALUES (%s, %s, %s, %s, %s)"""
-    val = ("The sky is falling!", x, y, event_category, "phone")
+    val = (submitName, x, y, event_category, submitMethod)
     mycursor.execute(sql, val)
     fireM2db.commit()
 
@@ -168,7 +181,7 @@ def main():
         else:
             print("Please specify a number greater than 0.")
     # 10: NaturalGas
-    elif event_type.startswith("NaturalGas") and event_type.endswith("uralGas"):
+    elif event_type.startswith("Natural Gas") and event_type.endswith("ural Gas"):
         if num_of_events > 0:
             print("Starting to generate", args.type, "data.")
             generate_data(event_type, num_of_events, radius, event_time)
