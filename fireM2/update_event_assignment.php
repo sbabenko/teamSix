@@ -16,4 +16,14 @@ if (!$result) {
   die('Invalid query: ' . mysqli_error($mysqli));
 }
 
+//query to set event to assigned state
+$query = "INSERT INTO eventState (eventID, updateTime, state) VALUES (" . $_POST["eventID"] .
+    ", now(), 'assigned')";
+    
+//add new state for event
+$result = $mysqli->query($query);
+if (!$result) {
+    die('Invalid query: ' . mysqli_error($mysqli));
+}
+
 ?>
