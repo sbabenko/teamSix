@@ -73,7 +73,12 @@ $(document).ready(function(){
                     	type: "doughnut",
                     	data: myData,
                     	options: {
-                    		legend: { position: 'bottom'},
+                    		legend: {
+                    			position: 'bottom',
+                    			labels : {
+                    				fontColor: '#ffffff'
+                    			}
+                    		},
                     		title: {
                     			display: true,
                     			fontSize: 20,

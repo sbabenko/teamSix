@@ -23,7 +23,7 @@ $(document).ready(function(){
             
                     
 					for (var x in data){
-						amounts.push(data[x].eventPercent);
+						amounts.push(data[x].totalPercent);
 					}
 
                     
@@ -33,6 +33,7 @@ $(document).ready(function(){
                     var myData = {
                     	labels : missions,
                     	datasets : [{
+                    		backgroundColor : ['#ff0000'],
                     		data : amounts
                     		}]
                     	};
@@ -45,15 +46,24 @@ $(document).ready(function(){
                     		title: {
                     			display: true,
                     			fontSize: 20,
-                    			text: 'Current Mission Status'
+                    			text: 'Current Mission Status',
+                    			fontColor: '#ffffff'
                     			},
                     			scales: {
                     				xAxes: [{
                     					display: true,
                     					ticks: {
-                    						max: 1,
                     						min: 0,
-                    						stepSize: 0.33
+                    						max: 100,
+                    						stepSize: 25,
+                    						fontColor: '#ffffff',
+                    						fontSize: 20
+                    					},
+                    					scaleLabel: {
+                    						display: true,
+                    						labelString: 'Percent Complete',
+                    						fontColor: '#ffffff',
+                    						fontSize: 20
                     					}
                     				}],
                     				yAxes: [{
