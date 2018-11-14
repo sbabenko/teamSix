@@ -22,11 +22,11 @@ $(document).ready(function(){
                   	var colors = [];
                   	
                   	//fill labels array
-                  	cats.push("Phone");
-                  	cats.push("Email");
-                  	cats.push("Facebook");
-                  	cats.push("SMS");
-                  	cats.push("Twitter");
+                  	cats.push("phone");
+                  	cats.push("email");
+                  	cats.push("facebook");
+                  	cats.push("sms");
+                  	cats.push("twitter");
                   	
                   	//assign colors to each event
                   	colors.push("#ffffff");
@@ -43,7 +43,7 @@ $(document).ready(function(){
                   	                  
                     for(var i in data){
                     	for(var x = 0; x < 5; x++){
-                    		if(data[i].category == cats[x]){
+                    		if(data[i].submitMethod == cats[x]){
                     			amount[x] = data[i].quantity;
                     		}
                     	}
