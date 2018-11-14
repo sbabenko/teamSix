@@ -8,7 +8,8 @@ if (!$db_selected) {
   die ('Can\'t use db : ' . mysqli_error());
 }
 
-$query = "select submitMethod, count(*) as quantity from mmEvent where missionID = 1 group by submitMethod;";
+$query = "select submitMethod, count(*) as quantity from mmEvent where " .
+    "missionID = " . $_GET["missionID"] . " group by submitMethod;";
 
 //execute query
 $result = $mysqli->query($query);

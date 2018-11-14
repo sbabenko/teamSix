@@ -4,8 +4,11 @@ $(document).ready(function(){
     
     setInterval(function(){        
         $.ajax({
-            url : "http://localhost/teamSix/fireM2/mm_mission_state.php",
+            url : "mm_mission_state.php",
             type : "GET",
+            data: {
+                missionID: missionID  
+            },
             success : function(data){
                 //don't refresh graph if data did not change
                 //https://www.w3schools.com/js/js_json_stringify.asp
@@ -22,7 +25,7 @@ $(document).ready(function(){
                   	var colors = [];
                   	
                   	//fill labels array
-                  	cats.push("reported");
+                  	cats.push("assigned");
                   	cats.push("on hold");
                   	cats.push("in progress");
                   	cats.push("completed");

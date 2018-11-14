@@ -8,7 +8,10 @@ if (!$db_selected) {
   die ('Can\'t use db : ' . mysqli_error());
 }
 
-$query = "select state, count(*) as quantity from mmEvent natural join eventState where (eventID, updateTime) in (select eventID, max(updateTime) from eventState group by eventID) and missionID = 1 group by state;";
+$query = "select state, count(*) as quantity from mmEvent natural join " .
+    "eventState where (eventID, updateTime) in (select eventID, " .
+    "max(updateTime) from eventState group by eventID) and missionID = " .
+    $_GET["missionID"] . " group by state";
 
 //execute query
 $result = $mysqli->query($query);

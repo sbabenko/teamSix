@@ -2,10 +2,13 @@ $(document).ready(function(){
     var doughnutData = null;
     var graph = null;
     
-    setInterval(function(){        
+    setInterval(function(){
         $.ajax({
-            url : "http://localhost/teamSix/fireM2/mm_event_cat_pie.php",
+            url : "mm_event_cat_pie.php",
             type : "GET",
+            data : {
+                missionID: missionID
+            },
             success : function(data){
                 //don't refresh graph if data did not change
                 //https://www.w3schools.com/js/js_json_stringify.asp

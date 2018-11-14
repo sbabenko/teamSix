@@ -4,8 +4,11 @@ $(document).ready(function(){
     
     setInterval(function(){        
         $.ajax({
-            url : "http://localhost/teamSix/fireM2/CurrentMissionStatus.php",
+            url : "CurrentMissionStatus.php",
             type : "GET",
+            data : {
+                missionID: missionID
+            },
             success : function(data){
                 //don't refresh graph if data did not change
                 //https://www.w3schools.com/js/js_json_stringify.asp

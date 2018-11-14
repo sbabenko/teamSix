@@ -4,7 +4,7 @@ $(document).ready(function(){
     
     setInterval(function(){        
         $.ajax({
-            url : "http://localhost/teamSix/fireM2/get_events_line_graph.php",
+            url : "get_events_line_graph.php",
             type : "GET",
             success : function(data){
                 //don't refresh graph if data did not change

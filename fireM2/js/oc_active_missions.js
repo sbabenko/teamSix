@@ -4,7 +4,7 @@ $(document).ready(function(){
     
     setInterval(function(){        
         $.ajax({
-            url : "http://localhost/teamSix/fireM2/oc_active_missions.php",
+            url : "oc_active_missions.php",
             type : "GET",
             success : function(data){
                 //don't refresh graph if data did not change

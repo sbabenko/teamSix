@@ -4,7 +4,7 @@ $(document).ready(function(){
     
     setInterval(function(){        
         $.ajax({
-            url : "http://localhost/teamSix/fireM2/get_event_cat_doughnut.php",
+            url : "get_event_cat_doughnut.php",
             type : "GET",
             success : function(data){
                 //don't refresh graph if data did not change
