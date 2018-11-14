@@ -58,6 +58,10 @@ echo '<th>Event Name</th>';
 echo '<th>Mission Name</th>';
 echo '<th>Delete?</th>';
 echo '</tr>';
+echo '</table>';
+
+//Apply defined-height box
+echo '<div class = "resource-box">';
 
 // Iterate through the rows
 while ($row = @mysqli_fetch_assoc($result)){
@@ -72,7 +76,7 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '</div>';
 }
 
-echo '</table>';
+echo '</div>';
 
 //add update button
 echo '<button onclick="updateAssignMission()">UPDATE</button>';

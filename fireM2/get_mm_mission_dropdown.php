@@ -54,7 +54,7 @@ echo "<?xml version='1.0' ?>";
 
 //create div to hold table
 echo "<div>";
-echo '<span class="custom-dropdown" style="margin: -7px 0px 00px 285px;">';
+echo '<span class="custom-dropdown" style="margin: -7px 0px 00px 5px;">';
 echo  $dropdown;
 echo '<span>';
 echo '</div>';
