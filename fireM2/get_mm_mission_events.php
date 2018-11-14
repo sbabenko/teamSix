@@ -73,10 +73,10 @@ while ($row = @mysqli_fetch_assoc($result)){
 echo '</table>';
 
 //add update button
-echo '<button onclick="updateMissionEvents()">UPDATE</button>';
+echo '<button id="myBtn" onclick="updateMissionEvents()">UPDATE</button>';
 
 //add refresh button
-echo '<button onclick="refreshMissionEvents()">REFRESH</button>';
+echo '<button id="myBtn" onclick="refreshMissionEvents()">REFRESH</button>';
 
 // End XML file
 echo '</div>';
