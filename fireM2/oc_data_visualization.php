@@ -10,6 +10,9 @@ if(!defined('OC_Tab')) {
     <div class = "charts">
     	<canvas id = "incomingDataLineGraph"></canvas>
         <canvas id = "incomingDoughnutGraph"></canvas>
+        <canvas id = "oc_submission_method"></canvas>
+        <canvas id = "oc_active_missions"></canvas>
+        
     </div>
 </div>
 
@@ -17,3 +20,5 @@ if(!defined('OC_Tab')) {
 <script type="text/javascript" src="js/Chart.min.js"></script>
 <script type="text/javascript" src="js/incomingEventsLineGraph.js"></script>
 <script type="text/javascript" src="js/get_event_cat_doughnut.js"></script>
+<script type="text/javascript" src="js/oc_submission_method.js"></script>
+<script type="text/javascript" src="js/oc_active_missions.js"></script>

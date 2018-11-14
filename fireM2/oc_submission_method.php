@@ -8,8 +8,9 @@ if (!$db_selected) {
   die ('Can\'t use db : ' . mysqli_error());
 }
 
-$query = //QUERY TO FETCH MISSIONS
+$query = "select submitMethod, count(*) as quantity from mmEvent where missionID is null group by submitMethod;";
 
+//execute query
 $result = $mysqli->query($query);
 
 //loop through the returned data

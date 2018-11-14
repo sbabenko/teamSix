@@ -1,17 +1,17 @@
 $(document).ready(function(){
-    var doughnutData = null;
+    var submitData2 = null;
     var graph = null;
     
     setInterval(function(){        
         $.ajax({
-            url : "http://localhost/teamSix/fireM2/get_event_cat_doughnut.php",
+            url : "http://localhost/teamSix/fireM2/oc_submission_method.php",
             type : "GET",
             success : function(data){
                 //don't refresh graph if data did not change
                 //https://www.w3schools.com/js/js_json_stringify.asp
                 
                 
-                if(JSON.stringify(data) != JSON.stringify(doughnutData)){
+                if(JSON.stringify(data) != JSON.stringify(submitData2)){
                     if(graph != null){
                         graph.destroy();
                     }
@@ -22,16 +22,11 @@ $(document).ready(function(){
                   	var colors = [];
                   	
                   	//fill labels array
-                  	cats.push("hurricane");
-                  	cats.push("flood");
-                  	cats.push("tsunami");
-                  	cats.push("fire");
-                  	cats.push("earthquake");
-                  	cats.push("landslide");
-                  	cats.push("sinkhole");
-                  	cats.push("volcano");
-                  	cats.push("tornado");
-                  	cats.push("natural gas");
+                  	cats.push("phone");
+                  	cats.push("email");
+                  	cats.push("facebook");
+                  	cats.push("sms");
+                  	cats.push("twitter");
                   	
                   	//assign colors to each event
                   	colors.push("#ffffff");
@@ -39,28 +34,23 @@ $(document).ready(function(){
                   	colors.push("#3399ff");
                   	colors.push("#ff0000");
                   	colors.push("#654321");
-                  	colors.push("#999966");
-                  	colors.push("#000000");
-                  	colors.push("#cc6600");
-                  	colors.push("#999999");
-                  	colors.push("#e6e600");
                   	
                   	
-                  	for(var i = 0; i < 10; i++){
+                  	for(var i = 0; i < 5; i++){
 	                  	amount.push(0);              	
                   	}
                   	
                   	                  
                     for(var i in data){
-                    	for(var x = 0; x < 10; x++){
-                    		if(data[i].category == cats[x]){
+                    	for(var x = 0; x < 5; x++){
+                    		if(data[i].submitMethod == cats[x]){
                     			amount[x] = data[i].quantity;
                     		}
                     	}
                     }
                     
                     
-                    var ctx = $("#incomingDoughnutGraph");
+                    var ctx = $("#oc_submission_method");
                     
                     var myData = {
                     		labels : cats,
@@ -69,34 +59,29 @@ $(document).ready(function(){
                     			data : amount
                     		}]
                     	};
-                    
-                    
                     graph = new Chart(ctx, {
                     	type: "doughnut",
                     	data: myData,
                     	options: {
                     		legend: {
                     			position: 'bottom',
-                    			labels: {
-	                    			fontColor: '#ffffff'
+                    			labels : {
+                    				fontColor: '#ffffff'
                     			}
                     		},
                     		title: {
                     			display: true,
                     			fontSize: 20,
-                    			text: 'Missions by Category',
+                    			text: 'Missions by Submission Method',
                     			fontColor: '#ffffff'
                     			}
                     		}
 	                    });
                     
                     
-                    doughnutData = data;
+                    submitData2 = data;
                 }
             }
         });
     }, 1000);
 });
-
-
-
