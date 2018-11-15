@@ -14,7 +14,7 @@ $(document).ready(function(){
                 //https://www.w3schools.com/js/js_json_stringify.asp
                 
                 
-                if(JSON.stringify(data) != JSON.stringify(barData)){
+                if(JSON.stringify(data) !== JSON.stringify(barData)){
                     if(graph != null){
                         graph.destroy();
                     }

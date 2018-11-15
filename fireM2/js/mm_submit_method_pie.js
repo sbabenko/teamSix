@@ -14,7 +14,7 @@ $(document).ready(function(){
                 //https://www.w3schools.com/js/js_json_stringify.asp
                 
                 
-                if(JSON.stringify(data) != JSON.stringify(submitData)){
+                if(JSON.stringify(data) !== JSON.stringify(submitData)){
                     if(graph != null){
                         graph.destroy();
                     }
@@ -46,7 +46,7 @@ $(document).ready(function(){
                   	                  
                     for(var i in data){
                     	for(var x = 0; x < 5; x++){
-                    		if(data[i].submitMethod == cats[x]){
+                    		if(data[i].submitMethod === cats[x]){
                     			amount[x] = data[i].quantity;
                     		}
                     	}

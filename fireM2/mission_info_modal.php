@@ -41,7 +41,7 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
 
     // When the user clicks anywhere outside of the modal, close it
     window.addEventListener("click", function(event) {
-        if (event.target == mModal) {
+        if (event.target === mModal) {
             mModal.style.display = "none";
         }
     });

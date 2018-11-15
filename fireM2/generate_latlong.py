@@ -8,7 +8,13 @@ import datetime
 import random
 
 
-def insert_to_database(x, y, event_type):
+# Inserts into database.
+# 1. Creates connection.
+# 2. Selects a random event method and random event name based on list given.
+#    List can be modified (add or remove variable).
+# 3. Execute MySQL queries.
+
+def insert_to_database(x, y, eventType):
     fireM2db = mysql.connector.connect(
         host="mysql-instance1.crdymdfwdzej.us-east-1.rds.amazonaws.com",
         user="root",
@@ -18,10 +24,10 @@ def insert_to_database(x, y, event_type):
 
     print(fireM2db)
 
-    event_category = str.lower(event_type)
-    submit_event_method = ['phone', 'sms', 'email', 'twitter', 'facebook']
-    submitMethod = random.choice(submit_event_method)
-    submit_event_name = ["The sky is falling.",
+    eventCategory = str.lower(eventType)
+    SUBMIT_EVENT_METHOD = ['phone', 'sms', 'email', 'twitter', 'facebook']
+    submitMethod = random.choice(SUBMIT_EVENT_METHOD)
+    SUBMIT_EVENT_NAME = ["The sky is falling.",
                          "There a cat on my roof.",
                          "I have fallen and I can't get up.",
                          "I feel heartburn coming.",
@@ -31,22 +37,22 @@ def insert_to_database(x, y, event_type):
                          "The duck has been spotted.",
                          "My dog started speaking to me in French.",
                          "We lost gravity."]
-    submitName = random.choice(submit_event_name)
+    submitName = random.choice(SUBMIT_EVENT_NAME)
     mycursor = fireM2db.cursor()
 
     # Insert the new event:
     sql = """INSERT INTO mmEvent (eventName, latitude, longitude, category, submitMethod) VALUES (%s, %s, %s, %s, %s)"""
-    val = (submitName, x, y, event_category, submitMethod)
+    val = (submitName, x, y, eventCategory, submitMethod)
     mycursor.execute(sql, val)
     fireM2db.commit()
 
     # Get the event ID from the last insertion:
     sql2 = "SELECT LAST_INSERT_ID()"
     mycursor.execute(sql2)
-    event_id = mycursor.fetchone()[0]
+    eventId = mycursor.fetchone()[0]
     fireM2db.commit()
 
-    eventID = event_id
+    eventID = eventId
 
     # Generate the event state:
     sql3 = """INSERT INTO eventState (eventID, updateTime, state) VALUES (%s, %s, %s)"""
@@ -57,44 +63,44 @@ def insert_to_database(x, y, event_type):
     print(mycursor.rowcount, "record inserted.")
 
 
-def generate_data(event_type, number_of_events, radius, event_time):
-    print "Event Type: %s" % event_type
-    print "Number of Events: %d" % number_of_events
+def generate_data(eventType, numberOfEvents, radius, eventTime):
+    print "Event Type: %s" % eventType
+    print "Number of Events: %d" % numberOfEvents
     print "Radius: %d" % radius
-    print "Time per Event: %f" % event_time
+    print "Time per Event: %f" % eventTime
 
     bm = Basemap()
     # For testing purposes: to check it coordinates are valid land coordinates.
     # print(bm.is_land(long, lat))
 
     # Predetermined long and lat of disaster:
-    disaster_long = -80.883120
-    disaster_lat = 37.621608
+    disasterLong = -80.883120
+    disasterLat = 37.621608
 
     i = 0
     count = 1
-    coordinate_data = []
+    coordinateData = []
 
-    while i < number_of_events:
-        x, y = uniform(disaster_lat-radius, disaster_lat+radius), uniform(disaster_long-radius, disaster_long+radius)
+    while i < numberOfEvents:
+        x, y = uniform(disasterLat-radius, disasterLat+radius), uniform(disasterLong-radius, disasterLong+radius)
         # Checking for radius to be within range:
-        if disaster_lat + radius >= x >= disaster_lat - radius and disaster_long + radius >= y >= disaster_long - radius:
+        if disasterLat+radius >= x >= disasterLat-radius and disasterLong+radius >= y >= disasterLong-radius:
             if bm.is_land(y, x):
                 print(count, x, y)
                 coordinate_input = "new google.maps.LatLng(%f, %f)" % (x, y)
-                coordinate_data.append(coordinate_input)
+                coordinateData.append(coordinate_input)
 
                 # Create call to MySQL Database to insert lat and long
-                insert_to_database(x, y, event_type)
+                insert_to_database(x, y, eventType)
 
                 i += 1
                 count += 1
 
                 # Sleep for next set of data to generate.
-                sleep(event_time)
+                sleep(eventTime)
 
     seen = set()
-    uniq = [x for x in coordinate_data if x not in seen and not seen.add(x)]
+    uniq = [x for x in coordinateData if x not in seen and not seen.add(x)]
 
     pprint(uniq)
     item_count = len(uniq)
@@ -112,79 +118,79 @@ def main():
     args = parser.parse_args()
 
     # Parameters
-    event_type = args.type
-    num_of_events = args.total_events
+    eventType = args.type
+    numOfEvents = args.total_events
     radius = args.radius
-    event_time = args.time
+    eventTime = args.time
 
     # 1: Hurricane
-    if event_type.startswith("Hurricane") and event_type.endswith("cane"):
-        if num_of_events > 0:
+    if eventType.startswith("Hurricane") and eventType.endswith("cane"):
+        if numOfEvents > 0:
             print("Starting to generate", args.type, "data.")
-            generate_data(event_type, num_of_events, radius, event_time)
+            generate_data(eventType, numOfEvents, radius, eventTime)
         else:
             print("Please specify a number greater than 0.")
     # 2: Flood
-    elif event_type.startswith("Flood") and event_type.endswith("lood"):
-        if num_of_events > 0:
+    elif eventType.startswith("Flood") and eventType.endswith("lood"):
+        if numOfEvents > 0:
             print("Starting to generate", args.type, "data.")
-            generate_data(event_type, num_of_events, radius, event_time)
+            generate_data(eventType, numOfEvents, radius, eventTime)
         else:
             print("Please specify a number greater than 0.")
     # 3: Tsunami
-    elif event_type.startswith("Tsunami") and event_type.endswith("nami"):
-        if num_of_events > 0:
+    elif eventType.startswith("Tsunami") and eventType.endswith("nami"):
+        if numOfEvents > 0:
             print("Starting to generate", args.type, "data.")
-            generate_data(event_type, num_of_events, radius, event_time)
+            generate_data(eventType, numOfEvents, radius, eventTime)
         else:
             print("Please specify a number greater than 0.")
     # 4: Fire
-    elif event_type.startswith("Fire") and event_type.endswith("ire"):
-        if num_of_events > 0:
+    elif eventType.startswith("Fire") and eventType.endswith("ire"):
+        if numOfEvents > 0:
             print("Starting to generate", args.type, "data.")
-            generate_data(event_type, num_of_events, radius, event_time)
+            generate_data(eventType, numOfEvents, radius, eventTime)
         else:
             print("Please specify a number greater than 0.")
     # 5: Earthquake
-    elif event_type.startswith("Earthquake") and event_type.endswith("quake"):
-        if num_of_events > 0:
+    elif eventType.startswith("Earthquake") and eventType.endswith("quake"):
+        if numOfEvents > 0:
             print("Starting to generate", args.type, "data.")
-            generate_data(event_type, num_of_events, radius, event_time)
+            generate_data(eventType, numOfEvents, radius, eventTime)
         else:
             print("Please specify a number greater than 0.")
     # 6: Landslide
-    elif event_type.startswith("Landslide") and event_type.endswith("slide"):
-        if num_of_events > 0:
+    elif eventType.startswith("Landslide") and eventType.endswith("slide"):
+        if numOfEvents > 0:
             print("Starting to generate", args.type, "data.")
-            generate_data(event_type, num_of_events, radius, event_time)
+            generate_data(eventType, numOfEvents, radius, eventTime)
         else:
             print("Please specify a number greater than 0.")
     # 7: Sinkhole
-    elif event_type.startswith("Sinkhole") and event_type.endswith("hole"):
-        if num_of_events > 0:
+    elif eventType.startswith("Sinkhole") and eventType.endswith("hole"):
+        if numOfEvents > 0:
             print("Starting to generate", args.type, "data.")
-            generate_data(event_type, num_of_events, radius, event_time)
+            generate_data(eventType, numOfEvents, radius, eventTime)
         else:
             print("Please specify a number greater than 0.")
     # 8: Volcano
-    elif event_type.startswith("Volcano") and event_type.endswith("cano"):
-        if num_of_events > 0:
+    elif eventType.startswith("Volcano") and eventType.endswith("cano"):
+        if numOfEvents > 0:
             print("Starting to generate", args.type, "data.")
-            generate_data(event_type, num_of_events, radius, event_time)
+            generate_data(eventType, numOfEvents, radius, eventTime)
         else:
             print("Please specify a number greater than 0.")
     # 9: Tornado
-    elif event_type.startswith("Tornado") and event_type.endswith("nado"):
-        if num_of_events > 0:
+    elif eventType.startswith("Tornado") and eventType.endswith("nado"):
+        if numOfEvents > 0:
             print("Starting to generate", args.type, "data.")
-            generate_data(event_type, num_of_events, radius, event_time)
+            generate_data(eventType, numOfEvents, radius, eventTime)
         else:
             print("Please specify a number greater than 0.")
     # 10: NaturalGas
-    elif event_type.startswith("Natural Gas") and event_type.endswith("ural Gas"):
-        if num_of_events > 0:
+    elif eventType.startswith("Natural Gas") and eventType.endswith("ural Gas"):
+        if numOfEvents > 0:
             print("Starting to generate", args.type, "data.")
-            generate_data(event_type, num_of_events, radius, event_time)
+            generate_data(eventType, numOfEvents, radius, eventTime)
         else:
             print("Please specify a number greater than 0.")
     else:

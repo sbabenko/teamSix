@@ -1,20 +1,10 @@
 <?php
 require("db.php");
 
-function parseToXML($htmlStr)
-{
-$xmlStr=str_replace('<','&lt;',$htmlStr);
-$xmlStr=str_replace('>','&gt;',$xmlStr);
-$xmlStr=str_replace('"','&quot;',$xmlStr);
-$xmlStr=str_replace("'",'&#39;',$xmlStr);
-$xmlStr=str_replace("&",'&amp;',$xmlStr);
-return $xmlStr;
-}
-
 // Set the active MySQL database
 $db_selected = mysqli_select_db( $mysqli ,"FIREM2");
 if (!$db_selected) {
-  die ('Can\'t use db : ' . mysqli_error());
+  die ('Can\'t use db : ' . mysqli_error($mysqli));
 }
 
 //select specific event information

@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 //Set the active MySQL database
 $db_selected = mysqli_select_db( $mysqli ,"FIREM2");
 if (!$db_selected) {
-  die ('Can\'t use db : ' . mysqli_error());
+  die ('Can\'t use db : ' . mysqli_error($mysqli));
 }
 
 //Select number of events within last day

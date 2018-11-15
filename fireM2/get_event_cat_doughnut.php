@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 
 $db_selected = mysqli_select_db( $mysqli ,"FIREM2");
 if (!$db_selected) {
-  die ('Can\'t use db : ' . mysqli_error());
+  die ('Can\'t use db : ' . mysqli_error($mysqli));
 }
 
 $query = "select count(*) as quantity, category from mmEvent where missionID IS NULL group by category;";

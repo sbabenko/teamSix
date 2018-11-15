@@ -125,8 +125,8 @@ define('MM_Tab', TRUE);
                     $("#missionNameToggle").html(dropdownCode);
 
                     //refresh dashboard if originally selected mission not available
-                    if (missionID != currMissionID) {
-                        if (currMissionID == "null") {
+                    if (missionID !== currMissionID) {
+                        if (currMissionID === "null") {
                             missionID = null;
                             refreshDashboard(false, true);
                         } else {

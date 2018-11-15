@@ -43,7 +43,7 @@ if(!defined('OC_Tab')) {
                 
                 if (checkBox.is(':checked')) {
                     toDelete.push(checkBox.val())
-                } else if (dropDown.val() != "none"){
+                } else if (dropDown.val() !== "none"){
                     assignment.push({
                         eventID: checkBox.val(),
                         missionID: dropDown.val()
@@ -64,11 +64,7 @@ if(!defined('OC_Tab')) {
     }
 
     function toggleDropdown(checkBox) {
-        if (checkBox.checked) {
-            checkBox.closest("tr").getElementsByTagName("select")[0].disabled = true;
-        } else {
-            checkBox.closest("tr").getElementsByTagName("select")[0].disabled = false;
-        }
+        checkBox.closest("tr").getElementsByTagName("select")[0].disabled = !!checkBox.checked;
     }
 
 </script>

@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 
 $db_selected = mysqli_select_db( $mysqli ,"FIREM2");
 if (!$db_selected) {
-  die ('Can\'t use db : ' . mysqli_error());
+  die ('Can\'t use db : ' . mysqli_error($mysqli));
 }
 
 $query = "select state, count(*) as quantity from mmEvent natural join " .

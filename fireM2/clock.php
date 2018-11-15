@@ -19,7 +19,7 @@ $(document).ready(function() {
             function twelveHour(x) {
               if (x > 12) {
                 return x = x - 12;
-              } else if (x == 0) {
+              } else if (x === 0) {
                 return x = 12;
               } else {
                 return x;

@@ -401,7 +401,7 @@
         var isModified = toDelete.length > 0 || toAdd.length > 0;
 
         for (var i = 0; i < markers.length && isModified;) {
-            if (toDelete.length > 0 && markers[i].id == toDelete[0].id) {
+            if (toDelete.length > 0 && markers[i].id === toDelete[0].id) {
                 deletePoint(i);
                 toDelete.shift();
             } else if (toAdd.length > 0 && markers[i].id > toAdd[0].id) {
@@ -441,7 +441,7 @@
             
             var canDelete = "false";
             
-            if(role == "OC"){
+            if(role === "OC"){
                 canDelete = "true";
             }
             

@@ -43,7 +43,7 @@ if(!defined('MM_Tab')) {
                 //get value of active checkbox in the row
                 var state = row.find('input:checked').val();
                 
-                if (state != undefined) {
+                if (state !== undefined) {
                     assignment.push({
                         eventID: eventID,
                         state: state
@@ -66,7 +66,7 @@ if(!defined('MM_Tab')) {
         var checkBoxRow = checkBox.closest("tr").getElementsByTagName("input");
         
         for(var i = 0; i < checkBoxRow.length; i++){
-            if(checkBoxRow[i] != checkBox){
+            if(checkBoxRow[i] !== checkBox){
                 checkBoxRow[i].checked = false;
             }
         }

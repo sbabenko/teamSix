@@ -44,7 +44,7 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
 
     // When the user clicks anywhere outside of the modal, close it
     window.addEventListener("click", function(event) {
-        if (event.target == eModal) {
+        if (event.target === eModal) {
             eModal.style.display = "none";
         }
     });
@@ -107,7 +107,7 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
         var dropdownVal = document.getElementById("eventAssignDropdown").value;
 
         //add note to event
-        if (dropdownVal != "none") {
+        if (dropdownVal !== "none") {
             if (confirm("Press OK to assign event to mission.")) {
                 $.ajax({
                     url: "update_event_assignment.php",

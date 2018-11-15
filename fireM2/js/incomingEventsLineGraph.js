@@ -9,7 +9,7 @@ $(document).ready(function(){
             success : function(data){
                 //don't refresh graph if data did not change
                 //https://www.w3schools.com/js/js_json_stringify.asp
-                if(JSON.stringify(data) != JSON.stringify(lineGraphData)){
+                if(JSON.stringify(data) !== JSON.stringify(lineGraphData)){
                     if(graph != null){
                         graph.destroy();
                     }
