@@ -151,7 +151,7 @@ insert into resource (resourceName, quantity)
 	values ("Firetruck", 5);
     
 #uncomment if mission manager account MM01@umbc.edu exists
-insert into missionAssignment (accountEmail, missionID)
-	values ("MM01@umbc.edu", 1);
-insert into missionAssignment (accountEmail, missionID)
-	values ("MM01@umbc.edu", 2);
+#insert into missionAssignment (accountEmail, missionID)
+#	values ("MM01@umbc.edu", 1);
+#insert into missionAssignment (accountEmail, missionID)
+#	values ("MM01@umbc.edu", 2);
