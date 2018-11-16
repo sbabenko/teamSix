@@ -38,7 +38,7 @@ create table eventNote
 
 #table to store resources not assigned to any mission
 create table resource
-	(resourceID int,
+	(resourceID int auto_increment,
     resourceName varchar(80) unique not null,
     quantity int not null,
     primary key (resourceID));
@@ -58,8 +58,8 @@ create table userAccount
     firstName varchar(80) not null,
     lastName varchar(80),
     loginPass varchar(100) not null,
-    hashVal varchar(32) not null,
 	role enum('OC', 'MM') not null,
+    isActive bool default true,
     primary key (email));
 
 #table to store mission assignments to accounts

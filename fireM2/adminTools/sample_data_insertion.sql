@@ -11,6 +11,13 @@ insert into mmEvent (eventID, eventName, latitude, longitude, category, submitMe
 #set current event state to reported
 insert into eventState (eventID, updateTime, state)
 	values (1, now(), 'reported');
+
+#wait for 2 seconds before adding more data
+select sleep(2);
+
+#modify current event state to assigned
+insert into eventState (eventID, updateTime, state)
+	values (1, now(), 'assigned');
     
 #add a written note to the event
 insert into eventNote (eventID, createTime, description)
@@ -23,6 +30,13 @@ insert into mmEvent (eventID, eventName, latitude, longitude, category, submitMe
 #set current event state to reported
 insert into eventState (eventID, updateTime, state)
 	values (2, now(), 'reported');
+
+#wait for 2 seconds before adding more data
+select sleep(2);
+
+#modify current event state to assigned
+insert into eventState (eventID, updateTime, state)
+	values (2, now(), 'assigned');
     
 #add a written note to the event
 insert into eventNote (eventID, createTime, description)
@@ -35,6 +49,13 @@ insert into mmEvent (eventID, eventName, latitude, longitude, category, submitMe
 #set current event state to reported
 insert into eventState (eventID, updateTime, state)
 	values (3, now(), 'reported');
+
+#wait for 2 seconds before adding more data
+select sleep(2);
+
+#modify current event state to assigned
+insert into eventState (eventID, updateTime, state)
+	values (3, now(), 'assigned');
     
 #add a written note to the event
 insert into eventNote (eventID, createTime, description)
@@ -47,6 +68,13 @@ insert into mmEvent (eventID, eventName, latitude, longitude, category, submitMe
 #set current event state to reported
 insert into eventState (eventID, updateTime, state)
 	values (4, now(), 'reported');
+
+#wait for 2 seconds before adding more data
+select sleep(2);
+
+#modify current event state to assigned
+insert into eventState (eventID, updateTime, state)
+	values (4, now(), 'assigned');
     
 #add a written note to the event
 insert into eventNote (eventID, createTime, description)
@@ -80,7 +108,6 @@ insert into eventState (eventID, updateTime, state)
 insert into eventNote (eventID, createTime, description)
 	values(6, now(), 'Near the restaurant.');
     
-
 #create a new mission
 insert into mission (missionID, missionName, isActive)
 	values (2, "Rescue Cat", true);
@@ -112,3 +139,19 @@ insert into eventState (eventID, updateTime, state)
 #add a written note to the event
 insert into eventNote (eventID, createTime, description)
 	values(7, now(), 'The problem is now worse.');
+    
+#add resources
+insert into resource (resourceName, quantity)
+	values ("Ambulance", 10);
+insert into resource (resourceName, quantity)
+	values ("Police", 200);
+insert into resource (resourceName, quantity)
+	values ("Support Animal", 15);
+insert into resource (resourceName, quantity)
+	values ("Firetruck", 5);
+    
+#uncomment if mission manager account MM01@umbc.edu exists
+insert into missionAssignment (accountEmail, missionID)
+	values ("MM01@umbc.edu", 1);
+insert into missionAssignment (accountEmail, missionID)
+	values ("MM01@umbc.edu", 2);
