@@ -44,28 +44,36 @@ echo "<div class = 'eventInfo'>";
 echo '<h2>Assign to Mission</h2>';
 echo '<br>';
 echo '<div id = "assign_mission_col_headers">';
-echo '<th>Event Name</th>';
+echo 'Event Name';
 echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
 echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-echo '<th>Mission Name</th>';
+echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
+echo 'Mission Name';
 echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
 echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-echo '<th>Delete?</th>';
+echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
+echo 'Delete?';
 echo '</div>';
 
 //Apply defined-height box
 echo '<div class = "resource-box assign-box">';
-echo '<br><br><br>'; //create space for the column headers
+echo '<br>'; //create space for the column headers
 
 // Iterate through the rows
 while ($row = @mysqli_fetch_assoc($result)){
   echo '<div class="assignMissionObject">';
+  
   echo '<div class="assign_mission_incident"><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
       $row["eventName"] . '`, true, false)">';
   
   echo $row["eventName"];
   echo '</a></div>';
-  echo '<div class="assign_mission_dropdown">' . $dropdown . '</div>';
+
+
+  echo '<div class="assign_mission_dropdown">';
+  echo $dropdown;
+  echo '</div>';
+
   echo '<div class="assign_checkbox"><input type="checkbox" onChange="toggleDropdown(this)" value=' . $row["eventID"] . '></div>';
   echo '</div>';
 }

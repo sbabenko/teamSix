@@ -826,30 +826,43 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .assign-box{
-  height: 400px !important;
+  max-height: 400px !important;
 }
 
 .assign_mission_incident{
   position: relative;
-  margin: 0px 0px 0px 0px;
+  top: 10px;
+  right: 230px;
+  z-index: 1;
 }
 
 .assign_mission_dropdown{
   position: relative;
-  margin: 0px 0px 0px 0px;
+  z-index: 1;
+}
+
+.assign_mission_incident:hover { 
+  z-index: 500;
+}
+
+.assign_mission_dropdown:hover { 
+  z-index: 500;
 }
 
 .assign_checkbox{
   position: relative;
+  bottom: 30px;
+  left: 300px;
+}
+
+#assign_msn_btn_1{
+  position:relative;
   margin: 0px 0px 0px 0px;
 }
 
 #assign_msn_btn_1{
   position:relative;
-}
-
-#assign_msn_btn_1{
-  position:relative;
+  margin: 0px 0px 0px 0px;
 }
 
 #loadMissionInfo{
@@ -864,9 +877,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 #assign_mission_col_headers{
   position: absolute;
-  margin: 5px 0px 0px 85px;
-  background: rgba(14, 14, 14, 0.8) !important;
+  margin: 8px 0px 0px 87px;
+  background: rgba(14, 14, 14, 0.9) !important;
   border-radius: 4px;
   width: 77%;
   z-index: 500;
+  height: 23px;
+  text-align: center;
+  box-shadow: 5px 5px 8px #222222;
 }
