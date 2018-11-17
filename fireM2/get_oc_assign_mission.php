@@ -42,16 +42,20 @@ echo "<div class = 'eventInfo'>";
 
 //create table of general information
 echo '<h2>Assign to Mission</h2>';
-echo '<table id = "assignMissionTable">';
-echo '<tr>';
+echo '<br>';
+echo '<div id = "assign_mission_col_headers">';
 echo '<th>Event Name</th>';
+echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
+echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
 echo '<th>Mission Name</th>';
+echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
+echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
 echo '<th>Delete?</th>';
-echo '</tr>';
-echo '</table>';
+echo '</div>';
 
 //Apply defined-height box
 echo '<div class = "resource-box assign-box">';
+echo '<br><br><br>'; //create space for the column headers
 
 // Iterate through the rows
 while ($row = @mysqli_fetch_assoc($result)){

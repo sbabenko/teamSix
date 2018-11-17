@@ -861,3 +861,12 @@ input[type=number]::-webkit-outer-spin-button {
   width: 70%;
   left: 200px;
 }
+
+#assign_mission_col_headers{
+  position: absolute;
+  margin: 5px 0px 0px 85px;
+  background: rgba(14, 14, 14, 0.8) !important;
+  border-radius: 4px;
+  width: 77%;
+  z-index: 500;
+}

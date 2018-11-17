@@ -51,7 +51,6 @@ while ($row = @mysqli_fetch_assoc($result)){
 
   echo '&nbsp&nbsp&nbsp' . parseToXML($row['quantity']) .' '. parseToXML($row['resourceName']) . '(s) currently available for tasking ';
   echo '<br>';
-  
   echo '<br>';
   echo '<form action=\'/action_page.php\'>';
   echo '&nbsp&nbsp&nbsp Assign quantity (between 1 and '. parseToXML($row['quantity']) .'):';
