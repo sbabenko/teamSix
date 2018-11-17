@@ -1,6 +1,12 @@
 <?php
 require("db.php");
 
+//Grabs form data from form submissions
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+  //Form data handling here
+}
+
 function parseToXML($htmlStr)
 {
 $xmlStr=str_replace('<','&lt;',$htmlStr);
@@ -46,11 +52,10 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '&nbsp&nbsp&nbsp' . parseToXML($row['quantity']) .' '. parseToXML($row['resourceName']) . '(s) currently available for tasking ';
   echo '<br>';
   
-  //produces the "open" and "delete" buttons in the event object
   echo '<br>';
   echo '<form action=\'/action_page.php\'>';
   echo '&nbsp&nbsp&nbsp Assign quantity (between 1 and '. parseToXML($row['quantity']) .'):';
-  echo '<input type="number" style="float:right;width:20%;margin: -20px 20px 20px 0px;" name="quantity" max="'. parseToXML($row['quantity']) . '">';
+  echo '<input type="number" name="input_resource_' . $ind . '" style="float:right;width:20%;margin: -20px 20px 20px 0px;" name="quantity" max="'. parseToXML($row['quantity']) . '">';
   
 
   echo '</div>';

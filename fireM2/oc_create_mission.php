@@ -82,8 +82,9 @@ function test_input($data) {
 
 <h2 align="center">Create Mission</h2>
 <form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.php">  
-  <label align="center" style="opacity: 0.5;position:relative;left:60px;top:30px;">Mission Name</label>
-  <input autofocus style="display:block;width:80%;margin:auto;" type="text" name="name" value="<?php echo $name;?>">
+  <label align="center" style="opacity: 0.5;position:relative;left:60px;top:30px;
+    font-size: 20px;">Mission Name</label>
+  <input autofocus style="display:block;width:80%;margin:auto;" type="text" name="input_mission_name" value="<?php echo $name;?>">
   <span class="error"><?php echo $nameErr;?></span>
   
 
@@ -93,40 +94,17 @@ function test_input($data) {
   <div class = "resource-box">
     <div class = "resourcesPane">Resources Pane</div>
   </div>
- 
-<script>
-/* JS for demo only */
-var colors = ['1abc9c', '2c3e50', '2980b9', '7f8c8d', 'f1c40f', 'd35400', '27ae60'];
 
-colors.each(function (color) {
-  $$('.color-picker')[0].insert(
-    '<div class="square" style="background: #' + color + '"></div>'
-  );
-});
-
-$$('.color-picker')[0].on('click', '.square', function(event, square) {
-  background = square.getStyle('background');
-  $$('.custom-dropdown select').each(function (dropdown) {
-    dropdown.setStyle({'background' : background});
-  });
-});
-
-/*
- * Original version at
- * http://red-team-design.com/making-html-dropdowns-not-suck
- */ 
-</script>
 
   <h3 align="center">Assign To Mission Manager</h3>
   <div class="sel_mission_manage">
     Select Mission Manager:
   </div>
     <span class="custom-dropdown" style="margin: -7px 0px 00px 285px;">
-      <select name="owner" style="margin: 0px 0px 20px 0px;">
+      <select name="input_mission_manager" style="margin: 0px 0px 20px 0px;">
     </span>
 <br>
 <br>
-
 <script>
 $(document).ready(function () {
     $('#myform').on('submit', function(e) {
@@ -136,12 +114,35 @@ $(document).ready(function () {
             type: "GET",
             data: $(this).serialize(),
             success: function (data) {
-                $("#form_output").html(data);
+                document.getElementById("myform").reset();
             },
             error: function (jXHR, textStatus, errorThrown) {
                 alert(errorThrown);
             }
         });
+
+      var resultString = $('form').serialize();
+      //prompt(resultString);
+
+      $.ajax({
+        type: 'POST',
+        url: 'oc_create_mission_submit.php',
+        data: {passedInFormData: resultString},
+        success: function(html) {
+          //alert('oc_create_mission_submit.php called successfully');
+          $("#result").html(html);
+        }
+      });
+
+      $.ajax({
+        url: "get_resources.php",
+        type: "GET",
+        dataType: "html",
+        success: function(html) {
+        $(".resourcesPane").html(html);
+        }
+      });//end ajax call
+
     });
 });
 </script>
@@ -153,12 +154,11 @@ echo "<option value=\"owner1\">" . $row['firstName'] ." ". $row['lastName'] .  "
 }
 ?>
 </select>
-
   <br><br>
 
   <div class="createMissionbutton" style="width:100%;margin:auto;">
     <input type="submit" name="submit" value="Create" style="margin: -21px 0px 0px -100px;">
   </div>  
 </form>
-
+  <div id="result" style="position:absolute;top:-100px;"></div>
 </div>
