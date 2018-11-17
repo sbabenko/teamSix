@@ -831,14 +831,17 @@ input[type=number]::-webkit-outer-spin-button {
 
 .assign_mission_incident{
   position: relative;
+  margin: 0px 0px 0px 0px;
 }
 
 .assign_mission_dropdown{
   position: relative;
+  margin: 0px 0px 0px 0px;
 }
 
 .assign_checkbox{
   position: relative;
+  margin: 0px 0px 0px 0px;
 }
 
 #assign_msn_btn_1{
@@ -847,4 +850,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 #assign_msn_btn_1{
   position:relative;
+}
+
+#loadMissionInfo{
+  width: 50%;
+  left: 400px;
+}
+
+#loadAssignMission{
+  width: 70%;
+  left: 200px;
 }
