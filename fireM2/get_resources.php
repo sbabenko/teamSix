@@ -42,17 +42,15 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '<div class = "eventObject">';
 
   //gives the event object the name of the event
-  echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' . parseToXML($row['resourceID']) . ' ';
-  
-  echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' . parseToXML($row['resourceName']) . ' ';
-  
-  echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' . parseToXML($row['quantity']) . ' ';
+
+  echo '&nbsp&nbsp&nbsp' . parseToXML($row['quantity']) .' '. parseToXML($row['resourceName']) . '(s) currently available for tasking ';
+  echo '<br>';
   
   //produces the "open" and "delete" buttons in the event object
   echo '<br>';
   echo '<form action=\'/action_page.php\'>';
-  echo 'Quantity (between 1 and '. parseToXML($row['quantity']) .'):';
-  echo '<input type="number" style="float:right;width:40%;" name="quantity" max="'. parseToXML($row['quantity']) . '">';
+  echo '&nbsp&nbsp&nbsp Assign quantity (between 1 and '. parseToXML($row['quantity']) .'):';
+  echo '<input type="number" style="float:right;width:20%;margin: -20px 20px 20px 0px;" name="quantity" max="'. parseToXML($row['quantity']) . '">';
   
 
   echo '</div>';

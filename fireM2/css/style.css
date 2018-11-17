@@ -824,3 +824,27 @@ input[type=number]::-webkit-outer-spin-button {
 .sel_mission_dropdown{
   position: absolute;
 }
+
+.assign-box{
+  height: 400px !important;
+}
+
+.assign_mission_incident{
+  position: relative;
+}
+
+.assign_mission_dropdown{
+  position: relative;
+}
+
+.assign_checkbox{
+  position: relative;
+}
+
+#assign_msn_btn_1{
+  position:relative;
+}
+
+#assign_msn_btn_1{
+  position:relative;
+}

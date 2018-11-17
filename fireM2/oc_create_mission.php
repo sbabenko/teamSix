@@ -81,11 +81,14 @@ function test_input($data) {
 ?>
 
 <h2 align="center">Create Mission</h2>
-<form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.phpAAAA">  
+<form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.php">  
   <label align="center" style="opacity: 0.5;position:relative;left:60px;top:30px;">Mission Name</label>
   <input autofocus style="display:block;width:80%;margin:auto;" type="text" name="name" value="<?php echo $name;?>">
   <span class="error"><?php echo $nameErr;?></span>
   
+
+  <!-- Resources objects generated from inside "get_resources.php" 
+       and are placed here -->
   <h3 align="center">Resources</h3>
   <div class = "resource-box">
     <div class = "resourcesPane">Resources Pane</div>

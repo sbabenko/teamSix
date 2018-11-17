@@ -51,28 +51,28 @@ echo '</tr>';
 echo '</table>';
 
 //Apply defined-height box
-echo '<div class = "resource-box">';
+echo '<div class = "resource-box assign-box">';
 
 // Iterate through the rows
 while ($row = @mysqli_fetch_assoc($result)){
   echo '<div class="assignMissionObject">';
-  echo '<div><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
+  echo '<div class="assign_mission_incident"><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
       $row["eventName"] . '`, true, false)">';
   
   echo $row["eventName"];
   echo '</a></div>';
-  echo '<div>' . $dropdown . '</div>';
-  echo '<div><input type="checkbox" onChange="toggleDropdown(this)" value=' . $row["eventID"] . '></div>';
+  echo '<div class="assign_mission_dropdown">' . $dropdown . '</div>';
+  echo '<div class="assign_checkbox"><input type="checkbox" onChange="toggleDropdown(this)" value=' . $row["eventID"] . '></div>';
   echo '</div>';
 }
 
 echo '</div>';
 
 //add update button
-echo '<button id="myBtn" onclick="updateAssignMission()">UPDATE</button>';
+echo '<button id="myBtn assign_msn_btn_1" onclick="updateAssignMission()">UPDATE</button>';
 
 //add refresh button
-echo '<button id="myBtn" onclick="refreshAssignMission()">REFRESH</button>';
+echo '<button id="myBtn assign_msn_btn_2" onclick="refreshAssignMission()">REFRESH</button>';
 
 // End XML file
 echo '</div>';
