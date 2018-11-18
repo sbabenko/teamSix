@@ -80,11 +80,23 @@ function test_input($data) {
 }
 ?>
 
+<script>
+
+function validateForm() {
+    alert("Mission name validation triggered");
+    var x = document.forms["myform"]["input_mission_name"].value;
+    if (x == "") {
+        alert("Mission name must be filled out");
+        return false;
+    }
+}
+</script>
+
 <h2 align="center">Create Mission</h2>
-<form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.php">  
+<form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.php" onsubmit="return validateForm()">  
   <label align="center" style="opacity: 0.5;position:relative;left:60px;top:30px;
     font-size: 20px;">Mission Name</label>
-  <input autofocus maxlength="40" style="display:block;width:80%;margin:auto;" type="text" name="input_mission_name" value="<?php echo $name;?>">
+  <input autofocus maxlength="40" style="display:block;width:80%;margin:auto;" type="text" name="input_mission_name">
   <span class="error"><?php echo $nameErr;?></span>
   
 

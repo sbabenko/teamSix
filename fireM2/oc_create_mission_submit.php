@@ -15,7 +15,7 @@ function missionAssignManagerHandler() {
 function missionNameHandler($name, $sqlObject) {
     //code to be executed;
     echo $name;
-
+    
     $query = "INSERT INTO mission (missionName,isActive) VALUES ('$name',1);"; //"SELECT * FROM resource";
 
     $result = $sqlObject->query($query);
