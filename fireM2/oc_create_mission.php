@@ -22,21 +22,9 @@ $(document).ready(function() {
     //},1000);//end setInterval
 });//end docReady 
 </script>
-<script>
-function validateForm() {
-    alert("Mission name validation triggered");
-    var x = document.forms["myform"]["input_mission_name"].value;
-    if (x == "") {
-        alert("Mission name must be filled out");
-        document.getElementById("myform").reset();
-        throw new Error("Something went badly wrong!");
-        return false;
-    }
-}
-</script>
 
 <h2 align="center">Create Mission</h2>
-<form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.php" onsubmit="return validateForm()">  
+<form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.php">  
   <label align="center" style="opacity: 0.5;position:relative;left:60px;top:30px;
     font-size: 20px;">Mission Name</label>
   <input autofocus maxlength="40" style="display:block;width:80%;margin:auto;" type="text" name="input_mission_name">
@@ -47,7 +35,7 @@ function validateForm() {
        and are placed here -->
   <h3 align="center">Resources</h3>
   <div class = "resource-box">
-    <div class = "resourcesPane">Resources Pane</div>
+    <div class = "resourcesPane">No Resources Available</div>
   </div>
 
 
@@ -63,6 +51,15 @@ function validateForm() {
 <script>
 $(document).ready(function () {
     $('#myform').on('submit', function(e) {
+
+        //Empty Mission Name Validation Block
+        var x = document.forms["myform"]["input_mission_name"].value;
+        if (x == "") {
+          alert("Mission name must be filled out");
+          document.getElementById("myform").reset();
+          return false;
+        }
+
         e.preventDefault();
         $.ajax({
             url : $(this).attr('action') || window.location.pathname,
@@ -98,6 +95,8 @@ $(document).ready(function () {
         }
       });//end ajax call
 
+      //location.reload();//fuck it, just refresh the whole thing
+    
     });
 });
 </script>
