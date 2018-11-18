@@ -84,7 +84,7 @@ function test_input($data) {
 <form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.php">  
   <label align="center" style="opacity: 0.5;position:relative;left:60px;top:30px;
     font-size: 20px;">Mission Name</label>
-  <input autofocus style="display:block;width:80%;margin:auto;" type="text" name="input_mission_name" value="<?php echo $name;?>">
+  <input autofocus maxlength="40" style="display:block;width:80%;margin:auto;" type="text" name="input_mission_name" value="<?php echo $name;?>">
   <span class="error"><?php echo $nameErr;?></span>
   
 
@@ -150,7 +150,7 @@ $(document).ready(function () {
 <?php 
 $sql = mysqli_query($mysqli, "SELECT * FROM userAccount WHERE role='MM'");
 while ($row = $sql->fetch_assoc()){
-echo "<option value=\"owner1\">" . $row['firstName'] ." ". $row['lastName'] .  "</option>";
+echo "<option value=\" " . $row['firstName'] ." ". $row['lastName'] . "\">" . $row['firstName'] ." ". $row['lastName'] .  "</option>";
 }
 ?>
 </select>
