@@ -19,7 +19,8 @@ if (!$result) {
 $counter = 0;
 $selected = null;
 
-$dropdown = '<select id="mmToggle" onchange="updateMission(this)">';
+$dropdown = '<select id="mmToggle" onchange="updateMission(this)" 
+style="max-width:190px;box-shadow: 3px 3px 8px #818181;">';
 
 while ($row = @mysqli_fetch_assoc($result)){
   $dropdown = $dropdown . '<option value="' . $row["missionID"] . '"';
