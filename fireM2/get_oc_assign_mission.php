@@ -15,7 +15,7 @@ if (!$result) {
   die('Invalid query: ' . mysqli_error($mysqli));
 }
 
-$dropdown = '<select><option value="" selected disabled hidden>Select Mission</option><option value = "none"></option>';
+$dropdown = '<select><option value="none" selected>Select Mission</option>';
 
 while ($row = @mysqli_fetch_assoc($result)){
   $dropdown = $dropdown . '<option value="' . $row["missionID"] . '">' .

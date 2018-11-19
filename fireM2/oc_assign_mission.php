@@ -30,8 +30,7 @@ if(!defined('OC_Tab')) {
             var assignment = [];
 
             //References: https://stackoverflow.com/questions/18331973/loop-over-html-table-and-get-checked-checkboxes-jquery
-            //            https://stackoverflow.com/questions/4027855/jquery-selector-for-table-cells-except-first-last-row-column
-            $('#assignMissionTable').find('tr:not(:first-child)').each(function() {
+            $('.assign-box').find('.assignMissionObject').each(function() {
                 //get the row
                 var row = $(this);
                 
@@ -64,7 +63,8 @@ if(!defined('OC_Tab')) {
     }
 
     function toggleDropdown(checkBox) {
-        checkBox.closest("tr").getElementsByTagName("select")[0].disabled = !!checkBox.checked;
+        checkBox.closest(".assignMissionObject").getElementsByTagName(
+            "select")[0].disabled = !!checkBox.checked;
     }
 
 </script>
