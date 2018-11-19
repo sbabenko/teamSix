@@ -27,7 +27,7 @@ $(document).ready(function() {
 <form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.php">  
 
   <!--mission name label-->
-  <label align="center" style="opacity: 0.3;position:relative;left:60px;top:30px;
+  <label align="center" style="z-index:-5;opacity: 0.3;position:relative;left:60px;top:30px;
     font-size: 20px;">Mission Name</label>
 
 
@@ -47,7 +47,7 @@ $(document).ready(function() {
   <div class="sel_mission_manage">
     Select Mission Manager:
   </div>
-    <span class="custom-dropdown" style="margin: -7px 0px 00px 285px;">
+    <span class="custom-dropdown" style="margin: -7px 0px 00px 285px;" style="box-shadow: 5px 5px 8px #222222;">
       <select name="input_mission_manager" style="margin: 0px 0px 20px 0px;">
     </span>
 <br>
