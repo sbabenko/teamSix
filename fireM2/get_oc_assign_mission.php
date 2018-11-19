@@ -15,7 +15,7 @@ if (!$result) {
   die('Invalid query: ' . mysqli_error($mysqli));
 }
 
-$dropdown = '<select><option value = "none"></option>';
+$dropdown = '<select><option value="" selected disabled hidden>Select Mission</option><option value = "none"></option>';
 
 while ($row = @mysqli_fetch_assoc($result)){
   $dropdown = $dropdown . '<option value="' . $row["missionID"] . '">' .
@@ -24,8 +24,10 @@ while ($row = @mysqli_fetch_assoc($result)){
 
 $dropdown = $dropdown . '</select>';
 
-// Select all unassigned events
-$query = "SELECT * FROM mmEvent where missionID IS NULL";
+//Select all unassigned events where char len < 50 (more than 50 will mess up styling)
+//Will fix it later
+$query = "SELECT * FROM mmEvent where missionID IS NULL AND CHAR_LENGTH(eventName) < 25";
+
 
 $result = $mysqli->query($query);
 if (!$result) {
@@ -63,15 +65,16 @@ echo '<br>'; //create space for the column headers
 while ($row = @mysqli_fetch_assoc($result)){
   echo '<div class="assignMissionObject">';
   
-  echo '<div class="assign_mission_incident"><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
+  echo '<div class="assign_mission_incident" id="assign_mission_names"><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
       $row["eventName"] . '`, true, false)">';
   
   echo $row["eventName"];
   echo '</a></div>';
 
-
+  echo '<div class="custom-dropdown" style="margin:0px;">';
   echo '<div class="assign_mission_dropdown">';
   echo $dropdown;
+  echo '</div>';
   echo '</div>';
 
   echo '<div class="assign_checkbox"><input type="checkbox" onChange="toggleDropdown(this)" value=' . $row["eventID"] . '></div>';
@@ -81,10 +84,10 @@ while ($row = @mysqli_fetch_assoc($result)){
 echo '</div>';
 
 //add update button
-echo '<button id="myBtn assign_msn_btn_1" onclick="updateAssignMission()">UPDATE</button>';
+echo '<button id="myBtn" class="assign_msn_btn_1" onclick="updateAssignMission()">UPDATE</button>';
 
 //add refresh button
-echo '<button id="myBtn assign_msn_btn_2" onclick="refreshAssignMission()">REFRESH</button>';
+echo '<button id="myBtn" class="assign_msn_btn_2" onclick="refreshAssignMission()">REFRESH</button>';
 
 // End XML file
 echo '</div>';

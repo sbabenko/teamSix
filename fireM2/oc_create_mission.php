@@ -25,8 +25,12 @@ $(document).ready(function() {
 
 <h2 align="center">Create Mission</h2>
 <form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.php">  
-  <label align="center" style="opacity: 0.5;position:relative;left:60px;top:30px;
+
+  <!--mission name label-->
+  <label align="center" style="opacity: 0.3;position:relative;left:60px;top:30px;
     font-size: 20px;">Mission Name</label>
+
+
   <input autofocus maxlength="40" style="display:block;width:80%;margin:auto;" type="text" name="input_mission_name">
  
   
