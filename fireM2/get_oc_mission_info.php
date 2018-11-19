@@ -81,7 +81,7 @@ while ($row = @mysqli_fetch_assoc($result)){
   //produces the "open" button
   echo '<br>';
   echo '<span class="mission_info_buttons">';
-  echo '<button id="myBtn" onclick="openMission(this, ' . $row["missionID"] .
+  echo '<button style="left:190px;" id="myBtn" onclick="openMission(this, ' . $row["missionID"] .
       ',`' . $row["missionName"] . '`)">OPEN</button>';
   echo '</span>';
   echo '</div>';

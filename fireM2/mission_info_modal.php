@@ -12,7 +12,7 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
             <h2 id="missionHeader"></h2>
         </div>
         <div id="modal-body" class="modal-body">
-            <div class="missionInfoTables"></div>
+            <div class="missionInfoTables" style="color:white;"></div>
         </div>
     </div>
 

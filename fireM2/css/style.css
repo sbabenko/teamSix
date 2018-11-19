@@ -910,6 +910,7 @@ input[type=number]::-webkit-outer-spin-button {
 .assign_mission_dropdown{
   position: relative;
   z-index: 1;
+  left: 85px;
   top: -14px;
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 5px 5px 12px #000000;
@@ -925,8 +926,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .assign_checkbox{
   position: relative;
-  bottom: 30px;
-  left: 250px;
+  bottom: 40px;
+  left: 308px;
 }
 
 .assign_msn_btn_1{
@@ -957,7 +958,7 @@ input[type=number]::-webkit-outer-spin-button {
 #assign_mission_col_headers{
   position: absolute;
   margin: 8px 0px 0px 87px;
-  background: rgba(14, 14, 14, 0.9) !important;
+  background: rgba(37, 37, 37, 0.9) !important;
   border-radius: 4px;
   width: 77%;
   z-index: 500;
