@@ -40,16 +40,20 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '<div class = "eventObject">';
 
   //gives the event object the name of the event
-  echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' . parseToXML($row['missionName']) . ' ';
+  echo '<br>';
+  echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'
+   . parseToXML($row['missionName']) . ' ';
   
   //produces the "open" and "completed?" buttons
   echo '<br>';
+  echo '<span class="mission_info_buttons">';
   echo '<button id="myBtn" onclick="openMission(this, ' . $row["missionID"] .
       ',`' . $row["missionName"] . '`)">OPEN</button>';
   echo '&nbsp&nbsp';
   echo '<button id="delBtn" onclick="updateMissionInfo(' . $row["missionID"] .
       ')">COMPLETED?</button>';
 
+  echo '</span>';
   echo '</div>';
 }
 
@@ -70,15 +74,16 @@ if (!$result) {
 while ($row = @mysqli_fetch_assoc($result)){
   // Add to XML document node
   echo '<div class = "eventObject">';
-
+  echo '<br>';
   //gives the event object the name of the event
   echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' . parseToXML($row['missionName']) . ' ';
   
   //produces the "open" button
   echo '<br>';
+  echo '<span class="mission_info_buttons">';
   echo '<button id="myBtn" onclick="openMission(this, ' . $row["missionID"] .
       ',`' . $row["missionName"] . '`)">OPEN</button>';
-
+  echo '</span>';
   echo '</div>';
 }
 

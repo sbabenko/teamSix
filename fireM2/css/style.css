@@ -881,7 +881,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 #loadAssignMission{
   width: 70%;
-  left: 200px;
+  left: 240px;
   max-height: 530px;
   overflow: hidden;
 }
@@ -896,4 +896,10 @@ input[type=number]::-webkit-outer-spin-button {
   height: 23px;
   text-align: center;
   box-shadow: 5px 5px 8px #222222;
+}
+
+.mission_info_buttons{
+  position: absolute;
+  left: 300px;
+  margin: -30px 0px 40px 0px;
 }
