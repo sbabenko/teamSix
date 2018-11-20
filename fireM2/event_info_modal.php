@@ -2,16 +2,23 @@
 event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
 <button id="eventButton" style="display:none;"></button>
 
+<style>
+    .content-table {
+    margin: 0 auto;
+}
+</style>
+
+
 <!-- The Modal -->
 <div id="eventModal" class="modal">
 
     <!-- Modal content -->
-    <div class="modal-content">
-        <div class="modal-header">
+    <div class="modal-content"style="max-width:800px;max-height: 500px;overflow:scroll;overflow-x:hidden;">
+        <div class="modal-header" style="z-index:500;">
             <span id="eventClose" class="close">&times;</span>
             <h2 id="eventHeader"></h2>
         </div>
-        <div id="modal-body" class="modal-body">
+        <div id="modal-body" class="modal-body" ">
             <div class="eventTables"></div>
         </div>
     </div>

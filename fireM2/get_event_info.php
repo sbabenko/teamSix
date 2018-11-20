@@ -25,7 +25,11 @@ echo "<div class = 'eventInfo'>";
 
 //create table of general information
 echo '<h2>General Information</h2>';
+echo '<br>';
 echo '<table>';
+echo '<col style="width:40%">';
+echo '<col style="width:30%">';
+echo '<col style="width:30%">';
 
 //get general information for event
 $row = @mysqli_fetch_assoc($result);
@@ -65,9 +69,16 @@ if (!$result) {
   die('Invalid query: ' . mysqli_error($mysqli));
 }
 
+
 //create table of state changes
+echo '<br>';
 echo '<h2>Changes in State</h2>';
-echo '<table>';
+echo '<br>';
+echo '<table class="centered style="width: 100%; text-align: center;"">';
+echo '<col style="width:40%">';
+echo '<col style="width:30%">';
+echo '<col style="width:30%">';
+echo '<tbody>';
 echo '<tr>';
 echo '<th>Timestamp</th>';
 echo '<th>State</th>';
@@ -75,9 +86,9 @@ echo '</tr>';
 
 //iterate through each row and add state change to table
 while ($row = @mysqli_fetch_assoc($result)){
-  echo '<tr>';
-  echo '<td>' . $row["updateTime"] . '</td>';
-  echo '<td>' . $row["state"] . "</td>";
+  echo '<tr align="center">';
+  echo '<td align="center">' . $row["updateTime"] . '</td>';
+  echo '<td align="center">' . $row["state"] . "</td>";
   echo '</tr>';
 }
 
@@ -94,10 +105,15 @@ if (!$result) {
 }
 
 //create table of written notes
+echo '<br>';
 echo '<h2>Written Notes</h2>';
+echo '<br>';
 echo '<table>';
+echo '<col style="width:60%">';
+echo '<col style="width:30%">';
+echo '<row style="width:30%">';
 echo '<tr>';
-echo '<th>Timestamp</th>';
+echo '<th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTimestamp</th>';
 echo '<th>Note</th>';
 echo '</tr>';
 
@@ -113,11 +129,13 @@ echo '</table>';
 
 if($_GET["isNote"] == "true"){
   //written note text field
+  echo '<br>';
   echo '<p>Add Written Note</p>';
-  echo '<input type="text" id="writtenNote">';
+  echo '<input type="text" id="writtenNote" style="height: 100px;width: 500px;margin: auto;width: 70%;">';
+  echo '<br>';
 
   //add note button
-  echo '<button onclick="addWrittenNote(' . $_GET['eventID'] .
+  echo '<button id="myBtn" onclick="addWrittenNote(' . $_GET['eventID'] .
       ')">ADD</button>';
 }
 
@@ -146,18 +164,18 @@ if($_GET["isChange"] == "true"){
   echo $dropdown;
 
   //assign button
-  echo '<button onclick="assignEvent(' . $_GET['eventID'] .
+  echo '<button id="myBtn" onclick="assignEvent(' . $_GET['eventID'] .
       ')">ASSIGN</button>';
 
   echo '<br>';
 
   //delete event button
-  echo '<button onclick="deleteEvent(' . $_GET['eventID'] .
+  echo '<button id="myBtn" onclick="deleteEvent(' . $_GET['eventID'] .
       ')">DELETE</button>';   
 }
 
 //refresh modal button
-echo '<button onclick="refreshEventModal(' . $_GET['eventID'] .
+echo '<button id="myBtn" onclick="refreshEventModal(' . $_GET['eventID'] .
     ')">REFRESH</button>';
 
 // End XML file

@@ -63,7 +63,7 @@ a:hover {
 }
 
 .headerPane, .sidePane, .form {
-  background: rgba(160, 179, 176, 0.35);
+  background: rgba(160, 179, 176, 0.45);
 }
 
 .headerPane{
@@ -165,7 +165,7 @@ a:hover {
   display: block;
   text-decoration: none;
   padding: 15px;
-  background: rgba(160, 179, 176, 0.25);
+  background: rgba(160, 179, 176, 0.55); 
   color: #FFF7DD;
   font-size: 20px;
   float: left;
@@ -470,7 +470,7 @@ input[type="checkbox"]{
   display: block;
   text-decoration: none;
   padding: 15px;
-  background: rgba(160, 179, 176, 0.35);
+  background: rgba(160, 179, 176, 0.45);
   color: #FFF7DD;
   font-size: 15px;
   float: left;
@@ -684,8 +684,11 @@ input[type="checkbox"]{
 
 .eventInfo table{
     margin: 10px;
+    margin: 0 auto;
     width: 50%; 
-    background-color: #cfcfcf;
+    background-color: rgba(232, 255, 255, 0.795);
+    /*background-color: #cfcfcf;*/
+    border-radius: 5px;
     color: #000000;
     border: 1px solid white;
     display: inline-block;
@@ -971,4 +974,8 @@ input[type=number]::-webkit-outer-spin-button {
   position: absolute;
   left: 300px;
   margin: -30px 0px 40px 0px;
+}
+
+.centered {
+  margin:0px auto; 
 }
