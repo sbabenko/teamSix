@@ -19,6 +19,7 @@ header("Content-type: text/xml");
 
 // Start XML file, echo parent node
 echo "<?xml version='1.0' ?>";
+echo "<div>";
 
 //create div to hold all tables
 echo "<div class = 'tableInfo'>";
@@ -122,6 +123,8 @@ while ($row = @mysqli_fetch_assoc($result)){
 }
 
 echo '</table>';
+
+echo '</div>';
 
 if($_GET["isNote"] == "true"){
   //written note text field

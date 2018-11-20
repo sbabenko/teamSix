@@ -702,6 +702,10 @@ input[type="checkbox"]{
   border-bottom: none;
 }
 
+.tableInfo th, td{
+    padding: 5px;
+}
+
 .sidePane label {
     display: inline;
     margin-left: 5px;
