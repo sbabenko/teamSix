@@ -26,7 +26,6 @@ echo "<div class = 'tableInfo'>";
 
 //create table of general information
 echo '<h2>General Information</h2>';
-echo '<br>';
 echo '<table>';
 echo '<col style="width:50%">';
 echo '<col style="width:50%">';
@@ -60,6 +59,7 @@ echo '</tr>';
 echo '</table>';
 
 echo '<br>';
+echo '<br>';
 
 //select event state information
 $query = "SELECT * FROM eventState WHERE eventID = " . $_GET['eventID'] . " ORDER BY updateTime DESC";
@@ -69,11 +69,8 @@ if (!$result) {
   die('Invalid query: ' . mysqli_error($mysqli));
 }
 
-
 //create table of state changes
-echo '<br>';
 echo '<h2>Changes in State</h2>';
-echo '<br>';
 echo '<table>';
 echo '<col style="width:60%">';
 echo '<col style="width:40%">';
@@ -91,7 +88,7 @@ while ($row = @mysqli_fetch_assoc($result)){
 }
 
 echo '</table>';
-
+echo '<br>';
 echo '<br>';
 
 //select event notes information
@@ -103,9 +100,7 @@ if (!$result) {
 }
 
 //create table of written notes
-echo '<br>';
 echo '<h2>Written Notes</h2>';
-echo '<br>';
 echo '<table>';
 echo '<col style="width:30%">';
 echo '<col style="width:70%">';

@@ -7,6 +7,7 @@ if(!defined('MM_Tab')) {
 ?>
 
 <div class = "contentPanel">
+    <h2>Data Visualization</h2>
 	<div class = "charts">
 		<canvas id = "mm_event_cat_pie"></canvas>
 		<canvas id = "mm_submit_method_pie"></canvas>

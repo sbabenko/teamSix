@@ -68,7 +68,7 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
     }
 
     function refreshMissionProgress(mID) {
-        if (confirm("Press OK to refresh this tab (Note: any user input will be lost).")) {
+        if (confirm("Press OK to refresh this tab.")) {
             loadMissionProgress(mID);
         }
     }

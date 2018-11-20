@@ -28,7 +28,6 @@ echo "<div class = 'tableInfo'>";
 
 //create table of general information
 echo '<h2>Change Event State</h2>';
-echo '<br>';
 echo '<table id = "changeEventStateTable">';
 echo '<col style="width:40%">';
 echo '<col style="width:15%">';

@@ -16,7 +16,6 @@ echo "<div class = 'tableInfo'>";
 
 //table of events by state
 echo '<h2>General Information</h2>';
-echo '<br>';
 echo '<table>';
 echo '<col style="width:50%">';
 echo '<col style="width:50%">';
@@ -46,11 +45,10 @@ while ($row = @mysqli_fetch_assoc($result)){
 echo '</table>';
 
 echo '<br>';
+echo '<br>';
 
 //table of resources allocated
-echo '<br>';
 echo '<h2>Resources Allocated</h2>';
-echo '<br>';
 echo '<table>';
 echo '<col style="width:70%">';
 echo '<col style="width:30%">';
@@ -77,11 +75,10 @@ while ($row = @mysqli_fetch_assoc($result)){
 
 echo '</table>';
 echo '<br>';
+echo '<br>';
 
 //table of events by state
-echo '<br>';
 echo '<h2>Events in Mission</h2>';
-echo '<br>';
 echo '<table>';
 echo '<col style="width:70%">';
 echo '<col style="width:30%">';

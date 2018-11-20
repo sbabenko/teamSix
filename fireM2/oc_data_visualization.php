@@ -7,6 +7,7 @@ if(!defined('OC_Tab')) {
 ?>
 
 <div class = "contentPanel">
+    <h2>Data Visualization</h2>
     <div class = "charts">
     	<canvas id = "incomingDataLineGraph"></canvas>
         <canvas id = "incomingDoughnutGraph"></canvas>
