@@ -18,10 +18,12 @@ $(document).ready(function(){
                     
                     var amounts = [];
                     var missions = [];
+                    var colors = [];
                     
                     for (var i in data){
                     	missions.push(data[i].missionName);
                     	amounts.push(data[i].totalPercent);
+                    	colors.push('#ff0000');
                     }
 
                     
@@ -30,7 +32,7 @@ $(document).ready(function(){
                     var myData = {
                     	labels : missions,
                     	datasets : [{
-                    		backgroundColor : ['#ff0000'],
+                    		backgroundColor : colors,
                     		data : amounts
                     		}]
                     	};
