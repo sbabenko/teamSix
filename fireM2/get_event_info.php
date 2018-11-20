@@ -27,9 +27,8 @@ echo "<div class = 'eventInfo'>";
 echo '<h2>General Information</h2>';
 echo '<br>';
 echo '<table>';
-echo '<col style="width:40%">';
-echo '<col style="width:30%">';
-echo '<col style="width:30%">';
+echo '<col style="width:50%">';
+echo '<col style="width:50%">';
 
 //get general information for event
 $row = @mysqli_fetch_assoc($result);
@@ -74,11 +73,9 @@ if (!$result) {
 echo '<br>';
 echo '<h2>Changes in State</h2>';
 echo '<br>';
-echo '<table class="centered style="width: 100%; text-align: center;"">';
+echo '<table>';
+echo '<col style="width:60%">';
 echo '<col style="width:40%">';
-echo '<col style="width:30%">';
-echo '<col style="width:30%">';
-echo '<tbody>';
 echo '<tr>';
 echo '<th>Timestamp</th>';
 echo '<th>State</th>';
@@ -109,11 +106,10 @@ echo '<br>';
 echo '<h2>Written Notes</h2>';
 echo '<br>';
 echo '<table>';
-echo '<col style="width:60%">';
 echo '<col style="width:30%">';
-echo '<row style="width:30%">';
+echo '<col style="width:70%">';
 echo '<tr>';
-echo '<th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTimestamp</th>';
+echo '<th>Timestamp</th>';
 echo '<th>Note</th>';
 echo '</tr>';
 

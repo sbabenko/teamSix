@@ -24,10 +24,8 @@ while ($row = @mysqli_fetch_assoc($result)){
 
 $dropdown = $dropdown . '</select>';
 
-//Select all unassigned events where char len < 50 (more than 50 will mess up styling)
-//Will fix it later
-$query = "SELECT * FROM mmEvent where missionID IS NULL AND CHAR_LENGTH(eventName) < 25";
-
+//Select all unassigned events
+$query = "SELECT * FROM mmEvent where missionID IS NULL";
 
 $result = $mysqli->query($query);
 if (!$result) {
@@ -45,44 +43,33 @@ echo "<div class = 'eventInfo'>";
 //create table of general information
 echo '<h2>Assign to Mission</h2>';
 echo '<br>';
-echo '<div id = "assign_mission_col_headers">';
-echo 'Event Name';
-echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-echo 'Mission Name';
-echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-echo 'Delete?';
-echo '</div>';
 
 //Apply defined-height box
 echo '<div class = "resource-box assign-box">';
-echo '<br>'; //create space for the column headers
+//echo '<br>'; //create space for the column headers
+
+//create table of general information
+echo '<table id = "assignMissionTable">';
+echo '<tr>';
+echo '<th>Event Name</th>';
+echo '<th>Mission Name</th>';
+echo '<th>Delete?</th>';
+echo '</tr>';
 
 // Iterate through the rows
 while ($row = @mysqli_fetch_assoc($result)){
-  echo '<div class="assignMissionObject">';
-  
-  echo '<div class="assign_mission_incident" id="assign_mission_names"><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
+  echo '<tr>';
+  echo '<td><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
       $row["eventName"] . '`, true, false)">';
   
   echo $row["eventName"];
-  echo '</a></div>';
-
-  echo '<div class="custom-dropdown" style="margin:0px;">';
-  echo '<div class="assign_mission_dropdown">';
-  echo $dropdown;
-  echo '</div>';
-  echo '</div>';
-
-  echo '<div class="assign_checkbox"><input type="checkbox" onChange="toggleDropdown(this)" value=' . $row["eventID"] . '></div>';
-  echo '</div>';
+  echo '</a></td>';
+  echo '<td><div class="custom-dropdown" style="margin:0px;">' . $dropdown . '</div></td>';
+  echo '<td><input type="checkbox" onChange="toggleDropdown(this)" value=' . $row["eventID"] . '></td>';
+  echo '</tr>';
 }
 
+echo '</table>';
 echo '</div>';
 
 //add update button
