@@ -86,7 +86,7 @@ a:hover {
   /*border-radius: 4px;*/
   padding: 10px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   display: ;
 }
 
@@ -701,7 +701,12 @@ input[type="checkbox"]{
 }
 
 .tableInfo th, td{
+    border-right: 1px solid #555555;
     padding: 5px;
+}
+
+.tableInfo th:last-child, td:last-child {
+    border-right: none;
 }
 
 .sidePane label {
