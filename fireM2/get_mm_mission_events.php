@@ -21,13 +21,20 @@ header("Content-type: text/xml");
 
 // Start XML file, echo parent node
 echo "<?xml version='1.0' ?>";
+echo "<div>";
 
 //create div to hold table
-echo "<div class = 'eventInfo'>";
+echo "<div class = 'tableInfo'>";
 
 //create table of general information
 echo '<h2>Change Event State</h2>';
+echo '<br>';
 echo '<table id = "changeEventStateTable">';
+echo '<col style="width:40%">';
+echo '<col style="width:15%">';
+echo '<col style="width:15%">';
+echo '<col style="width:15%">';
+echo '<col style="width:15%">';
 echo '<tr>';
 echo '<th></th>';
 echo '<th>Current State</th>';
@@ -71,6 +78,7 @@ while ($row = @mysqli_fetch_assoc($result)){
 }
 
 echo '</table>';
+echo '</div>';
 
 //add update button
 echo '<button id="myBtn" onclick="updateMissionEvents()">UPDATE</button>';
