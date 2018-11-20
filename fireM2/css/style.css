@@ -678,11 +678,11 @@ input[type="checkbox"]{
   box-shadow: 0 4px 15px 14px rgba(13, 17, 19, 0.8);
 }
 
-.eventInfo{
+.tableInfo{
     text-align: center;
 }
 
-.eventInfo table{
+.tableInfo table{
     margin: 10px;
     margin: 0 auto;
     background-color: rgba(232, 255, 255, 0.795);
@@ -690,12 +690,16 @@ input[type="checkbox"]{
     color: #000000;
     border: 1px solid white;
     display: inline-block;
+    border-collapse: collapse;
 }
 
-.eventInfo tr{
-  border: 1px solid black;
+.tableInfo tr{
+  border-bottom: 1px solid #555555;
   border-radius: 4px;
-  margin-top: 100px !important;
+}
+
+.tableInfo tr:last-child {
+  border-bottom: none;
 }
 
 .sidePane label {

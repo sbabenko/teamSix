@@ -38,7 +38,7 @@ header("Content-type: text/xml");
 echo "<?xml version='1.0' ?>";
 
 //create div to hold table
-echo "<div class = 'eventInfo'>";
+echo "<div class = 'tableInfo'>";
 
 //create table of general information
 echo '<h2>Assign to Mission</h2>';
@@ -50,6 +50,9 @@ echo '<div class = "resource-box assign-box">';
 
 //create table of general information
 echo '<table id = "assignMissionTable">';
+echo '<col style="width:50%">';
+echo '<col style="width:40%">';
+echo '<col style="width:10%">';
 echo '<tr>';
 echo '<th>Event Name</th>';
 echo '<th>Mission Name</th>';

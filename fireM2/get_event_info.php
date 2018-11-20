@@ -21,7 +21,7 @@ header("Content-type: text/xml");
 echo "<?xml version='1.0' ?>";
 
 //create div to hold all tables
-echo "<div class = 'eventInfo'>";
+echo "<div class = 'tableInfo'>";
 
 //create table of general information
 echo '<h2>General Information</h2>';
