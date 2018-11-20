@@ -18,8 +18,14 @@ $_SESSION['role'] = 'GP';
 
 <body>
     <div class="form">
+        <br>
+        <br>
+        <br>
+        <br>
         <h1>Logout Successful</h1>
-
+        <br>
+        <br>
+        <br>
         <p>
             <?= 'Thanks for using FIRE-M<sup>2</sup>!'; ?>
         </p>

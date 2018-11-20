@@ -6,12 +6,12 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
 <div id="eventModal" class="modal">
 
     <!-- Modal content -->
-    <div class="modal-content">
+    <div class="modal-content" style="width:60%;">
         <div class="modal-header">
             <span id="eventClose" class="close">&times;</span>
             <h2 id="eventHeader"></h2>
         </div>
-        <div id="modal-body" class="modal-body">
+        <div id="modal-body" class="modal-body" ><!--style="background-color: rgba(0, 0, 0, 0.8);">-->
             <div class="eventTables"></div>
         </div>
     </div>

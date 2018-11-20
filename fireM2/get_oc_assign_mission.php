@@ -49,8 +49,8 @@ echo '<div class = "resource-box assign-box">';
 //echo '<br>'; //create space for the column headers
 
 //create table of general information
-echo '<table id = "assignMissionTable">';
-echo '<col style="width:50%">';
+echo '<table id = "assignMissionTable" style="max-width: 100%;">';
+echo '<col style="width:80%">';
 echo '<col style="width:40%">';
 echo '<col style="width:10%">';
 echo '<tr>';
@@ -67,7 +67,7 @@ while ($row = @mysqli_fetch_assoc($result)){
   
   echo $row["eventName"];
   echo '</a></td>';
-  echo '<td><div class="custom-dropdown" style="margin:0px;">' . $dropdown . '</div></td>';
+  echo '<td><div class="custom-dropdown-Assign" style="margin:0px;">' . $dropdown . '</div></td>';
   echo '<td><input type="checkbox" onChange="toggleDropdown(this)" value=' . $row["eventID"] . '></td>';
   echo '</tr>';
 }

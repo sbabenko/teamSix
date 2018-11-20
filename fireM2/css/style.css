@@ -589,7 +589,8 @@ input[type="checkbox"]{
   top: 10px;
   background-color: rgb(177, 177, 177); 
   border: none;
-  color: white;
+  color: rgb(77, 77, 77);
+  font-weight: bold;
   padding: 10px 20px;
   padding: 5px 10px;
   text-align: center;
@@ -597,6 +598,7 @@ input[type="checkbox"]{
   display: inline-block;
   font-size: 16px;
   font-size: 12px;
+  box-shadow: 4px 4px 4px 2px #27272780;
 }
 
 .eventObject{
@@ -614,7 +616,7 @@ input[type="checkbox"]{
 }
 
 .modal-body{
-  background-color:rgba(0, 0, 0, 0.7);
+  background-color:rgba(22, 22, 22, 0.849);
   box-shadow: 0 4px 15px 14px rgba(13, 17, 19, 0.3);
 }
 
@@ -681,7 +683,7 @@ input[type="checkbox"]{
 
 .tableInfo table{
     margin: 10px;
-    background-color: rgba(232, 255, 255, 0.795);
+    background-color: rgba(205, 214, 214, 0.795);
     border-radius: 5px;
     color: #000000;
     border: 1px solid white;
@@ -834,7 +836,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-/* Custom dropdown */
+/* Custom dropdown for Mission Management Top Left Corner Dropdown */
 .custom-dropdown-MM {
   position: relative;
   display: inline-block;
@@ -900,6 +902,73 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+/* Custom dropdown for OC Dash "Assign to Mission" objects */
+.custom-dropdown-Assign {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px; /* demo only */
+}
+
+.custom-dropdown-Assign select {
+  background-color: rgba(85, 85, 85, 0.5);
+  color: #fff;
+  font-size: inherit;
+  padding: .5em;
+  padding-right: 2.5em;	
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+}
+
+.custom-dropdown-Assign::before,
+.custom-dropdown-Assign::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown-Assign::after { /*  Custom dropdown arrow */
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+.custom-dropdown-Assign::before { /*  Custom dropdown arrow cover */
+  height: 39%;
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+  display:none;
+}
+
+.custom-dropdown-Assign select[disabled] {
+  color: rgba(0,0,0,.3);
+}
+
+.custom-dropdown-Assign select[disabled]::after {
+  color: rgba(0,0,0,.1);
+}
+
+.custom-dropdown-Assign::before {
+  background-color: rgba(0,0,0,.15);
+}
+
+.custom-dropdown-Assign::after {
+  color: rgba(0,0,0,.4);
+}
+
+
+
 #incomingDataLineGraph {
   background-color: rgba(235, 235, 235, 0.8);
   border-radius: 25px;
@@ -954,14 +1023,13 @@ input[type=number]::-webkit-outer-spin-button {
 .assign_msn_btn_1{
   position:relative;
   margin: 0px 140px 0px -300px;
-  text-shadow: 1px 1px 4px #000000;
+  box-shadow: 4px 4px 4px 2px #111111bd;
 }
 
 .assign_msn_btn_2{
   position:relative;
   margin: 0px 0px 0px 0px;
-  text-shadow: 1px 1px 4px #000000;
-
+  box-shadow: 4px 4px 4px 2px #111111bd;
 }
 
 #loadMissionInfo{
