@@ -105,6 +105,12 @@ define('OC_Tab', TRUE);
 
             var A = document.getElementsByClassName('tabs-' + selected);
             A.item(0).style.display = 'block';
+            
+            if(selected == 1){
+                document.getElementById("map").style.pointerEvents = "auto";
+            } else{
+                document.getElementById("map").style.pointerEvents = "none";
+            }
         }
 
         //display incident map toggle panel on load
