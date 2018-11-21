@@ -3,7 +3,7 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
 <button id="eventButton" style="display:none;"></button>
 
 <!-- The Modal -->
-<div id="eventModal" class="modal">
+<div id="eventModal" class="modal eventModal">
 
     <!-- Modal content -->
     <div class="modal-content" style="width:60%;">

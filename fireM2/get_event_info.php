@@ -129,7 +129,7 @@ if($_GET["isNote"] == "true"){
   echo '<br>';
 
   //add note button
-  echo '<button id="myBtn" onclick="addWrittenNote(' . $_GET['eventID'] .
+  echo '<button style="left: 280px;" id="myBtn" onclick="addWrittenNote(' . $_GET['eventID'] .
       ')">ADD</button>';
 }
 
@@ -169,8 +169,12 @@ if($_GET["isChange"] == "true"){
 }
 
 //refresh modal button
-echo '<button id="myBtn" onclick="refreshEventModal(' . $_GET['eventID'] .
+echo '<button style="left: 500px;" id="myBtn" onclick="refreshEventModal(' . $_GET['eventID'] .
     ')">REFRESH</button>';
+
+echo '<br>';
+echo '<br>';
+echo '<br>';
 
 // End XML file
 echo '</div>';

@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     </div> <!-- /form -->
 
-    <div class="footer">Powered by First Responder Framework Improvement Researchers</div><!-- /footer -->
+    <div class="footer loginfooter">Powered by First Responder Framework Improvement Researchers</div><!-- /footer -->
 
     <?php include 'incident_map.php'; ?>
     <?php include 'clock.php'; ?>
