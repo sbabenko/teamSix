@@ -11,6 +11,7 @@ header('Content-type: text/xml');
 
 // Start XML file, echo parent node
 echo "<?xml version='1.0' ?>";
+echo '<br>';
 echo "<div>";
 echo "<div class = 'tableInfo'>";
 
@@ -126,7 +127,7 @@ echo '</table>';
 echo '</div>';
 
 //add refresh button
-echo '<button style="left:310px;" id="myBtn" onclick="refreshMissionProgress(' . $_GET["missionID"] .
+echo '<button style="left:570px;" id="myBtn" onclick="refreshMissionProgress(' . $_GET["missionID"] .
     ')">REFRESH</button>';
 
 ?>

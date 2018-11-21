@@ -6,7 +6,7 @@ if(!defined('OC_Tab')) {
 }
 ?>
 
-<div class = "contentPanel">
+<div class = "contentPanel visContentMobile">
     <h2>Data Visualization</h2>
     <div class = "charts">
     	<canvas id = "incomingDataLineGraph"></canvas>
