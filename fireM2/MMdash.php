@@ -48,7 +48,7 @@ define('MM_Tab', TRUE);
         <li class="tab" onclick="showTab(2,4); loadMissionEvents();"><a href="#ChangeEventState">Change Event State</a></li>
         <li class="tab" onclick="showTab(3,4); loadMissionProgress();"><a href="#MissionProgress">Mission Progress</a></li>
         <li class="tab" onclick="showTab(4,4)"><a href="#DataVisualization">Data Visualization</a></li>
-        <li class="statictab digital-clock">Clock</li>
+        <li class="statictab digital-clock digital-clock-mm">Clock</li>
     </ul>
 
     <div class="tab-content dashboard-menu-buttons">
