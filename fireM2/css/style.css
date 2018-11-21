@@ -1076,10 +1076,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #loadMissionEvents{
-  top: 120px;
+  top: 80px;
   overflow:scroll;
   overflow-x:hidden;
-  max-height: 500px;
+  max-height: 600px;
   max-width: 50%;
   margin: auto;
   left: 400px;
@@ -1087,10 +1087,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #loadMissionProgress{
-  top: 120px;
+  top: 80px;
   overflow:scroll;
   overflow-x:hidden;
-  max-height: 500px;
+  max-height: 600px;
   max-width: 50%;
   margin: auto;
   left: 400px;

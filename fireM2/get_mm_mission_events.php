@@ -83,7 +83,7 @@ echo '</div>';
 echo '<button id="myBtn" onclick="updateMissionEvents()">UPDATE</button>';
 
 //add refresh button
-echo '<button id="myBtn" onclick="refreshMissionEvents()">REFRESH</button>';
+echo '<button style="left:400px;" id="myBtn" onclick="refreshMissionEvents()">REFRESH</button>';
 
 // End XML file
 echo '</div>';

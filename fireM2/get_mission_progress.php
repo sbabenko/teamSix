@@ -126,7 +126,7 @@ echo '</table>';
 echo '</div>';
 
 //add refresh button
-echo '<button style="left:565px;" id="myBtn" onclick="refreshMissionProgress(' . $_GET["missionID"] .
+echo '<button style="left:310px;" id="myBtn" onclick="refreshMissionProgress(' . $_GET["missionID"] .
     ')">REFRESH</button>';
 
 ?>
