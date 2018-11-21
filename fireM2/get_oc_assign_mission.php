@@ -45,20 +45,24 @@ echo '<h2>Assign to Mission</h2>';
 echo '<br>';
 
 //Apply defined-height box
-echo '<div class = "resource-box assign-box">';
+echo '<div class = "resource-box assign-box parent">';
 //echo '<br>'; //create space for the column headers
 
 //create table of general information
-echo '<table id = "assignMissionTable" style="max-width: 100%;">';
-echo '<col style="width:80%">';
+echo '<table class = "child" id = "assignMissionTable" style="position:fixed;z-index:500;">';
+echo '<col style="width:72%">';
 echo '<col style="width:40%">';
-echo '<col style="width:10%">';
+echo '<col style="width:20%">';
 echo '<tr>';
 echo '<th>Event Name</th>';
 echo '<th>Mission Name</th>';
 echo '<th>Delete?</th>';
 echo '</tr>';
-
+echo '</table>';
+echo '<table style="margin-top:50px;">';
+echo '<col style="width:70%">';
+echo '<col style="width:30%">';
+echo '<col style="width:20%">';
 // Iterate through the rows
 while ($row = @mysqli_fetch_assoc($result)){
   echo '<tr>';
@@ -73,6 +77,8 @@ while ($row = @mysqli_fetch_assoc($result)){
 }
 
 echo '</table>';
+echo '<br>';
+echo '<br>';
 echo '</div>';
 
 //add update button
@@ -85,3 +91,40 @@ echo '<button id="myBtn" class="assign_msn_btn_2" onclick="refreshAssignMission(
 echo '</div>';
 
 ?>
+
+
+<!--adjusts the width of the fixed table header labels to that of the resource box 
+source:
+https://stackoverflow.com/questions/16018520/is-it-possible-to-keep-the-width-of-the-parent-element-when-position-fixed-is-a
+-->
+<script>
+ function toggleFixed() {
+   adjustWidth();
+   $(".child").toggleClass("fixed");
+ }
+
+ function adjustWidth() {
+   var parentwidth = $(".parent").width();
+   parentwidth = parentwidth - 31;
+   $(".child").width(parentwidth);
+ }
+
+ $(function() {
+
+   $("#fixer").click(
+     function() {
+       toggleFixed();
+     });
+
+   $(window).resize(
+     function() {
+       adjustWidth();
+     })
+
+     $(window).ready(
+     function() {
+       adjustWidth();
+     })
+
+ })
+</script>
