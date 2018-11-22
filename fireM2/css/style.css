@@ -977,6 +977,78 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+/*Custom dropdown for event modal*/
+
+
+/* Custom dropdown for OC Dash "Assign to Mission" objects */
+.custom-dropdown-EE {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px; /* demo only */
+}
+
+.custom-dropdown-EE select {
+  background-color: rgba(85, 85, 85, 0.5);
+  color: #fff;
+  font-size: inherit;
+  padding: .5em;
+  padding-right: 2.5em;	
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+}
+
+.custom-dropdown-EE::before,
+.custom-dropdown-EE::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown-EE::after { /*  Custom dropdown arrow */
+  content: "\25BC";
+  position: absolute;
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  left: 455px;
+  top: -22px;
+  margin-top: -.5em;
+}
+
+.custom-dropdown-EE::before { /*  Custom dropdown arrow cover */
+  height: 39%;
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+  display:none;
+}
+
+.custom-dropdown-EE select[disabled] {
+  color: rgba(0,0,0,.3);
+}
+
+.custom-dropdown-EE select[disabled]::after {
+  color: rgba(0,0,0,.1);
+}
+
+.custom-dropdown-EE::before {
+  background-color: rgba(0,0,0,.15);
+}
+
+.custom-dropdown-EE::after {
+  color: rgba(0,0,0,.4);
+}
+
+
+
 
 #incomingDataLineGraph {
   background-color: rgba(235, 235, 235, 0.8);

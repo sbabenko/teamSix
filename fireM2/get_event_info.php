@@ -129,7 +129,7 @@ if($_GET["isNote"] == "true"){
   echo '<br>';
 
   //add note button
-  echo '<button style="left: 280px;" id="myBtn" onclick="addWrittenNote(' . $_GET['eventID'] .
+  echo '<button style="left:727px;top:-10px;" id="myBtn" onclick="addWrittenNote(' . $_GET['eventID'] .
       ')">ADD</button>';
 }
 
@@ -146,30 +146,32 @@ if($_GET["isChange"] == "true"){
   }
 
   //generate dropdown for all available mission
-  $dropdown = '<select id="eventAssignDropdown"><option value = "none"></option>';
+  $dropdown = '<select style="position:relative;left:320px;top:-40px;" id="eventAssignDropdown"><option value = "none">Select Mission</option>';
 
   while ($row = @mysqli_fetch_assoc($result)){
     $dropdown = $dropdown . '<option value="' . $row["missionID"] . '">' . 
         $row["missionName"] . '</option>';
   }
 
-  $dropdown = $dropdown . '</select>';
+  $dropdown =  $dropdown . '</select>';
 
+  echo '<div class="custom-dropdown-EE">';
   echo $dropdown;
+  echo '</div>';
 
   //assign button
-  echo '<button id="myBtn" onclick="assignEvent(' . $_GET['eventID'] .
+  echo '<button style="position:relative;left:330px;top:-40px;" id="myBtn" onclick="assignEvent(' . $_GET['eventID'] .
       ')">ASSIGN</button>';
 
   echo '<br>';
 
   //delete event button
-  echo '<button id="myBtn" onclick="deleteEvent(' . $_GET['eventID'] .
+  echo '<button style="left: 220px;top:-10px;" id="myBtn" onclick="deleteEvent(' . $_GET['eventID'] .
       ')">DELETE</button>';   
 }
 
 //refresh modal button
-echo '<button style="left: 500px;" id="myBtn" onclick="refreshEventModal(' . $_GET['eventID'] .
+echo '<button style="left: 530px;top:-10px;" id="myBtn" onclick="refreshEventModal(' . $_GET['eventID'] .
     ')">REFRESH</button>';
 
 echo '<br>';
