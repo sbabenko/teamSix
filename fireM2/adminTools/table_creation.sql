@@ -53,14 +53,15 @@ create table resourceMission
     foreign key (resourceID) references resource (resourceID));
 
 #table to store user account information
-create table userAccount
-	(email varchar(80),
-    firstName varchar(80) not null,
-    lastName varchar(80),
-    loginPass varchar(100) not null,
-	role enum('OC', 'MM') not null,
-    isActive bool default true,
-    primary key (email));
+#uncomment if user account table needs to be created
+#create table userAccount
+#	(email varchar(80),
+#    firstName varchar(80) not null,
+#    lastName varchar(80),
+#    loginPass varchar(100) not null,
+#	role enum('OC', 'MM') not null,
+#    isActive bool default true,
+#    primary key (email));
 
 #table to store mission assignments to accounts
 create table missionAssignment
