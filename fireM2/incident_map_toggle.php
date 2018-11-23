@@ -80,7 +80,7 @@ if(!defined('OC_Tab') && !defined('MM_Tab')) {
                 <label>Earthquake</label>
             </td>
             <td>
-                <input type="checkbox" name="category" value="naturalGas" onChange="toggleCategory(this)" checked>
+                <input type="checkbox" name="category" value="natural gas" onChange="toggleCategory(this)" checked>
                 <label>Natural Gas</label>
             </td>
         </tr>
