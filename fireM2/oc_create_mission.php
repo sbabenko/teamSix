@@ -31,7 +31,7 @@ $(document).ready(function() {
     font-size: 20px;">Mission Name</label>
 
 
-  <input autofocus maxlength="40" style="display:block;width:80%;margin:auto;" type="text" name="input_mission_name">
+  <input autofocus maxlength="80" style="display:block;width:80%;margin:auto;" type="text" name="input_mission_name">
  
   
 

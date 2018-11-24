@@ -40,13 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 <div class="field-wrap">
                     <label style="color:white;">Email Address<span class="req">*</span>
                     </label>
-                    <input type="email" required autocomplete="off" name="email" />
+                    <input type="email" maxlength="80" required autocomplete="off" name="email" />
                 </div>
 
                 <div class="field-wrap">
                     <label style="color:white;">Password<span class="req">*</span>
                     </label>
-                    <input type="password" required autocomplete="off" name="password" />
+                    <input type="password" maxlength="100" required autocomplete="off" name="password" />
                 </div>
 
 

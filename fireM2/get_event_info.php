@@ -125,7 +125,7 @@ if($_GET["isNote"] == "true"){
   //written note text field
   echo '<br>';
   echo '<p>Add Written Note</p>';
-  echo '<input type="text" id="writtenNote" style="height: 100px;width: 500px;margin: auto;width: 70%;">';
+  echo '<input type="text" maxlength="120" id="writtenNote" style="height: 100px;width: 500px;margin: auto;width: 70%;">';
   echo '<br>';
 
   //add note button
