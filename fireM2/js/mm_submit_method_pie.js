@@ -75,7 +75,7 @@ $(document).ready(function(){
                     		title: {
                     			display: true,
                     			fontSize: 20,
-                    			text: 'Missions by Submission Method',
+                    			text: 'Events by Submission Method',
                     			fontColor: '#ffffff'
                     			}
                     		}
