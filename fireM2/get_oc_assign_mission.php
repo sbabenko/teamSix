@@ -49,7 +49,13 @@ echo '<div class = "resource-box assign-box parent">';
 //echo '<br>'; //create space for the column headers
 
 //create table of general information
-echo '<table class = "child" id = "assignMissionTable" style="position:fixed;z-index:500;">';
+
+if(mysqli_num_rows($result)==0){
+  echo('<table class = "child" id = "assignMissionTable" style="z-index:500;">');
+ }else{
+  echo('<table class = "child" id = "assignMissionTable" style="position:fixed;z-index:500;">');
+ }
+
 echo '<col style="width:72%">';
 echo '<col style="width:40%">';
 echo '<col style="width:20%">';
