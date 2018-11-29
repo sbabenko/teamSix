@@ -27,7 +27,7 @@ $(document).ready(function() {
 <form id="myform" method="post" action="/teamSix/fireM2/oc_create_mission.php">  
 
   <!--mission name label-->
-  <label align="center" style="z-index:-5;opacity: 0.3;position:relative;left:60px;top:30px;
+  <label align="center" style="z-index:-5;opacity: 0.3;position:relative;left:3.9em;top:30px;
     font-size: 20px;">Mission Name</label>
 
 
