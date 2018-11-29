@@ -363,12 +363,8 @@
             data: pointArray
         });
 
-        //set these later
-        //heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
-        //heatmap.set('radius', heatmap.get('radius') ? null : 20);
-        //heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
-
-
+        heatmap.set('radius', 20);
+        heatmap.set('opacity', 0.7);
 
     }
 
