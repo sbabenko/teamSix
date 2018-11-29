@@ -362,6 +362,14 @@
         heatmap = new google.maps.visualization.HeatmapLayer({
             data: pointArray
         });
+
+        //set these later
+        //heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+        //heatmap.set('radius', heatmap.get('radius') ? null : 20);
+        //heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
+
+
+
     }
 
     //Reference: https://stackoverflow.com/questions/36852063/how-do-you-switch-from-heatmap-to-clickable-markers-with-google-maps-js-api
