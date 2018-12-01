@@ -363,7 +363,7 @@
             data: pointArray
         });
 
-        heatmap.set('radius', 20);
+        heatmap.set('radius', 15);
         heatmap.set('opacity', 0.7);
 
     }
@@ -450,7 +450,7 @@
             }
             
             var content = "<a href = \"javascript:openEvent(" + this.id +
-                ", '" + this.title + "', true, " + canDelete +
+                ", `" + this.title + "`, true, " + canDelete +
                 ")\">" + this.title + "</a>";
 
             infowindow.setContent(content);

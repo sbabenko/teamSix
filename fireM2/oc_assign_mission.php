@@ -30,7 +30,7 @@ if(!defined('OC_Tab')) {
             var assignment = [];
 
             //References: https://stackoverflow.com/questions/18331973/loop-over-html-table-and-get-checked-checkboxes-jquery
-            $('#assignMissionTable').find('tr:not(:first-child)').each(function() {
+            $('#assignMissionTable').find('tr').each(function() {
                 //get the row
                 var row = $(this);
                 

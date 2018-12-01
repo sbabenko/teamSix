@@ -51,9 +51,9 @@ echo '<div class = "resource-box assign-box parent">';
 //create table of general information
 
 if(mysqli_num_rows($result)==0){
-  echo('<table class = "child" id = "assignMissionTable" style="z-index:500;">');
+  echo('<table class = "child" style="z-index:500;">');
  }else{
-  echo('<table class = "child" id = "assignMissionTable" style="position:fixed;z-index:500;">');
+  echo('<table class = "child" style="position:fixed;z-index:500;">');
  }
 
 echo '<col style="width:72%">';
@@ -65,7 +65,7 @@ echo '<th>Mission Name</th>';
 echo '<th>Delete?</th>';
 echo '</tr>';
 echo '</table>';
-echo '<table style="margin-top:50px;">';
+echo '<table id = "assignMissionTable" style="margin-top:50px;">';
 echo '<col style="width:70%">';
 echo '<col style="width:30%">';
 echo '<col style="width:20%">';
