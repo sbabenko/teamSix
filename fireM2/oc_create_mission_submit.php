@@ -5,38 +5,39 @@ require("db.php");
 //no possible issue of negative values here
 //may want to modify get_resource to limit resources to those where
 //quanitity > 0 later to limit generated resource objects to positive integers only
-function resourceHandler($key, $value, $mysqli) {
+function resourceHandler($key, $value, $mysqli, $missionID) {
     //code to be executed;
     if ($value > 0){
         $key = str_replace('\'', '', $key);
         //echo $key;
         //echo "<--- key";
-        $query = "UPDATE resource SET quantity = quantity - $value WHERE resourceName = '$key';"; //"SELECT * FROM resource";
+        $query = "UPDATE resource SET quantity = quantity - $value WHERE resourceName = '$key';";
         $result = $mysqli->query($query);
         if (!$result) {
             die('Invalid query to modify resource in oc_create_mission_submit.php: ' . mysqli_error($mysqli));
         }
+        
+        //get resourceID
+        $query = "SELECT resourceID FROM resource WHERE resourceName = '$key';";
+        $result = $mysqli->query($query);
+        if (!$result) {
+            die('Invalid query to resourceID in oc_create_mission_submit.php: ' . mysqli_error($mysqli));
+        }
+        
+        $resourceID = $result->fetch_assoc()["resourceID"];
+        
+        $query = "insert into resourceMission(missionID, resourceID, " .
+            "quantity) values (" . $missionID . ", " . $resourceID . ", " .
+            $value . ")";
+        
+        $result = $mysqli->query($query);
+        if (!$result) {
+            die('Invalid query to add resources in oc_create_mission_submit.php: ' . mysqli_error($mysqli));
+        }
     }
 }
 
-function missionAssignManagerHandler($ManagerName, $mysqli, $missionID) {
-    //look up email by last name
-
-    $names = explode(" ", $ManagerName);
-
-    $query = "SELECT * FROM userAccount WHERE firstName = '$names[1]' AND lastName = '$names[2]'";
-
-    $result = $mysqli->query($query);
-        if (!$result) {
-            die('Invalid query to get manager name in oc_create_mission_submit.php: ' . mysqli_error($mysqli));
-        }
-
-    //should just be one name, but I don't know how to access just one row by a name lookup
-    //so i put in a while loop for now
-    while($row = $result->fetch_assoc()) {
-            $email = $row["email"];
-    }
-
+function missionAssignManagerHandler($email, $mysqli, $missionID) {
     //assign mission name by file scope variable from 
 
     $query = "INSERT INTO FIREM2.missionAssignment (accountEmail, missionID) VALUES ('$email', $missionID)";
@@ -99,28 +100,12 @@ foreach ($params as $key => $value) {
     }else if($key == "input_mission_manager"){
         missionAssignManagerHandler($value, $mysqli, $globalMissionID);
     }else{
-        resourceHandler($key, $value, $mysqli);
+        resourceHandler($key, $value, $mysqli, $globalMissionID);
     }
 
 }
 
 echo '<script type="text/javascript">alert("Mission Created Successfully");</script>';
 echo '<script type="text/javascript"> location.reload(); </script>';
-
-//Delete this stuff later
-
-// Select all unassigned events
-$query = "SELECT * FROM resource";
-
-$result = $mysqli->query($query);
-if (!$result) {
-  die('Invalid query: ' . mysqli_error($mysqli));
-}
-
-if ($result->num_rows > 0) {
-    //output stuff
-} else {
-    echo "0 results";
-}
 
 ?>

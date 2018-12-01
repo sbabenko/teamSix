@@ -10,16 +10,14 @@ if(!defined('OC_Tab')) {
 
 <script>
 $(document).ready(function() {
-    //setInterval(function(){   NO interval
-       $.ajax({
-           url: "get_resources.php",
-           type: "GET",
-           dataType: "html",
-           success: function(html) {
-           $(".resourcesPane").html(html);
-        }
-      });//end ajax call
-    //},1000);//end setInterval
+    $.ajax({
+       url: "get_resources.php",
+       type: "GET",
+       dataType: "html",
+       success: function(html) {
+       $(".resourcesPane").html(html);
+    }
+  });//end ajax call
 });//end docReady 
 </script>
 
@@ -71,14 +69,10 @@ $(document).ready(function () {
             data: $(this).serialize(),
             success: function (data) {
                 document.getElementById("myform").reset();
-            },
-            error: function (jXHR, textStatus, errorThrown) {
-                alert(errorThrown);
             }
         });
 
       var resultString = $('form').serialize();
-      //prompt(resultString);
 
       $.ajax({
         type: 'POST',
@@ -97,18 +91,15 @@ $(document).ready(function () {
         success: function(html) {
         $(".resourcesPane").html(html);
         }
-      });//end ajax call
-
-      //location.reload();//fuck it, just refresh the whole thing
-    
+      });//end ajax call    
     });
 });
 </script>
 
 <?php 
-$sql = mysqli_query($mysqli, "SELECT * FROM userAccount WHERE role='MM'");
+$sql = mysqli_query($mysqli, "SELECT * FROM userAccount WHERE role='MM' AND isActive = true");
 while ($row = $sql->fetch_assoc()){
-echo "<option value=\" " . $row['firstName'] ." ". $row['lastName'] . "\">" . $row['firstName'] ." ". $row['lastName'] .  "</option>";
+echo "<option value=\"" . $row['email'] . "\">" . $row['firstName'] ." ". $row['lastName'] .  "</option>";
 }
 ?>
 </select>
