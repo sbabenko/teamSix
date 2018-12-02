@@ -32,7 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <br>
     <div class="form">
         <div id="login">
+            <div class="loginFormTopBuffer">
             <br> <br> <br>
+            </div>
             <h1>Welcome</h1>
 
             <form action="index.php" method="post" autocomplete="off">
@@ -48,8 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     </label>
                     <input type="password" maxlength="100" required autocomplete="off" name="password" />
                 </div>
-
-
 
                 <button class="button button-block" name="login" />Login</button>
 
