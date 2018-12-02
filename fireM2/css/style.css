@@ -194,6 +194,7 @@ h1 {
   color: #ffffff;
   font-weight: 300;
   margin: 0 0 40px;
+  font-size: 2.5vw; 
 }
 
 h2 {
@@ -293,7 +294,15 @@ input[type="checkbox"]{
 
 .field-wrap {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 2.5vw;
+  
+}
+
+@media only screen and (max-height: 500px)  /* height paramter should just cover most mobile devices*/{
+  .field-wrap {
+    margin-bottom: 2%;
+  }
+
 }
 
 .conversationMessagesPane{
@@ -346,6 +355,13 @@ input[type="checkbox"]{
 .button-block {
   display: block;
   width: 100%;
+  font-size: 2.5vw; 
+}
+
+@media screen and (min-width: 1200px) {
+  .button-block {
+     font-size: 2rem;
+  }
 }
 
 .sendBtn{
@@ -1178,4 +1194,16 @@ input[type=number]::-webkit-outer-spin-button {
 .visContentMobile{
   height: 82%;
   width: 96.78%; /*lines up right scroll bar with edge of clock directly above it*/
+}
+
+@media only screen and (orientation: landscape) {
+  .form {
+    right: 2%;
+    top: 10%;
+    padding: 30px;
+    max-width: 18%;
+    height: 72.5vh; 
+    margin: 40px auto;
+    border-radius: 4px;
+  }
 }
