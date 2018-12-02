@@ -84,7 +84,7 @@ $(document).ready(function(){
                     		title: {
                     			display: true,
                     			fontSize: 20,
-                    			text: 'Missions by Category',
+                    			text: 'Unassigned Events by Category',
                     			fontColor: '#ffffff'
                     			}
                     		}
