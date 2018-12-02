@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <input type="password" maxlength="100" required autocomplete="off" name="password" />
                 </div>
 
-                <button class="button button-block" name="login" />Login</button>
+                <button class="button button-block loginButton" name="login" />Login</button>
 
             </form>
 
