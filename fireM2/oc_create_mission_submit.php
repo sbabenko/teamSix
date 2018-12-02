@@ -9,6 +9,7 @@ function resourceHandler($key, $value, $mysqli, $missionID) {
     //code to be executed;
     if ($value > 0){
         $key = str_replace('\'', '', $key);
+        $key = str_replace('_', ' ', $key);
         //echo $key;
         //echo "<--- key";
         $query = "UPDATE resource SET quantity = quantity - $value WHERE resourceName = '$key';";
