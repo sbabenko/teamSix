@@ -1,3 +1,22 @@
+<!--
+ Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ Product Name: FIRE-M^2 (First Responder Mission Management)
+ File Name: mission_info_modal.php
+ 
+ Date Last Modified: December 1, 2018 (Aditya Kaliappan)
+ 
+ Copyright: (c) 2018 by FIRE^2
+ and all corresponding participants which include:
+ Aditya Kaliappan
+ Lorenzo Neil
+ Robert Duguay
+ Stanislav Babenko
+ Daniel Volinski
+ 
+ File Description:
+ This file implements the mission information modal.
+ -->
+
 <!-- Hidden button object that makes all the javascript for the
 event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
 <button id="missionBtn" style="display:none;"></button>
@@ -47,9 +66,11 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
     });
 
     function openMission(ele, mID, missionName) {
+        //display modal
         mModal.style.display = "block";
         document.getElementById("missionHeader").innerHTML = missionName;
 
+        //get information for modal
         loadMissionProgress(mID);
     }
 

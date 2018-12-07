@@ -1,4 +1,24 @@
 <?php
+/*
+ * Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ * Product Name: FIRE-M^2 (First Responder Mission Management)
+ * File Name: mm_change_event_state.php
+ *
+ * Date Last Modified: November 14, 2018 (Aditya Kaliappan)
+ *
+ * Copyright: (c) 2018 by FIRE^2
+ * and all corresponding participants which include:
+ * Aditya Kaliappan
+ * Lorenzo Neil
+ * Robert Duguay
+ * Stanislav Babenko
+ * Daniel Volinski
+ *
+ * File Description:
+ * This file implements the Change Event State tab for the Mission Manager
+ * dashboard.
+ */
+
 //verify that file is accessed via OCdash tab
 if(!defined('MM_Tab')) {
     //redirect back to correct dashboard
@@ -7,7 +27,8 @@ if(!defined('MM_Tab')) {
 ?>
 
 <script>
-    function loadMissionEvents() {        
+    function loadMissionEvents() {
+        //request all events in mission from database
         $.ajax({
             url: "get_mm_mission_events.php",
             type: "GET",
@@ -63,8 +84,10 @@ if(!defined('MM_Tab')) {
     }
 
     function updateStateRow(checkBox) {
+        //get the row of the selected checkbox
         var checkBoxRow = checkBox.closest("tr").getElementsByTagName("input");
         
+        //uncheck all other checkboxes in row
         for(var i = 0; i < checkBoxRow.length; i++){
             if(checkBoxRow[i] !== checkBox){
                 checkBoxRow[i].checked = false;

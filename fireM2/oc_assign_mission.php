@@ -1,4 +1,24 @@
 <?php
+/*
+ * Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ * Product Name: FIRE-M^2 (First Responder Mission Management)
+ * File Name: oc_assign_mission.php
+ *
+ * Date Last Modified: November 30, 2018 (Aditya Kaliappan)
+ *
+ * Copyright: (c) 2018 by FIRE^2
+ * and all corresponding participants which include:
+ * Aditya Kaliappan
+ * Lorenzo Neil
+ * Robert Duguay
+ * Stanislav Babenko
+ * Daniel Volinski
+ *
+ * File Description:
+ * This file implements the Assign to Mission tab of the Operations Chief
+ * dashboard.
+ */
+
 //verify that file is accessed via OCdash tab
 if(!defined('OC_Tab')) {
     //redirect back to correct dashboard
@@ -8,6 +28,7 @@ if(!defined('OC_Tab')) {
 
 <script>
     function loadAssignMission() {
+        //load table of unassigned events
         $.ajax({
             url: "get_oc_assign_mission.php",
             type: "GET",
@@ -26,6 +47,7 @@ if(!defined('OC_Tab')) {
 
     function updateAssignMission() {
         if (confirm("Press OK to make changes to these events.")) {
+            //declare empty variables
             var toDelete = [];
             var assignment = [];
 
@@ -40,9 +62,12 @@ if(!defined('OC_Tab')) {
                 //get the dropdown in the row
                 var dropDown = row.find('option:selected');
                 
+                //verify if event is to be deleted
                 if (checkBox.is(':checked')) {
                     toDelete.push(checkBox.val())
-                } else if (dropDown.val() !== "none"){
+                }
+                //verify if event is to be assigned to mission
+                else if (dropDown.val() !== "none"){
                     assignment.push({
                         eventID: checkBox.val(),
                         missionID: dropDown.val()
@@ -50,6 +75,7 @@ if(!defined('OC_Tab')) {
                 }
             });
 
+            //update database with new event states
             $.ajax({
                 url: "update_oc_assign_mission.php",
                 type: "POST",
@@ -63,6 +89,7 @@ if(!defined('OC_Tab')) {
     }
 
     function toggleDropdown(checkBox) {
+        //enable/disable dropdown based on checkbox state
         checkBox.closest("tr").getElementsByTagName("select")[0].disabled =
             !!checkBox.checked;
     }
