@@ -1,5 +1,23 @@
 <?php 
-/* Main page with two forms: sign up and log in */
+/*
+ * Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ * Product Name: FIRE-M^2 (First Responder Mission Management)
+ * File Name: index.php
+ *
+ * Date Last Modified: December 2, 2018 (Stanislav Babenko)
+ *
+ * Copyright: (c) 2018 by FIRE^2
+ * and all corresponding participants which include:
+ * Aditya Kaliappan
+ * Lorenzo Neil
+ * Robert Duguay
+ * Stanislav Babenko
+ * Daniel Volinski
+ *
+ * File Description:
+ * This file contains the main page with the map and log in form.
+ */
+
 require 'db.php';
 session_start();
 

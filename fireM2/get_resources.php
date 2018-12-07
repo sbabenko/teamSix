@@ -1,4 +1,24 @@
 <?php
+/*
+ * Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ * Product Name: FIRE-M^2 (First Responder Mission Management)
+ * File Name: get_resources.php
+ *
+ * Date Last Modified: November 23, 2018 (Stanislav Babenko)
+ *
+ * Copyright: (c) 2018 by FIRE^2
+ * and all corresponding participants which include:
+ * Aditya Kaliappan
+ * Lorenzo Neil
+ * Robert Duguay
+ * Stanislav Babenko
+ * Daniel Volinski
+ *
+ * File Description:
+ * This file returns the formatted list of resources, with options to toggle
+ * the quantity in the Operations Chief Create Mission Screen.
+ */
+
 require("db.php");
 
 //Grabs form data from form submissions

@@ -1,3 +1,22 @@
+<!--
+ Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ Product Name: FIRE-M^2 (First Responder Mission Management)
+ File Name: event_info_modal.php
+ 
+ Date Last Modified: November 20, 2018 (Stanislav Babenko)
+ 
+ Copyright: (c) 2018 by FIRE^2
+ and all corresponding participants which include:
+ Aditya Kaliappan
+ Lorenzo Neil
+ Robert Duguay
+ Stanislav Babenko
+ Daniel Volinski
+ 
+ File Description:
+ This file consists of the implementation of the event information modal.
+ -->
+
 <!-- Hidden button object that makes all the javascript for the
 event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
 <button id="eventButton" style="display:none;"></button>
@@ -28,6 +47,7 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
     // Get the <span> element that closes the modal
     var eSpan = document.getElementById("eventClose");
     
+    //initialize variables
     var isNote = false;
     var isChange = false;
 
@@ -50,12 +70,15 @@ event pop-up modals work. No idea how/why this works. DO NOT REMOVE!!!! -->
     });
 
     function openEvent(eventID, eventName, changeNote, updateEvent) {
+        //display modal
         eModal.style.display = "block";
         document.getElementById("eventHeader").innerHTML = eventName;
 
+        //update variables
         isNote = changeNote;
         isChange = updateEvent;
         
+        //load information into modal
         loadEventModal(eventID);
     }
 

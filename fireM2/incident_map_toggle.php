@@ -1,4 +1,24 @@
 <?php
+/*
+ * Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ * Product Name: FIRE-M^2 (First Responder Mission Management)
+ * File Name: incident_map_toggle.php
+ *
+ * Date Last Modified: November 22, 2018 (Aditya Kaliappan)
+ *
+ * Copyright: (c) 2018 by FIRE^2
+ * and all corresponding participants which include:
+ * Aditya Kaliappan
+ * Lorenzo Neil
+ * Robert Duguay
+ * Stanislav Babenko
+ * Daniel Volinski
+ *
+ * File Description:
+ * This file contains the implementation of the map toggle side panel on both
+ * dashboards.
+ */
+
 //verify that file is accessed via OCdash tab
 if(!defined('OC_Tab') && !defined('MM_Tab')) {
     //redirect back to correct dashboard

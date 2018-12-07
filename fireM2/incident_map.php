@@ -1,3 +1,23 @@
+<!--
+ Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ Product Name: FIRE-M^2 (First Responder Mission Management)
+ File Name: incident_map.php
+ 
+ Date Last Modified: November 30, 2018 (Aditya Kaliappan)
+ 
+ Copyright: (c) 2018 by FIRE^2
+ and all corresponding participants which include:
+ Aditya Kaliappan
+ Lorenzo Neil
+ Robert Duguay
+ Stanislav Babenko
+ Daniel Volinski
+ 
+ File Description:
+ This file contains the functions needed to load the map, as well as
+ to toggle the map type and points visible.
+ -->
+
 <div class="mapWrapper">
     <div class="map" id="map"></div>
 </div>
@@ -18,7 +38,9 @@
     var missionID = null;
 
     $(document).ready(function() {
+        //refresh every .5 seconds
         setInterval(function() {
+            //request for all map points
             $.ajax({
                 url: "get_map_points.php",
                 type: "GET",
@@ -35,6 +57,7 @@
     });
 
     function initMap() {
+        //initialize map
         infowindow = new google.maps.InfoWindow();
         map = new google.maps.Map(document.getElementById('map'), {
             center: new google.maps.LatLng(38.434046, -74.340284),
@@ -353,19 +376,22 @@
             ]
         });
 
+        //initialize listener for event name dialog box
         google.maps.event.addListener(map, 'click', function() {
             infowindow.close();
         });
 
+        //initialize array for heatmap
         pointArray = new google.maps.MVCArray();
 
+        //create heatmap
         heatmap = new google.maps.visualization.HeatmapLayer({
             data: pointArray
         });
 
+        //set heatmap specifications
         heatmap.set('radius', 15);
         heatmap.set('opacity', 0.7);
-
     }
 
     //Reference: https://stackoverflow.com/questions/36852063/how-do-you-switch-from-heatmap-to-clickable-markers-with-google-maps-js-api
@@ -375,6 +401,7 @@
         var toAdd = []; //in new, but not old
         var newPoints = [];
 
+        //toggle map type
         if (mapTypeChanged && markers.length > 0) {
             for (var i = 0; i < markers.length; i++) {
                 markers[i].setMap(isPoints ? map : null);
@@ -385,6 +412,7 @@
             mapTypeChanged = false;
         }
 
+        //get points from query
         for (var i = 0; i < mapData.features.length; i++) {
             newPoints.push(mapData.features[i]);
         }
@@ -404,6 +432,7 @@
 
         var isModified = toDelete.length > 0 || toAdd.length > 0;
 
+        //update set of points based on set difference
         for (var i = 0; i < markers.length && isModified;) {
             if (toDelete.length > 0 && markers[i].id === toDelete[0].id) {
                 deletePoint(i);
@@ -417,18 +446,22 @@
             }
         }
 
+        //add remaining points at end of array
         for (var i = 0; i < toAdd.length && isModified; i++) {
             addPoint(toAdd[i], markers.length);
         }
 
+        //update current set of points on map
         currPoints = newPoints;
     }
 
     function addPoint(toAdd, pos) {
+        //initialize coordinate
         coordinate = (new google.maps.LatLng(
             toAdd.geometry.coordinates[1],
             toAdd.geometry.coordinates[0]));
 
+        //create marker
         var marker = new google.maps.Marker({
             map: map,
             position: coordinate,
@@ -440,6 +473,7 @@
 
         markers.splice(pos, 0, marker);
 
+        //set listener for opening event information modal
         google.maps.event.addListener(marker, 'click', function() {
             var role = "<?php echo $_SESSION['role']; ?>";
             
@@ -461,6 +495,7 @@
     }
 
     function deletePoint(pos) {
+        //remove point from map
         markers[pos].setMap(null);
         markers.splice(pos, 1);
         pointArray.removeAt(pos);

@@ -1,4 +1,24 @@
 <?php
+/*
+ * Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ * Product Name: FIRE-M^2 (First Responder Mission Management)
+ * File Name: get_mm_mission_dropdown.php
+ *
+ * Date Last Modified: November 18, 2018 (Stanislav Babenko)
+ *
+ * Copyright: (c) 2018 by FIRE^2
+ * and all corresponding participants which include:
+ * Aditya Kaliappan
+ * Lorenzo Neil
+ * Robert Duguay
+ * Stanislav Babenko
+ * Daniel Volinski
+ *
+ * File Description:
+ * This file returns contents of the mission dropdown in the Mission Manager
+ * dashboard.
+ */
+
 require("db.php");
 
 // Set the active MySQL database
@@ -22,6 +42,7 @@ $selected = null;
 $dropdown = '<select id="mmToggle" onchange="updateMission(this)" 
 style="max-width:190px;box-shadow: 3px 3px 8px #818181;">';
 
+//iterate through rows to add dropdown options
 while ($row = @mysqli_fetch_assoc($result)){
   $dropdown = $dropdown . '<option value="' . $row["missionID"] . '"';
     

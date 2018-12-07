@@ -1,4 +1,23 @@
 <?php
+/*
+ * Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ * Product Name: FIRE-M^2 (First Responder Mission Management)
+ * File Name: logout.php
+ *
+ * Date Last Modified: November 20, 2018 (Stanislav Babenko)
+ *
+ * Copyright: (c) 2018 by FIRE^2
+ * and all corresponding participants which include:
+ * Aditya Kaliappan
+ * Lorenzo Neil
+ * Robert Duguay
+ * Stanislav Babenko
+ * Daniel Volinski
+ *
+ * File Description:
+ * This file successfully ends the user's session.
+ */
+
 /* Log out process, unsets and destroys session variables */
 session_start();
 session_unset();

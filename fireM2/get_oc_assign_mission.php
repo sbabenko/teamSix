@@ -1,4 +1,24 @@
 <?php
+/*
+ * Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ * Product Name: FIRE-M^2 (First Responder Mission Management)
+ * File Name: get_oc_assign_mission.php
+ *
+ * Date Last Modified: November 30, 2018 (Aditya Kaliappan)
+ *
+ * Copyright: (c) 2018 by FIRE^2
+ * and all corresponding participants which include:
+ * Aditya Kaliappan
+ * Lorenzo Neil
+ * Robert Duguay
+ * Stanislav Babenko
+ * Daniel Volinski
+ *
+ * File Description:
+ * This file returns a table of unassigned events, with options to
+ * toggle mission assignment and event deletion.
+ */
+
 require("db.php");
 
 // Set the active MySQL database
@@ -15,6 +35,7 @@ if (!$result) {
   die('Invalid query: ' . mysqli_error($mysqli));
 }
 
+//create mission dropdown
 $dropdown = '<select><option value="none" selected>Select Mission</option>';
 
 while ($row = @mysqli_fetch_assoc($result)){

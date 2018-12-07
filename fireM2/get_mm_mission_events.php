@@ -1,4 +1,25 @@
 <?php
+/*
+ * Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ * Product Name: FIRE-M^2 (First Responder Mission Management)
+ * File Name: get_mm_mission_events.php
+ *
+ * Date Last Modified: November 20, 2018 (Stanislav Babenko)
+ *
+ * Copyright: (c) 2018 by FIRE^2
+ * and all corresponding participants which include:
+ * Aditya Kaliappan
+ * Lorenzo Neil
+ * Robert Duguay
+ * Stanislav Babenko
+ * Daniel Volinski
+ *
+ * File Description:
+ * This file returns the events in the selected mission, the current
+ * state, as well as toggles to alternative states, all in tabular
+ * format.
+ */
+
 require("db.php");
 
 // Set the active MySQL database
@@ -43,12 +64,18 @@ echo '<th>Completed</th>';
 
 // Iterate through the rows
 while ($row = @mysqli_fetch_assoc($result)){
+  //add new event
   echo '<tr data-value=' . $row["eventID"] . '>';
+  //add event name
   echo '<td><a href="javascript:openEvent(' . $row["eventID"] . ',`' .
       $row["eventName"] . '`, true, false)">';
   echo $row["eventName"];
   echo '</a></td>';
+    
+  //add current state
   echo '<td>' . $row["state"] . '</td>';
+    
+  //add checkbox for on hold state
   echo '<td><input type="checkbox" name="stateRow" onChange="updateStateRow(this)" value="on hold"';
 
   if($row["state"] != 'assigned'){
@@ -57,6 +84,7 @@ while ($row = @mysqli_fetch_assoc($result)){
 
   echo '></td>';
   
+  //add checkbox for in progress state
   echo '<td><input type="checkbox" name="stateRow" onChange="updateStateRow(this)" value="in progress"';
   
   if($row["state"] != 'assigned' && $row["state"] != 'on hold'){
@@ -64,7 +92,8 @@ while ($row = @mysqli_fetch_assoc($result)){
   }
 
   echo '></td>';
-  
+
+  //add checkbox for completed state
   echo '<td><input type="checkbox" name="stateRow" onChange="updateStateRow(this)" value="completed"';
       
   if($row["state"] != 'in progress'){
