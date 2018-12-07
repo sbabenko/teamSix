@@ -1,3 +1,22 @@
+/*
+ * Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+ * Product Name: FIRE-M^2 (First Responder Mission Management)
+ * File Name: style.css
+ *
+ * Date Last Modified: December 3, 2018 (Stanislav Babenko)
+ *
+ * Copyright: (c) 2018 by FIRE^2
+ * and all corresponding participants which include:
+ * Aditya Kaliappan
+ * Lorenzo Neil
+ * Robert Duguay
+ * Stanislav Babenko
+ * Daniel Volinski
+ *
+ * File Description:
+ * This file contains all of the styling for the application.
+ */
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
