@@ -1,4 +1,19 @@
-#This script adds some data to the database to verify functionality.
+# Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+# Product Name: FIRE-M^2 (First Responder Mission Management)
+# File Name: sample_data_insertion.sql
+#
+# Date Last Modified: November 16, 2018 (Aditya Kaliappan)
+#
+# Copyright: (c) 2018 by FIRE^2
+# and all corresponding participants which include:
+# Aditya Kaliappan
+# Lorenzo Neil
+# Robert Duguay
+# Stanislav Babenko
+# Daniel Volinski
+#
+# File Description:
+# This script adds some data to the database to verify functionality.
     
 #create a new mission
 insert into mission (missionID, missionName, isActive)

@@ -1,3 +1,21 @@
+# Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+# Product Name: FIRE-M^2 (First Responder Mission Management)
+# File Name: generate_latlong.py
+#
+# Date Last Modified: November 16, 2018 (Daniel Volinski)
+#
+# Copyright: (c) 2018 by FIRE^2
+# and all corresponding participants which include:
+# Aditya Kaliappan
+# Lorenzo Neil
+# Robert Duguay
+# Stanislav Babenko
+# Daniel Volinski
+#
+# File Description:
+# This program is to be used by an administrator to populate the database
+# with random event data.
+
 import argparse
 from pprint import pprint
 from time import sleep

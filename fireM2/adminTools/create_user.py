@@ -1,9 +1,27 @@
-#References:
-#https://stackoverflow.com/questions/31291317/php-is-not-recognized-as-an-
+# Team Name: FIRE^2 (First Responder Framework Improvement Researchers)
+# Product Name: FIRE-M^2 (First Responder Mission Management)
+# File Name: create_user.py
+#
+# Date Last Modified: November 23, 2018 (Aditya Kaliappan)
+#
+# Copyright: (c) 2018 by FIRE^2
+# and all corresponding participants which include:
+# Aditya Kaliappan
+# Lorenzo Neil
+# Robert Duguay
+# Stanislav Babenko
+# Daniel Volinski
+#
+# File Description:
+# This program will allow an administrator to create a new account in the
+# system.
+#
+# References:
+# https://stackoverflow.com/questions/31291317/php-is-not-recognized-as-an-
 #     internal-or-external-command-in-command-prompt
-#https://stackoverflow.com/questions/48159538/passing-post-variable-with-
+# https://stackoverflow.com/questions/48159538/passing-post-variable-with-
 #     subprocess-popen
-#https://stackoverflow.com/questions/12605498/how-to-use-subprocess-popen-python
+# https://stackoverflow.com/questions/12605498/how-to-use-subprocess-popen-python
 
 import subprocess
 import mysql.connector
