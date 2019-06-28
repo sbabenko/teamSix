@@ -83,8 +83,8 @@ while(len(accountType) == 0):
 #connect to database
 fireM2db = mysql.connector.connect(
     host="mysql-instance1.crdymdfwdzej.us-east-1.rds.amazonaws.com",
-    user="root",
-    passwd="GucciSwag420",
+    user="###########",
+    passwd="###########",
     database="FIREM2")
 
 #create cursor to perform queries
